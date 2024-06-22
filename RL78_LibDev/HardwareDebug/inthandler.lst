@@ -1,0 +1,1452 @@
+   1                             	r8	=	0xffef0
+   2                             	r16	=	0xffee8
+   3                             	r24	=	0xffee0
+   4                             	r9	=	0xffef1
+   5                             	r17	=	0xffee9
+   6                             	r25	=	0xffee1
+   7                             	r10	=	0xffef2
+   8                             	r18	=	0xffeea
+   9                             	r26	=	0xffee2
+  10                             	r11	=	0xffef3
+  11                             	r19	=	0xffeeb
+  12                             	r27	=	0xffee3
+  13                             	r12	=	0xffef4
+  14                             	r20	=	0xffeec
+  15                             	r28	=	0xffee4
+  16                             	r13	=	0xffef5
+  17                             	r21	=	0xffeed
+  18                             	r29	=	0xffee5
+  19                             	r14	=	0xffef6
+  20                             	r22	=	0xffeee
+  21                             	r30	=	0xffee6
+  22                             	r15	=	0xffef7
+  23                             	r23	=	0xffeef
+  24                             	r31	=	0xffee7
+  25                             	MDUC	=	0xf00e8
+  26                             	MDAL	=	0xffff0
+  27                             	MDAH	=	0xffff2
+  28                             	MDBL	=	0xffff6
+  29                             	MDBH	=	0xffff4
+  30                             	MDCL	=	0xf00e0
+  31                             	MDCH	=	0xf00e2
+  32                             	.text
+  33                             	.Ltext0:
+  34                             		.section	.text.INT_WDTI,"ax",@progbits
+  35                             		.global	_INT_WDTI
+  37                             	_INT_WDTI:
+  38                             	.LFB0:
+  39                             		.file 1 "../core/inthandler.c"
+   1:../core/inthandler.c **** /************************************************************************/
+   2:../core/inthandler.c **** /* Header file generated from device file:                              */
+   3:../core/inthandler.c **** /*    DR5F100LE.DVF                                                     */
+   4:../core/inthandler.c **** /*    V1.14 (2012/01/10)                                                */
+   5:../core/inthandler.c **** /*    Copyright(C) 2012 Renesas                                         */
+   6:../core/inthandler.c **** /* Tool Version: 4.0.0                                                  */
+   7:../core/inthandler.c **** /* Date Generated: 2020/01/17                                           */
+   8:../core/inthandler.c **** /************************************************************************/
+   9:../core/inthandler.c **** #include "../core/interrupt_handlers.h"
+  10:../core/inthandler.c **** 
+  11:../core/inthandler.c **** /*
+  12:../core/inthandler.c ****  * INT_WDTI (0x4)
+  13:../core/inthandler.c ****  */
+  14:../core/inthandler.c **** void INT_WDTI (void) { }
+  40                             		.loc 1 14 0
+  41                             		; start of function
+  42                             		; push 8: ax bc de hl
+  43                             		; uses ES register
+  44 0000 61 CF                   		sel	rb0
+  45 0002 C1                      		push	ax
+  46                             	.LCFI0:
+  47 0003 C3                      		push	bc
+  48                             	.LCFI1:
+  49 0004 C5                      		push	de
+  50                             	.LCFI2:
+  51 0005 C7                      		push	hl
+  52                             	.LCFI3:
+  53 0006 8E FD                   		mov	a, es
+  54 0008 C1                      		push	ax
+  55                             	.LCFI4:
+  56                             		.loc 1 14 0
+  57 0009 C0                      		pop	ax
+  58 000a 9E FD                   		mov	es, a
+  59 000c C6                      		pop	hl
+  60 000d C4                      		pop	de
+  61 000e C2                      		pop	bc
+  62 000f C0                      		pop	ax
+  63 0010 61 FC                   		reti
+  64                             	.LFE0:
+  66                             		.section	.text.INT_LVI,"ax",@progbits
+  67                             		.global	_INT_LVI
+  69                             	_INT_LVI:
+  70                             	.LFB1:
+  15:../core/inthandler.c **** 
+  16:../core/inthandler.c **** /*
+  17:../core/inthandler.c ****  * INT_LVI (0x6)
+  18:../core/inthandler.c ****  */
+  19:../core/inthandler.c **** void INT_LVI (void) { }
+  71                             		.loc 1 19 0
+  72                             		; start of function
+  73                             		; push 8: ax bc de hl
+  74                             		; uses ES register
+  75 0000 61 CF                   		sel	rb0
+  76 0002 C1                      		push	ax
+  77                             	.LCFI5:
+  78 0003 C3                      		push	bc
+  79                             	.LCFI6:
+  80 0004 C5                      		push	de
+  81                             	.LCFI7:
+  82 0005 C7                      		push	hl
+  83                             	.LCFI8:
+  84 0006 8E FD                   		mov	a, es
+  85 0008 C1                      		push	ax
+  86                             	.LCFI9:
+  87                             		.loc 1 19 0
+  88 0009 C0                      		pop	ax
+  89 000a 9E FD                   		mov	es, a
+  90 000c C6                      		pop	hl
+  91 000d C4                      		pop	de
+  92 000e C2                      		pop	bc
+  93 000f C0                      		pop	ax
+  94 0010 61 FC                   		reti
+  95                             	.LFE1:
+  97                             		.section	.text.INT_P0,"ax",@progbits
+  98                             		.global	_INT_P0
+ 100                             	_INT_P0:
+ 101                             	.LFB2:
+  20:../core/inthandler.c **** 
+  21:../core/inthandler.c **** /*
+  22:../core/inthandler.c ****  * INT_P0 (0x8)
+  23:../core/inthandler.c ****  */
+  24:../core/inthandler.c **** void INT_P0 (void) { }
+ 102                             		.loc 1 24 0
+ 103                             		; start of function
+ 104                             		; push 8: ax bc de hl
+ 105                             		; uses ES register
+ 106 0000 61 CF                   		sel	rb0
+ 107 0002 C1                      		push	ax
+ 108                             	.LCFI10:
+ 109 0003 C3                      		push	bc
+ 110                             	.LCFI11:
+ 111 0004 C5                      		push	de
+ 112                             	.LCFI12:
+ 113 0005 C7                      		push	hl
+ 114                             	.LCFI13:
+ 115 0006 8E FD                   		mov	a, es
+ 116 0008 C1                      		push	ax
+ 117                             	.LCFI14:
+ 118                             		.loc 1 24 0
+ 119 0009 C0                      		pop	ax
+ 120 000a 9E FD                   		mov	es, a
+ 121 000c C6                      		pop	hl
+ 122 000d C4                      		pop	de
+ 123 000e C2                      		pop	bc
+ 124 000f C0                      		pop	ax
+ 125 0010 61 FC                   		reti
+ 126                             	.LFE2:
+ 128                             		.section	.text.INT_P1,"ax",@progbits
+ 129                             		.global	_INT_P1
+ 131                             	_INT_P1:
+ 132                             	.LFB3:
+  25:../core/inthandler.c **** 
+  26:../core/inthandler.c **** /*
+  27:../core/inthandler.c ****  * INT_P1 (0xA)
+  28:../core/inthandler.c ****  */
+  29:../core/inthandler.c **** void INT_P1 (void) { }
+ 133                             		.loc 1 29 0
+ 134                             		; start of function
+ 135                             		; push 8: ax bc de hl
+ 136                             		; uses ES register
+ 137 0000 61 CF                   		sel	rb0
+ 138 0002 C1                      		push	ax
+ 139                             	.LCFI15:
+ 140 0003 C3                      		push	bc
+ 141                             	.LCFI16:
+ 142 0004 C5                      		push	de
+ 143                             	.LCFI17:
+ 144 0005 C7                      		push	hl
+ 145                             	.LCFI18:
+ 146 0006 8E FD                   		mov	a, es
+ 147 0008 C1                      		push	ax
+ 148                             	.LCFI19:
+ 149                             		.loc 1 29 0
+ 150 0009 C0                      		pop	ax
+ 151 000a 9E FD                   		mov	es, a
+ 152 000c C6                      		pop	hl
+ 153 000d C4                      		pop	de
+ 154 000e C2                      		pop	bc
+ 155 000f C0                      		pop	ax
+ 156 0010 61 FC                   		reti
+ 157                             	.LFE3:
+ 159                             		.section	.text.INT_P2,"ax",@progbits
+ 160                             		.global	_INT_P2
+ 162                             	_INT_P2:
+ 163                             	.LFB4:
+  30:../core/inthandler.c **** 
+  31:../core/inthandler.c **** /*
+  32:../core/inthandler.c ****  * INT_P2 (0xC)
+  33:../core/inthandler.c ****  */
+  34:../core/inthandler.c **** void INT_P2 (void) { }
+ 164                             		.loc 1 34 0
+ 165                             		; start of function
+ 166                             		; push 8: ax bc de hl
+ 167                             		; uses ES register
+ 168 0000 61 CF                   		sel	rb0
+ 169 0002 C1                      		push	ax
+ 170                             	.LCFI20:
+ 171 0003 C3                      		push	bc
+ 172                             	.LCFI21:
+ 173 0004 C5                      		push	de
+ 174                             	.LCFI22:
+ 175 0005 C7                      		push	hl
+ 176                             	.LCFI23:
+ 177 0006 8E FD                   		mov	a, es
+ 178 0008 C1                      		push	ax
+ 179                             	.LCFI24:
+ 180                             		.loc 1 34 0
+ 181 0009 C0                      		pop	ax
+ 182 000a 9E FD                   		mov	es, a
+ 183 000c C6                      		pop	hl
+ 184 000d C4                      		pop	de
+ 185 000e C2                      		pop	bc
+ 186 000f C0                      		pop	ax
+ 187 0010 61 FC                   		reti
+ 188                             	.LFE4:
+ 190                             		.section	.text.INT_P3,"ax",@progbits
+ 191                             		.global	_INT_P3
+ 193                             	_INT_P3:
+ 194                             	.LFB5:
+  35:../core/inthandler.c **** 
+  36:../core/inthandler.c **** /*
+  37:../core/inthandler.c ****  * INT_P3 (0xE)
+  38:../core/inthandler.c ****  */
+  39:../core/inthandler.c **** void INT_P3 (void) { }
+ 195                             		.loc 1 39 0
+ 196                             		; start of function
+ 197                             		; push 8: ax bc de hl
+ 198                             		; uses ES register
+ 199 0000 61 CF                   		sel	rb0
+ 200 0002 C1                      		push	ax
+ 201                             	.LCFI25:
+ 202 0003 C3                      		push	bc
+ 203                             	.LCFI26:
+ 204 0004 C5                      		push	de
+ 205                             	.LCFI27:
+ 206 0005 C7                      		push	hl
+ 207                             	.LCFI28:
+ 208 0006 8E FD                   		mov	a, es
+ 209 0008 C1                      		push	ax
+ 210                             	.LCFI29:
+ 211                             		.loc 1 39 0
+ 212 0009 C0                      		pop	ax
+ 213 000a 9E FD                   		mov	es, a
+ 214 000c C6                      		pop	hl
+ 215 000d C4                      		pop	de
+ 216 000e C2                      		pop	bc
+ 217 000f C0                      		pop	ax
+ 218 0010 61 FC                   		reti
+ 219                             	.LFE5:
+ 221                             		.section	.text.INT_P4,"ax",@progbits
+ 222                             		.global	_INT_P4
+ 224                             	_INT_P4:
+ 225                             	.LFB6:
+  40:../core/inthandler.c **** 
+  41:../core/inthandler.c **** /*
+  42:../core/inthandler.c ****  * INT_P4 (0x10)
+  43:../core/inthandler.c ****  */
+  44:../core/inthandler.c **** void INT_P4 (void) { }
+ 226                             		.loc 1 44 0
+ 227                             		; start of function
+ 228                             		; push 8: ax bc de hl
+ 229                             		; uses ES register
+ 230 0000 61 CF                   		sel	rb0
+ 231 0002 C1                      		push	ax
+ 232                             	.LCFI30:
+ 233 0003 C3                      		push	bc
+ 234                             	.LCFI31:
+ 235 0004 C5                      		push	de
+ 236                             	.LCFI32:
+ 237 0005 C7                      		push	hl
+ 238                             	.LCFI33:
+ 239 0006 8E FD                   		mov	a, es
+ 240 0008 C1                      		push	ax
+ 241                             	.LCFI34:
+ 242                             		.loc 1 44 0
+ 243 0009 C0                      		pop	ax
+ 244 000a 9E FD                   		mov	es, a
+ 245 000c C6                      		pop	hl
+ 246 000d C4                      		pop	de
+ 247 000e C2                      		pop	bc
+ 248 000f C0                      		pop	ax
+ 249 0010 61 FC                   		reti
+ 250                             	.LFE6:
+ 252                             		.section	.text.INT_P5,"ax",@progbits
+ 253                             		.global	_INT_P5
+ 255                             	_INT_P5:
+ 256                             	.LFB7:
+  45:../core/inthandler.c **** 
+  46:../core/inthandler.c **** /*
+  47:../core/inthandler.c ****  * INT_P5 (0x12)
+  48:../core/inthandler.c ****  */
+  49:../core/inthandler.c **** void INT_P5 (void) { }
+ 257                             		.loc 1 49 0
+ 258                             		; start of function
+ 259                             		; push 8: ax bc de hl
+ 260                             		; uses ES register
+ 261 0000 61 CF                   		sel	rb0
+ 262 0002 C1                      		push	ax
+ 263                             	.LCFI35:
+ 264 0003 C3                      		push	bc
+ 265                             	.LCFI36:
+ 266 0004 C5                      		push	de
+ 267                             	.LCFI37:
+ 268 0005 C7                      		push	hl
+ 269                             	.LCFI38:
+ 270 0006 8E FD                   		mov	a, es
+ 271 0008 C1                      		push	ax
+ 272                             	.LCFI39:
+ 273                             		.loc 1 49 0
+ 274 0009 C0                      		pop	ax
+ 275 000a 9E FD                   		mov	es, a
+ 276 000c C6                      		pop	hl
+ 277 000d C4                      		pop	de
+ 278 000e C2                      		pop	bc
+ 279 000f C0                      		pop	ax
+ 280 0010 61 FC                   		reti
+ 281                             	.LFE7:
+ 283                             		.section	.text.INT_ST2,"ax",@progbits
+ 284                             		.global	_INT_ST2
+ 286                             	_INT_ST2:
+ 287                             	.LFB8:
+  50:../core/inthandler.c **** 
+  51:../core/inthandler.c **** /*
+  52:../core/inthandler.c ****  * INT_CSI20/INT_IIC20/INT_ST2 (0x14)
+  53:../core/inthandler.c ****  */
+  54:../core/inthandler.c **** void INT_ST2 (void) { }
+ 288                             		.loc 1 54 0
+ 289                             		; start of function
+ 290                             		; push 8: ax bc de hl
+ 291                             		; uses ES register
+ 292 0000 61 CF                   		sel	rb0
+ 293 0002 C1                      		push	ax
+ 294                             	.LCFI40:
+ 295 0003 C3                      		push	bc
+ 296                             	.LCFI41:
+ 297 0004 C5                      		push	de
+ 298                             	.LCFI42:
+ 299 0005 C7                      		push	hl
+ 300                             	.LCFI43:
+ 301 0006 8E FD                   		mov	a, es
+ 302 0008 C1                      		push	ax
+ 303                             	.LCFI44:
+ 304                             		.loc 1 54 0
+ 305 0009 C0                      		pop	ax
+ 306 000a 9E FD                   		mov	es, a
+ 307 000c C6                      		pop	hl
+ 308 000d C4                      		pop	de
+ 309 000e C2                      		pop	bc
+ 310 000f C0                      		pop	ax
+ 311 0010 61 FC                   		reti
+ 312                             	.LFE8:
+ 314                             		.section	.text.INT_SR2,"ax",@progbits
+ 315                             		.global	_INT_SR2
+ 317                             	_INT_SR2:
+ 318                             	.LFB9:
+  55:../core/inthandler.c **** //void INT_CSI20 (void) { }
+  56:../core/inthandler.c **** //void INT_IIC20 (void) { }
+  57:../core/inthandler.c **** 
+  58:../core/inthandler.c **** /*
+  59:../core/inthandler.c ****  * INT_CSI21/INT_IIC21/INT_SR2 (0x16)
+  60:../core/inthandler.c ****  */
+  61:../core/inthandler.c **** void INT_SR2 (void) { }
+ 319                             		.loc 1 61 0
+ 320                             		; start of function
+ 321                             		; push 8: ax bc de hl
+ 322                             		; uses ES register
+ 323 0000 61 CF                   		sel	rb0
+ 324 0002 C1                      		push	ax
+ 325                             	.LCFI45:
+ 326 0003 C3                      		push	bc
+ 327                             	.LCFI46:
+ 328 0004 C5                      		push	de
+ 329                             	.LCFI47:
+ 330 0005 C7                      		push	hl
+ 331                             	.LCFI48:
+ 332 0006 8E FD                   		mov	a, es
+ 333 0008 C1                      		push	ax
+ 334                             	.LCFI49:
+ 335                             		.loc 1 61 0
+ 336 0009 C0                      		pop	ax
+ 337 000a 9E FD                   		mov	es, a
+ 338 000c C6                      		pop	hl
+ 339 000d C4                      		pop	de
+ 340 000e C2                      		pop	bc
+ 341 000f C0                      		pop	ax
+ 342 0010 61 FC                   		reti
+ 343                             	.LFE9:
+ 345                             		.section	.text.INT_SRE2,"ax",@progbits
+ 346                             		.global	_INT_SRE2
+ 348                             	_INT_SRE2:
+ 349                             	.LFB10:
+  62:../core/inthandler.c **** //void INT_CSI21 (void) { }
+  63:../core/inthandler.c **** //void INT_IIC21 (void) { }
+  64:../core/inthandler.c **** 
+  65:../core/inthandler.c **** /*
+  66:../core/inthandler.c ****  * INT_SRE2 (0x18)
+  67:../core/inthandler.c ****  */
+  68:../core/inthandler.c **** void INT_SRE2 (void) { }
+ 350                             		.loc 1 68 0
+ 351                             		; start of function
+ 352                             		; push 8: ax bc de hl
+ 353                             		; uses ES register
+ 354 0000 61 CF                   		sel	rb0
+ 355 0002 C1                      		push	ax
+ 356                             	.LCFI50:
+ 357 0003 C3                      		push	bc
+ 358                             	.LCFI51:
+ 359 0004 C5                      		push	de
+ 360                             	.LCFI52:
+ 361 0005 C7                      		push	hl
+ 362                             	.LCFI53:
+ 363 0006 8E FD                   		mov	a, es
+ 364 0008 C1                      		push	ax
+ 365                             	.LCFI54:
+ 366                             		.loc 1 68 0
+ 367 0009 C0                      		pop	ax
+ 368 000a 9E FD                   		mov	es, a
+ 369 000c C6                      		pop	hl
+ 370 000d C4                      		pop	de
+ 371 000e C2                      		pop	bc
+ 372 000f C0                      		pop	ax
+ 373 0010 61 FC                   		reti
+ 374                             	.LFE10:
+ 376                             		.section	.text.INT_DMA0,"ax",@progbits
+ 377                             		.global	_INT_DMA0
+ 379                             	_INT_DMA0:
+ 380                             	.LFB11:
+  69:../core/inthandler.c **** 
+  70:../core/inthandler.c **** /*
+  71:../core/inthandler.c ****  * INT_DMA0 (0x1A)
+  72:../core/inthandler.c ****  */
+  73:../core/inthandler.c **** void INT_DMA0 (void) { }
+ 381                             		.loc 1 73 0
+ 382                             		; start of function
+ 383                             		; push 8: ax bc de hl
+ 384                             		; uses ES register
+ 385 0000 61 CF                   		sel	rb0
+ 386 0002 C1                      		push	ax
+ 387                             	.LCFI55:
+ 388 0003 C3                      		push	bc
+ 389                             	.LCFI56:
+ 390 0004 C5                      		push	de
+ 391                             	.LCFI57:
+ 392 0005 C7                      		push	hl
+ 393                             	.LCFI58:
+ 394 0006 8E FD                   		mov	a, es
+ 395 0008 C1                      		push	ax
+ 396                             	.LCFI59:
+ 397                             		.loc 1 73 0
+ 398 0009 C0                      		pop	ax
+ 399 000a 9E FD                   		mov	es, a
+ 400 000c C6                      		pop	hl
+ 401 000d C4                      		pop	de
+ 402 000e C2                      		pop	bc
+ 403 000f C0                      		pop	ax
+ 404 0010 61 FC                   		reti
+ 405                             	.LFE11:
+ 407                             		.section	.text.INT_DMA1,"ax",@progbits
+ 408                             		.global	_INT_DMA1
+ 410                             	_INT_DMA1:
+ 411                             	.LFB12:
+  74:../core/inthandler.c **** 
+  75:../core/inthandler.c **** /*
+  76:../core/inthandler.c ****  * INT_DMA1 (0x1C)
+  77:../core/inthandler.c ****  */
+  78:../core/inthandler.c **** void INT_DMA1 (void) { }
+ 412                             		.loc 1 78 0
+ 413                             		; start of function
+ 414                             		; push 8: ax bc de hl
+ 415                             		; uses ES register
+ 416 0000 61 CF                   		sel	rb0
+ 417 0002 C1                      		push	ax
+ 418                             	.LCFI60:
+ 419 0003 C3                      		push	bc
+ 420                             	.LCFI61:
+ 421 0004 C5                      		push	de
+ 422                             	.LCFI62:
+ 423 0005 C7                      		push	hl
+ 424                             	.LCFI63:
+ 425 0006 8E FD                   		mov	a, es
+ 426 0008 C1                      		push	ax
+ 427                             	.LCFI64:
+ 428                             		.loc 1 78 0
+ 429 0009 C0                      		pop	ax
+ 430 000a 9E FD                   		mov	es, a
+ 431 000c C6                      		pop	hl
+ 432 000d C4                      		pop	de
+ 433 000e C2                      		pop	bc
+ 434 000f C0                      		pop	ax
+ 435 0010 61 FC                   		reti
+ 436                             	.LFE12:
+ 438                             		.section	.text.INT_ST0,"ax",@progbits
+ 439                             		.global	_INT_ST0
+ 441                             	_INT_ST0:
+ 442                             	.LFB13:
+  79:../core/inthandler.c **** 
+  80:../core/inthandler.c **** /*
+  81:../core/inthandler.c ****  * INT_CSI00/INT_IIC00/INT_ST0 (0x1E)
+  82:../core/inthandler.c ****  */
+  83:../core/inthandler.c **** void INT_ST0 (void) { }
+ 443                             		.loc 1 83 0
+ 444                             		; start of function
+ 445                             		; push 8: ax bc de hl
+ 446                             		; uses ES register
+ 447 0000 61 CF                   		sel	rb0
+ 448 0002 C1                      		push	ax
+ 449                             	.LCFI65:
+ 450 0003 C3                      		push	bc
+ 451                             	.LCFI66:
+ 452 0004 C5                      		push	de
+ 453                             	.LCFI67:
+ 454 0005 C7                      		push	hl
+ 455                             	.LCFI68:
+ 456 0006 8E FD                   		mov	a, es
+ 457 0008 C1                      		push	ax
+ 458                             	.LCFI69:
+ 459                             		.loc 1 83 0
+ 460 0009 C0                      		pop	ax
+ 461 000a 9E FD                   		mov	es, a
+ 462 000c C6                      		pop	hl
+ 463 000d C4                      		pop	de
+ 464 000e C2                      		pop	bc
+ 465 000f C0                      		pop	ax
+ 466 0010 61 FC                   		reti
+ 467                             	.LFE13:
+ 469                             		.section	.text.INT_SR0,"ax",@progbits
+ 470                             		.global	_INT_SR0
+ 472                             	_INT_SR0:
+ 473                             	.LFB14:
+  84:../core/inthandler.c **** //void INT_CSI00 (void) { }
+  85:../core/inthandler.c **** //void INT_IIC00 (void) { }
+  86:../core/inthandler.c **** 
+  87:../core/inthandler.c **** /*
+  88:../core/inthandler.c ****  * INT_CSI01/INT_IIC01/INT_SR0 (0x20)
+  89:../core/inthandler.c ****  */
+  90:../core/inthandler.c **** void INT_SR0 (void) { }
+ 474                             		.loc 1 90 0
+ 475                             		; start of function
+ 476                             		; push 8: ax bc de hl
+ 477                             		; uses ES register
+ 478 0000 61 CF                   		sel	rb0
+ 479 0002 C1                      		push	ax
+ 480                             	.LCFI70:
+ 481 0003 C3                      		push	bc
+ 482                             	.LCFI71:
+ 483 0004 C5                      		push	de
+ 484                             	.LCFI72:
+ 485 0005 C7                      		push	hl
+ 486                             	.LCFI73:
+ 487 0006 8E FD                   		mov	a, es
+ 488 0008 C1                      		push	ax
+ 489                             	.LCFI74:
+ 490                             		.loc 1 90 0
+ 491 0009 C0                      		pop	ax
+ 492 000a 9E FD                   		mov	es, a
+ 493 000c C6                      		pop	hl
+ 494 000d C4                      		pop	de
+ 495 000e C2                      		pop	bc
+ 496 000f C0                      		pop	ax
+ 497 0010 61 FC                   		reti
+ 498                             	.LFE14:
+ 500                             		.section	.text.INT_TM01H,"ax",@progbits
+ 501                             		.global	_INT_TM01H
+ 503                             	_INT_TM01H:
+ 504                             	.LFB15:
+  91:../core/inthandler.c **** //void INT_CSI01 (void) { }
+  92:../core/inthandler.c **** //void INT_IIC01 (void) { }
+  93:../core/inthandler.c **** 
+  94:../core/inthandler.c **** /*
+  95:../core/inthandler.c ****  * INT_SRE0/INT_TM01H (0x22)
+  96:../core/inthandler.c ****  */
+  97:../core/inthandler.c **** void INT_TM01H (void) { }
+ 505                             		.loc 1 97 0
+ 506                             		; start of function
+ 507                             		; push 8: ax bc de hl
+ 508                             		; uses ES register
+ 509 0000 61 CF                   		sel	rb0
+ 510 0002 C1                      		push	ax
+ 511                             	.LCFI75:
+ 512 0003 C3                      		push	bc
+ 513                             	.LCFI76:
+ 514 0004 C5                      		push	de
+ 515                             	.LCFI77:
+ 516 0005 C7                      		push	hl
+ 517                             	.LCFI78:
+ 518 0006 8E FD                   		mov	a, es
+ 519 0008 C1                      		push	ax
+ 520                             	.LCFI79:
+ 521                             		.loc 1 97 0
+ 522 0009 C0                      		pop	ax
+ 523 000a 9E FD                   		mov	es, a
+ 524 000c C6                      		pop	hl
+ 525 000d C4                      		pop	de
+ 526 000e C2                      		pop	bc
+ 527 000f C0                      		pop	ax
+ 528 0010 61 FC                   		reti
+ 529                             	.LFE15:
+ 531                             		.section	.text.INT_ST1,"ax",@progbits
+ 532                             		.global	_INT_ST1
+ 534                             	_INT_ST1:
+ 535                             	.LFB16:
+  98:../core/inthandler.c **** //void INT_SRE0 (void) { }
+  99:../core/inthandler.c **** 
+ 100:../core/inthandler.c **** /*
+ 101:../core/inthandler.c ****  * INT_CSI10/INT_IIC10/INT_ST1 (0x24)
+ 102:../core/inthandler.c ****  */
+ 103:../core/inthandler.c **** void INT_ST1 (void) { }
+ 536                             		.loc 1 103 0
+ 537                             		; start of function
+ 538                             		; push 8: ax bc de hl
+ 539                             		; uses ES register
+ 540 0000 61 CF                   		sel	rb0
+ 541 0002 C1                      		push	ax
+ 542                             	.LCFI80:
+ 543 0003 C3                      		push	bc
+ 544                             	.LCFI81:
+ 545 0004 C5                      		push	de
+ 546                             	.LCFI82:
+ 547 0005 C7                      		push	hl
+ 548                             	.LCFI83:
+ 549 0006 8E FD                   		mov	a, es
+ 550 0008 C1                      		push	ax
+ 551                             	.LCFI84:
+ 552                             		.loc 1 103 0
+ 553 0009 C0                      		pop	ax
+ 554 000a 9E FD                   		mov	es, a
+ 555 000c C6                      		pop	hl
+ 556 000d C4                      		pop	de
+ 557 000e C2                      		pop	bc
+ 558 000f C0                      		pop	ax
+ 559 0010 61 FC                   		reti
+ 560                             	.LFE16:
+ 562                             		.section	.text.INT_SR1,"ax",@progbits
+ 563                             		.global	_INT_SR1
+ 565                             	_INT_SR1:
+ 566                             	.LFB17:
+ 104:../core/inthandler.c **** //void INT_CSI10 (void) { }
+ 105:../core/inthandler.c **** //void INT_IIC10 (void) { }
+ 106:../core/inthandler.c **** 
+ 107:../core/inthandler.c **** /*
+ 108:../core/inthandler.c ****  * INT_CSI11/INT_IIC11/INT_SR1 (0x26)
+ 109:../core/inthandler.c ****  */
+ 110:../core/inthandler.c **** void INT_SR1 (void) { }
+ 567                             		.loc 1 110 0
+ 568                             		; start of function
+ 569                             		; push 8: ax bc de hl
+ 570                             		; uses ES register
+ 571 0000 61 CF                   		sel	rb0
+ 572 0002 C1                      		push	ax
+ 573                             	.LCFI85:
+ 574 0003 C3                      		push	bc
+ 575                             	.LCFI86:
+ 576 0004 C5                      		push	de
+ 577                             	.LCFI87:
+ 578 0005 C7                      		push	hl
+ 579                             	.LCFI88:
+ 580 0006 8E FD                   		mov	a, es
+ 581 0008 C1                      		push	ax
+ 582                             	.LCFI89:
+ 583                             		.loc 1 110 0
+ 584 0009 C0                      		pop	ax
+ 585 000a 9E FD                   		mov	es, a
+ 586 000c C6                      		pop	hl
+ 587 000d C4                      		pop	de
+ 588 000e C2                      		pop	bc
+ 589 000f C0                      		pop	ax
+ 590 0010 61 FC                   		reti
+ 591                             	.LFE17:
+ 593                             		.section	.text.INT_TM03H,"ax",@progbits
+ 594                             		.global	_INT_TM03H
+ 596                             	_INT_TM03H:
+ 597                             	.LFB18:
+ 111:../core/inthandler.c **** //void INT_CSI11 (void) { }
+ 112:../core/inthandler.c **** //void INT_IIC11 (void) { }
+ 113:../core/inthandler.c **** 
+ 114:../core/inthandler.c **** /*
+ 115:../core/inthandler.c ****  * INT_SRE1/INT_TM03H (0x28)
+ 116:../core/inthandler.c ****  */
+ 117:../core/inthandler.c **** void INT_TM03H (void) { }
+ 598                             		.loc 1 117 0
+ 599                             		; start of function
+ 600                             		; push 8: ax bc de hl
+ 601                             		; uses ES register
+ 602 0000 61 CF                   		sel	rb0
+ 603 0002 C1                      		push	ax
+ 604                             	.LCFI90:
+ 605 0003 C3                      		push	bc
+ 606                             	.LCFI91:
+ 607 0004 C5                      		push	de
+ 608                             	.LCFI92:
+ 609 0005 C7                      		push	hl
+ 610                             	.LCFI93:
+ 611 0006 8E FD                   		mov	a, es
+ 612 0008 C1                      		push	ax
+ 613                             	.LCFI94:
+ 614                             		.loc 1 117 0
+ 615 0009 C0                      		pop	ax
+ 616 000a 9E FD                   		mov	es, a
+ 617 000c C6                      		pop	hl
+ 618 000d C4                      		pop	de
+ 619 000e C2                      		pop	bc
+ 620 000f C0                      		pop	ax
+ 621 0010 61 FC                   		reti
+ 622                             	.LFE18:
+ 624                             		.section	.text.INT_IICA0,"ax",@progbits
+ 625                             		.global	_INT_IICA0
+ 627                             	_INT_IICA0:
+ 628                             	.LFB19:
+ 118:../core/inthandler.c **** //void INT_SRE1 (void) { }
+ 119:../core/inthandler.c **** 
+ 120:../core/inthandler.c **** /*
+ 121:../core/inthandler.c ****  * INT_IICA0 (0x2A)
+ 122:../core/inthandler.c ****  */
+ 123:../core/inthandler.c **** void INT_IICA0 (void) { }
+ 629                             		.loc 1 123 0
+ 630                             		; start of function
+ 631                             		; push 8: ax bc de hl
+ 632                             		; uses ES register
+ 633 0000 61 CF                   		sel	rb0
+ 634 0002 C1                      		push	ax
+ 635                             	.LCFI95:
+ 636 0003 C3                      		push	bc
+ 637                             	.LCFI96:
+ 638 0004 C5                      		push	de
+ 639                             	.LCFI97:
+ 640 0005 C7                      		push	hl
+ 641                             	.LCFI98:
+ 642 0006 8E FD                   		mov	a, es
+ 643 0008 C1                      		push	ax
+ 644                             	.LCFI99:
+ 645                             		.loc 1 123 0
+ 646 0009 C0                      		pop	ax
+ 647 000a 9E FD                   		mov	es, a
+ 648 000c C6                      		pop	hl
+ 649 000d C4                      		pop	de
+ 650 000e C2                      		pop	bc
+ 651 000f C0                      		pop	ax
+ 652 0010 61 FC                   		reti
+ 653                             	.LFE19:
+ 655                             		.section	.text.INT_TM00,"ax",@progbits
+ 656                             		.global	_INT_TM00
+ 658                             	_INT_TM00:
+ 659                             	.LFB20:
+ 124:../core/inthandler.c **** 
+ 125:../core/inthandler.c **** /*
+ 126:../core/inthandler.c ****  * INT_TM00 (0x2C)
+ 127:../core/inthandler.c ****  */
+ 128:../core/inthandler.c **** void INT_TM00 (void) { }
+ 660                             		.loc 1 128 0
+ 661                             		; start of function
+ 662                             		; push 8: ax bc de hl
+ 663                             		; uses ES register
+ 664 0000 61 CF                   		sel	rb0
+ 665 0002 C1                      		push	ax
+ 666                             	.LCFI100:
+ 667 0003 C3                      		push	bc
+ 668                             	.LCFI101:
+ 669 0004 C5                      		push	de
+ 670                             	.LCFI102:
+ 671 0005 C7                      		push	hl
+ 672                             	.LCFI103:
+ 673 0006 8E FD                   		mov	a, es
+ 674 0008 C1                      		push	ax
+ 675                             	.LCFI104:
+ 676                             		.loc 1 128 0
+ 677 0009 C0                      		pop	ax
+ 678 000a 9E FD                   		mov	es, a
+ 679 000c C6                      		pop	hl
+ 680 000d C4                      		pop	de
+ 681 000e C2                      		pop	bc
+ 682 000f C0                      		pop	ax
+ 683 0010 61 FC                   		reti
+ 684                             	.LFE20:
+ 686                             		.section	.text.INT_TM01,"ax",@progbits
+ 687                             		.global	_INT_TM01
+ 689                             	_INT_TM01:
+ 690                             	.LFB21:
+ 129:../core/inthandler.c **** 
+ 130:../core/inthandler.c **** /*
+ 131:../core/inthandler.c ****  * INT_TM01 (0x2E)
+ 132:../core/inthandler.c ****  */
+ 133:../core/inthandler.c **** void INT_TM01 (void) { }
+ 691                             		.loc 1 133 0
+ 692                             		; start of function
+ 693                             		; push 8: ax bc de hl
+ 694                             		; uses ES register
+ 695 0000 61 CF                   		sel	rb0
+ 696 0002 C1                      		push	ax
+ 697                             	.LCFI105:
+ 698 0003 C3                      		push	bc
+ 699                             	.LCFI106:
+ 700 0004 C5                      		push	de
+ 701                             	.LCFI107:
+ 702 0005 C7                      		push	hl
+ 703                             	.LCFI108:
+ 704 0006 8E FD                   		mov	a, es
+ 705 0008 C1                      		push	ax
+ 706                             	.LCFI109:
+ 707                             		.loc 1 133 0
+ 708 0009 C0                      		pop	ax
+ 709 000a 9E FD                   		mov	es, a
+ 710 000c C6                      		pop	hl
+ 711 000d C4                      		pop	de
+ 712 000e C2                      		pop	bc
+ 713 000f C0                      		pop	ax
+ 714 0010 61 FC                   		reti
+ 715                             	.LFE21:
+ 717                             		.section	.text.INT_TM02,"ax",@progbits
+ 718                             		.global	_INT_TM02
+ 720                             	_INT_TM02:
+ 721                             	.LFB22:
+ 134:../core/inthandler.c **** 
+ 135:../core/inthandler.c **** /*
+ 136:../core/inthandler.c ****  * INT_TM02 (0x30)
+ 137:../core/inthandler.c ****  */
+ 138:../core/inthandler.c **** void INT_TM02 (void) { }
+ 722                             		.loc 1 138 0
+ 723                             		; start of function
+ 724                             		; push 8: ax bc de hl
+ 725                             		; uses ES register
+ 726 0000 61 CF                   		sel	rb0
+ 727 0002 C1                      		push	ax
+ 728                             	.LCFI110:
+ 729 0003 C3                      		push	bc
+ 730                             	.LCFI111:
+ 731 0004 C5                      		push	de
+ 732                             	.LCFI112:
+ 733 0005 C7                      		push	hl
+ 734                             	.LCFI113:
+ 735 0006 8E FD                   		mov	a, es
+ 736 0008 C1                      		push	ax
+ 737                             	.LCFI114:
+ 738                             		.loc 1 138 0
+ 739 0009 C0                      		pop	ax
+ 740 000a 9E FD                   		mov	es, a
+ 741 000c C6                      		pop	hl
+ 742 000d C4                      		pop	de
+ 743 000e C2                      		pop	bc
+ 744 000f C0                      		pop	ax
+ 745 0010 61 FC                   		reti
+ 746                             	.LFE22:
+ 748                             		.section	.text.INT_TM03,"ax",@progbits
+ 749                             		.global	_INT_TM03
+ 751                             	_INT_TM03:
+ 752                             	.LFB23:
+ 139:../core/inthandler.c **** 
+ 140:../core/inthandler.c **** /*
+ 141:../core/inthandler.c ****  * INT_TM03 (0x32)
+ 142:../core/inthandler.c ****  */
+ 143:../core/inthandler.c **** void INT_TM03 (void) { }
+ 753                             		.loc 1 143 0
+ 754                             		; start of function
+ 755                             		; push 8: ax bc de hl
+ 756                             		; uses ES register
+ 757 0000 61 CF                   		sel	rb0
+ 758 0002 C1                      		push	ax
+ 759                             	.LCFI115:
+ 760 0003 C3                      		push	bc
+ 761                             	.LCFI116:
+ 762 0004 C5                      		push	de
+ 763                             	.LCFI117:
+ 764 0005 C7                      		push	hl
+ 765                             	.LCFI118:
+ 766 0006 8E FD                   		mov	a, es
+ 767 0008 C1                      		push	ax
+ 768                             	.LCFI119:
+ 769                             		.loc 1 143 0
+ 770 0009 C0                      		pop	ax
+ 771 000a 9E FD                   		mov	es, a
+ 772 000c C6                      		pop	hl
+ 773 000d C4                      		pop	de
+ 774 000e C2                      		pop	bc
+ 775 000f C0                      		pop	ax
+ 776 0010 61 FC                   		reti
+ 777                             	.LFE23:
+ 779                             		.section	.text.INT_AD,"ax",@progbits
+ 780                             		.global	_INT_AD
+ 782                             	_INT_AD:
+ 783                             	.LFB24:
+ 144:../core/inthandler.c **** 
+ 145:../core/inthandler.c **** /*
+ 146:../core/inthandler.c ****  * INT_AD (0x34)
+ 147:../core/inthandler.c ****  */
+ 148:../core/inthandler.c **** void INT_AD (void) { }
+ 784                             		.loc 1 148 0
+ 785                             		; start of function
+ 786                             		; push 8: ax bc de hl
+ 787                             		; uses ES register
+ 788 0000 61 CF                   		sel	rb0
+ 789 0002 C1                      		push	ax
+ 790                             	.LCFI120:
+ 791 0003 C3                      		push	bc
+ 792                             	.LCFI121:
+ 793 0004 C5                      		push	de
+ 794                             	.LCFI122:
+ 795 0005 C7                      		push	hl
+ 796                             	.LCFI123:
+ 797 0006 8E FD                   		mov	a, es
+ 798 0008 C1                      		push	ax
+ 799                             	.LCFI124:
+ 800                             		.loc 1 148 0
+ 801 0009 C0                      		pop	ax
+ 802 000a 9E FD                   		mov	es, a
+ 803 000c C6                      		pop	hl
+ 804 000d C4                      		pop	de
+ 805 000e C2                      		pop	bc
+ 806 000f C0                      		pop	ax
+ 807 0010 61 FC                   		reti
+ 808                             	.LFE24:
+ 810                             		.section	.text.INT_RTC,"ax",@progbits
+ 811                             		.global	_INT_RTC
+ 813                             	_INT_RTC:
+ 814                             	.LFB25:
+ 149:../core/inthandler.c **** 
+ 150:../core/inthandler.c **** /*
+ 151:../core/inthandler.c ****  * INT_RTC (0x36)
+ 152:../core/inthandler.c ****  */
+ 153:../core/inthandler.c **** void INT_RTC (void) { }
+ 815                             		.loc 1 153 0
+ 816                             		; start of function
+ 817                             		; push 8: ax bc de hl
+ 818                             		; uses ES register
+ 819 0000 61 CF                   		sel	rb0
+ 820 0002 C1                      		push	ax
+ 821                             	.LCFI125:
+ 822 0003 C3                      		push	bc
+ 823                             	.LCFI126:
+ 824 0004 C5                      		push	de
+ 825                             	.LCFI127:
+ 826 0005 C7                      		push	hl
+ 827                             	.LCFI128:
+ 828 0006 8E FD                   		mov	a, es
+ 829 0008 C1                      		push	ax
+ 830                             	.LCFI129:
+ 831                             		.loc 1 153 0
+ 832 0009 C0                      		pop	ax
+ 833 000a 9E FD                   		mov	es, a
+ 834 000c C6                      		pop	hl
+ 835 000d C4                      		pop	de
+ 836 000e C2                      		pop	bc
+ 837 000f C0                      		pop	ax
+ 838 0010 61 FC                   		reti
+ 839                             	.LFE25:
+ 841                             		.section	.text.INT_IT,"ax",@progbits
+ 842                             		.global	_INT_IT
+ 844                             	_INT_IT:
+ 845                             	.LFB26:
+ 154:../core/inthandler.c **** 
+ 155:../core/inthandler.c **** /*
+ 156:../core/inthandler.c ****  * INT_IT (0x38)
+ 157:../core/inthandler.c ****  */
+ 158:../core/inthandler.c **** void INT_IT (void) { }
+ 846                             		.loc 1 158 0
+ 847                             		; start of function
+ 848                             		; push 8: ax bc de hl
+ 849                             		; uses ES register
+ 850 0000 61 CF                   		sel	rb0
+ 851 0002 C1                      		push	ax
+ 852                             	.LCFI130:
+ 853 0003 C3                      		push	bc
+ 854                             	.LCFI131:
+ 855 0004 C5                      		push	de
+ 856                             	.LCFI132:
+ 857 0005 C7                      		push	hl
+ 858                             	.LCFI133:
+ 859 0006 8E FD                   		mov	a, es
+ 860 0008 C1                      		push	ax
+ 861                             	.LCFI134:
+ 862                             		.loc 1 158 0
+ 863 0009 C0                      		pop	ax
+ 864 000a 9E FD                   		mov	es, a
+ 865 000c C6                      		pop	hl
+ 866 000d C4                      		pop	de
+ 867 000e C2                      		pop	bc
+ 868 000f C0                      		pop	ax
+ 869 0010 61 FC                   		reti
+ 870                             	.LFE26:
+ 872                             		.section	.text.INT_KR,"ax",@progbits
+ 873                             		.global	_INT_KR
+ 875                             	_INT_KR:
+ 876                             	.LFB27:
+ 159:../core/inthandler.c **** 
+ 160:../core/inthandler.c **** /*
+ 161:../core/inthandler.c ****  * INT_KR (0x3A)
+ 162:../core/inthandler.c ****  */
+ 163:../core/inthandler.c **** void INT_KR (void) { }
+ 877                             		.loc 1 163 0
+ 878                             		; start of function
+ 879                             		; push 8: ax bc de hl
+ 880                             		; uses ES register
+ 881 0000 61 CF                   		sel	rb0
+ 882 0002 C1                      		push	ax
+ 883                             	.LCFI135:
+ 884 0003 C3                      		push	bc
+ 885                             	.LCFI136:
+ 886 0004 C5                      		push	de
+ 887                             	.LCFI137:
+ 888 0005 C7                      		push	hl
+ 889                             	.LCFI138:
+ 890 0006 8E FD                   		mov	a, es
+ 891 0008 C1                      		push	ax
+ 892                             	.LCFI139:
+ 893                             		.loc 1 163 0
+ 894 0009 C0                      		pop	ax
+ 895 000a 9E FD                   		mov	es, a
+ 896 000c C6                      		pop	hl
+ 897 000d C4                      		pop	de
+ 898 000e C2                      		pop	bc
+ 899 000f C0                      		pop	ax
+ 900 0010 61 FC                   		reti
+ 901                             	.LFE27:
+ 903                             		.section	.text.INT_TM04,"ax",@progbits
+ 904                             		.global	_INT_TM04
+ 906                             	_INT_TM04:
+ 907                             	.LFB28:
+ 164:../core/inthandler.c **** 
+ 165:../core/inthandler.c **** /*
+ 166:../core/inthandler.c ****  * INT_TM04 (0x42)
+ 167:../core/inthandler.c ****  */
+ 168:../core/inthandler.c **** void INT_TM04 (void) { }
+ 908                             		.loc 1 168 0
+ 909                             		; start of function
+ 910                             		; push 8: ax bc de hl
+ 911                             		; uses ES register
+ 912 0000 61 CF                   		sel	rb0
+ 913 0002 C1                      		push	ax
+ 914                             	.LCFI140:
+ 915 0003 C3                      		push	bc
+ 916                             	.LCFI141:
+ 917 0004 C5                      		push	de
+ 918                             	.LCFI142:
+ 919 0005 C7                      		push	hl
+ 920                             	.LCFI143:
+ 921 0006 8E FD                   		mov	a, es
+ 922 0008 C1                      		push	ax
+ 923                             	.LCFI144:
+ 924                             		.loc 1 168 0
+ 925 0009 C0                      		pop	ax
+ 926 000a 9E FD                   		mov	es, a
+ 927 000c C6                      		pop	hl
+ 928 000d C4                      		pop	de
+ 929 000e C2                      		pop	bc
+ 930 000f C0                      		pop	ax
+ 931 0010 61 FC                   		reti
+ 932                             	.LFE28:
+ 934                             		.section	.text.INT_TM05,"ax",@progbits
+ 935                             		.global	_INT_TM05
+ 937                             	_INT_TM05:
+ 938                             	.LFB29:
+ 169:../core/inthandler.c **** 
+ 170:../core/inthandler.c **** /*
+ 171:../core/inthandler.c ****  * INT_TM05 (0x44)
+ 172:../core/inthandler.c ****  */
+ 173:../core/inthandler.c **** void INT_TM05 (void) { }
+ 939                             		.loc 1 173 0
+ 940                             		; start of function
+ 941                             		; push 8: ax bc de hl
+ 942                             		; uses ES register
+ 943 0000 61 CF                   		sel	rb0
+ 944 0002 C1                      		push	ax
+ 945                             	.LCFI145:
+ 946 0003 C3                      		push	bc
+ 947                             	.LCFI146:
+ 948 0004 C5                      		push	de
+ 949                             	.LCFI147:
+ 950 0005 C7                      		push	hl
+ 951                             	.LCFI148:
+ 952 0006 8E FD                   		mov	a, es
+ 953 0008 C1                      		push	ax
+ 954                             	.LCFI149:
+ 955                             		.loc 1 173 0
+ 956 0009 C0                      		pop	ax
+ 957 000a 9E FD                   		mov	es, a
+ 958 000c C6                      		pop	hl
+ 959 000d C4                      		pop	de
+ 960 000e C2                      		pop	bc
+ 961 000f C0                      		pop	ax
+ 962 0010 61 FC                   		reti
+ 963                             	.LFE29:
+ 965                             		.section	.text.INT_TM06,"ax",@progbits
+ 966                             		.global	_INT_TM06
+ 968                             	_INT_TM06:
+ 969                             	.LFB30:
+ 174:../core/inthandler.c **** 
+ 175:../core/inthandler.c **** /*
+ 176:../core/inthandler.c ****  * INT_TM06 (0x46)
+ 177:../core/inthandler.c ****  */
+ 178:../core/inthandler.c **** void INT_TM06 (void) { }
+ 970                             		.loc 1 178 0
+ 971                             		; start of function
+ 972                             		; push 8: ax bc de hl
+ 973                             		; uses ES register
+ 974 0000 61 CF                   		sel	rb0
+ 975 0002 C1                      		push	ax
+ 976                             	.LCFI150:
+ 977 0003 C3                      		push	bc
+ 978                             	.LCFI151:
+ 979 0004 C5                      		push	de
+ 980                             	.LCFI152:
+ 981 0005 C7                      		push	hl
+ 982                             	.LCFI153:
+ 983 0006 8E FD                   		mov	a, es
+ 984 0008 C1                      		push	ax
+ 985                             	.LCFI154:
+ 986                             		.loc 1 178 0
+ 987 0009 C0                      		pop	ax
+ 988 000a 9E FD                   		mov	es, a
+ 989 000c C6                      		pop	hl
+ 990 000d C4                      		pop	de
+ 991 000e C2                      		pop	bc
+ 992 000f C0                      		pop	ax
+ 993 0010 61 FC                   		reti
+ 994                             	.LFE30:
+ 996                             		.section	.text.INT_TM07,"ax",@progbits
+ 997                             		.global	_INT_TM07
+ 999                             	_INT_TM07:
+ 1000                             	.LFB31:
+ 179:../core/inthandler.c **** 
+ 180:../core/inthandler.c **** /*
+ 181:../core/inthandler.c ****  * INT_TM07 (0x48)
+ 182:../core/inthandler.c ****  */
+ 183:../core/inthandler.c **** void INT_TM07 (void) { }
+ 1001                             		.loc 1 183 0
+ 1002                             		; start of function
+ 1003                             		; push 8: ax bc de hl
+ 1004                             		; uses ES register
+ 1005 0000 61 CF                   		sel	rb0
+ 1006 0002 C1                      		push	ax
+ 1007                             	.LCFI155:
+ 1008 0003 C3                      		push	bc
+ 1009                             	.LCFI156:
+ 1010 0004 C5                      		push	de
+ 1011                             	.LCFI157:
+ 1012 0005 C7                      		push	hl
+ 1013                             	.LCFI158:
+ 1014 0006 8E FD                   		mov	a, es
+ 1015 0008 C1                      		push	ax
+ 1016                             	.LCFI159:
+ 1017                             		.loc 1 183 0
+ 1018 0009 C0                      		pop	ax
+ 1019 000a 9E FD                   		mov	es, a
+ 1020 000c C6                      		pop	hl
+ 1021 000d C4                      		pop	de
+ 1022 000e C2                      		pop	bc
+ 1023 000f C0                      		pop	ax
+ 1024 0010 61 FC                   		reti
+ 1025                             	.LFE31:
+ 1027                             		.section	.text.INT_P6,"ax",@progbits
+ 1028                             		.global	_INT_P6
+ 1030                             	_INT_P6:
+ 1031                             	.LFB32:
+ 184:../core/inthandler.c **** 
+ 185:../core/inthandler.c **** /*
+ 186:../core/inthandler.c ****  * INT_P6 (0x4A)
+ 187:../core/inthandler.c ****  */
+ 188:../core/inthandler.c **** void INT_P6 (void) { }
+ 1032                             		.loc 1 188 0
+ 1033                             		; start of function
+ 1034                             		; push 8: ax bc de hl
+ 1035                             		; uses ES register
+ 1036 0000 61 CF                   		sel	rb0
+ 1037 0002 C1                      		push	ax
+ 1038                             	.LCFI160:
+ 1039 0003 C3                      		push	bc
+ 1040                             	.LCFI161:
+ 1041 0004 C5                      		push	de
+ 1042                             	.LCFI162:
+ 1043 0005 C7                      		push	hl
+ 1044                             	.LCFI163:
+ 1045 0006 8E FD                   		mov	a, es
+ 1046 0008 C1                      		push	ax
+ 1047                             	.LCFI164:
+ 1048                             		.loc 1 188 0
+ 1049 0009 C0                      		pop	ax
+ 1050 000a 9E FD                   		mov	es, a
+ 1051 000c C6                      		pop	hl
+ 1052 000d C4                      		pop	de
+ 1053 000e C2                      		pop	bc
+ 1054 000f C0                      		pop	ax
+ 1055 0010 61 FC                   		reti
+ 1056                             	.LFE32:
+ 1058                             		.section	.text.INT_P7,"ax",@progbits
+ 1059                             		.global	_INT_P7
+ 1061                             	_INT_P7:
+ 1062                             	.LFB33:
+ 189:../core/inthandler.c **** 
+ 190:../core/inthandler.c **** /*
+ 191:../core/inthandler.c ****  * INT_P7 (0x4C)
+ 192:../core/inthandler.c ****  */
+ 193:../core/inthandler.c **** void INT_P7 (void) { }
+ 1063                             		.loc 1 193 0
+ 1064                             		; start of function
+ 1065                             		; push 8: ax bc de hl
+ 1066                             		; uses ES register
+ 1067 0000 61 CF                   		sel	rb0
+ 1068 0002 C1                      		push	ax
+ 1069                             	.LCFI165:
+ 1070 0003 C3                      		push	bc
+ 1071                             	.LCFI166:
+ 1072 0004 C5                      		push	de
+ 1073                             	.LCFI167:
+ 1074 0005 C7                      		push	hl
+ 1075                             	.LCFI168:
+ 1076 0006 8E FD                   		mov	a, es
+ 1077 0008 C1                      		push	ax
+ 1078                             	.LCFI169:
+ 1079                             		.loc 1 193 0
+ 1080 0009 C0                      		pop	ax
+ 1081 000a 9E FD                   		mov	es, a
+ 1082 000c C6                      		pop	hl
+ 1083 000d C4                      		pop	de
+ 1084 000e C2                      		pop	bc
+ 1085 000f C0                      		pop	ax
+ 1086 0010 61 FC                   		reti
+ 1087                             	.LFE33:
+ 1089                             		.section	.text.INT_P8,"ax",@progbits
+ 1090                             		.global	_INT_P8
+ 1092                             	_INT_P8:
+ 1093                             	.LFB34:
+ 194:../core/inthandler.c **** 
+ 195:../core/inthandler.c **** /*
+ 196:../core/inthandler.c ****  * INT_P8 (0x4E)
+ 197:../core/inthandler.c ****  */
+ 198:../core/inthandler.c **** void INT_P8 (void) { }
+ 1094                             		.loc 1 198 0
+ 1095                             		; start of function
+ 1096                             		; push 8: ax bc de hl
+ 1097                             		; uses ES register
+ 1098 0000 61 CF                   		sel	rb0
+ 1099 0002 C1                      		push	ax
+ 1100                             	.LCFI170:
+ 1101 0003 C3                      		push	bc
+ 1102                             	.LCFI171:
+ 1103 0004 C5                      		push	de
+ 1104                             	.LCFI172:
+ 1105 0005 C7                      		push	hl
+ 1106                             	.LCFI173:
+ 1107 0006 8E FD                   		mov	a, es
+ 1108 0008 C1                      		push	ax
+ 1109                             	.LCFI174:
+ 1110                             		.loc 1 198 0
+ 1111 0009 C0                      		pop	ax
+ 1112 000a 9E FD                   		mov	es, a
+ 1113 000c C6                      		pop	hl
+ 1114 000d C4                      		pop	de
+ 1115 000e C2                      		pop	bc
+ 1116 000f C0                      		pop	ax
+ 1117 0010 61 FC                   		reti
+ 1118                             	.LFE34:
+ 1120                             		.section	.text.INT_P9,"ax",@progbits
+ 1121                             		.global	_INT_P9
+ 1123                             	_INT_P9:
+ 1124                             	.LFB35:
+ 199:../core/inthandler.c **** 
+ 200:../core/inthandler.c **** /*
+ 201:../core/inthandler.c ****  * INT_P9 (0x50)
+ 202:../core/inthandler.c ****  */
+ 203:../core/inthandler.c **** void INT_P9 (void) { }
+ 1125                             		.loc 1 203 0
+ 1126                             		; start of function
+ 1127                             		; push 8: ax bc de hl
+ 1128                             		; uses ES register
+ 1129 0000 61 CF                   		sel	rb0
+ 1130 0002 C1                      		push	ax
+ 1131                             	.LCFI175:
+ 1132 0003 C3                      		push	bc
+ 1133                             	.LCFI176:
+ 1134 0004 C5                      		push	de
+ 1135                             	.LCFI177:
+ 1136 0005 C7                      		push	hl
+ 1137                             	.LCFI178:
+ 1138 0006 8E FD                   		mov	a, es
+ 1139 0008 C1                      		push	ax
+ 1140                             	.LCFI179:
+ 1141                             		.loc 1 203 0
+ 1142 0009 C0                      		pop	ax
+ 1143 000a 9E FD                   		mov	es, a
+ 1144 000c C6                      		pop	hl
+ 1145 000d C4                      		pop	de
+ 1146 000e C2                      		pop	bc
+ 1147 000f C0                      		pop	ax
+ 1148 0010 61 FC                   		reti
+ 1149                             	.LFE35:
+ 1151                             		.section	.text.INT_P10,"ax",@progbits
+ 1152                             		.global	_INT_P10
+ 1154                             	_INT_P10:
+ 1155                             	.LFB36:
+ 204:../core/inthandler.c **** 
+ 205:../core/inthandler.c **** /*
+ 206:../core/inthandler.c ****  * INT_P10 (0x52)
+ 207:../core/inthandler.c ****  */
+ 208:../core/inthandler.c **** void INT_P10 (void) { }
+ 1156                             		.loc 1 208 0
+ 1157                             		; start of function
+ 1158                             		; push 8: ax bc de hl
+ 1159                             		; uses ES register
+ 1160 0000 61 CF                   		sel	rb0
+ 1161 0002 C1                      		push	ax
+ 1162                             	.LCFI180:
+ 1163 0003 C3                      		push	bc
+ 1164                             	.LCFI181:
+ 1165 0004 C5                      		push	de
+ 1166                             	.LCFI182:
+ 1167 0005 C7                      		push	hl
+ 1168                             	.LCFI183:
+ 1169 0006 8E FD                   		mov	a, es
+ 1170 0008 C1                      		push	ax
+ 1171                             	.LCFI184:
+ 1172                             		.loc 1 208 0
+ 1173 0009 C0                      		pop	ax
+ 1174 000a 9E FD                   		mov	es, a
+ 1175 000c C6                      		pop	hl
+ 1176 000d C4                      		pop	de
+ 1177 000e C2                      		pop	bc
+ 1178 000f C0                      		pop	ax
+ 1179 0010 61 FC                   		reti
+ 1180                             	.LFE36:
+ 1182                             		.section	.text.INT_P11,"ax",@progbits
+ 1183                             		.global	_INT_P11
+ 1185                             	_INT_P11:
+ 1186                             	.LFB37:
+ 209:../core/inthandler.c **** 
+ 210:../core/inthandler.c **** /*
+ 211:../core/inthandler.c ****  * INT_P11 (0x54)
+ 212:../core/inthandler.c ****  */
+ 213:../core/inthandler.c **** void INT_P11 (void) { }
+ 1187                             		.loc 1 213 0
+ 1188                             		; start of function
+ 1189                             		; push 8: ax bc de hl
+ 1190                             		; uses ES register
+ 1191 0000 61 CF                   		sel	rb0
+ 1192 0002 C1                      		push	ax
+ 1193                             	.LCFI185:
+ 1194 0003 C3                      		push	bc
+ 1195                             	.LCFI186:
+ 1196 0004 C5                      		push	de
+ 1197                             	.LCFI187:
+ 1198 0005 C7                      		push	hl
+ 1199                             	.LCFI188:
+ 1200 0006 8E FD                   		mov	a, es
+ 1201 0008 C1                      		push	ax
+ 1202                             	.LCFI189:
+ 1203                             		.loc 1 213 0
+ 1204 0009 C0                      		pop	ax
+ 1205 000a 9E FD                   		mov	es, a
+ 1206 000c C6                      		pop	hl
+ 1207 000d C4                      		pop	de
+ 1208 000e C2                      		pop	bc
+ 1209 000f C0                      		pop	ax
+ 1210 0010 61 FC                   		reti
+ 1211                             	.LFE37:
+ 1213                             		.section	.text.INT_MD,"ax",@progbits
+ 1214                             		.global	_INT_MD
+ 1216                             	_INT_MD:
+ 1217                             	.LFB38:
+ 214:../core/inthandler.c **** 
+ 215:../core/inthandler.c **** /*
+ 216:../core/inthandler.c ****  * INT_MD (0x5E)
+ 217:../core/inthandler.c ****  */
+ 218:../core/inthandler.c **** void INT_MD (void) { }
+ 1218                             		.loc 1 218 0
+ 1219                             		; start of function
+ 1220                             		; push 8: ax bc de hl
+ 1221                             		; uses ES register
+ 1222 0000 61 CF                   		sel	rb0
+ 1223 0002 C1                      		push	ax
+ 1224                             	.LCFI190:
+ 1225 0003 C3                      		push	bc
+ 1226                             	.LCFI191:
+ 1227 0004 C5                      		push	de
+ 1228                             	.LCFI192:
+ 1229 0005 C7                      		push	hl
+ 1230                             	.LCFI193:
+ 1231 0006 8E FD                   		mov	a, es
+ 1232 0008 C1                      		push	ax
+ 1233                             	.LCFI194:
+ 1234                             		.loc 1 218 0
+ 1235 0009 C0                      		pop	ax
+ 1236 000a 9E FD                   		mov	es, a
+ 1237 000c C6                      		pop	hl
+ 1238 000d C4                      		pop	de
+ 1239 000e C2                      		pop	bc
+ 1240 000f C0                      		pop	ax
+ 1241 0010 61 FC                   		reti
+ 1242                             	.LFE38:
+ 1244                             		.section	.text.INT_FL,"ax",@progbits
+ 1245                             		.global	_INT_FL
+ 1247                             	_INT_FL:
+ 1248                             	.LFB39:
+ 219:../core/inthandler.c **** 
+ 220:../core/inthandler.c **** /*
+ 221:../core/inthandler.c ****  * INT_FL (0x62)
+ 222:../core/inthandler.c ****  */
+ 223:../core/inthandler.c **** void INT_FL (void) { }
+ 1249                             		.loc 1 223 0
+ 1250                             		; start of function
+ 1251                             		; push 8: ax bc de hl
+ 1252                             		; uses ES register
+ 1253 0000 61 CF                   		sel	rb0
+ 1254 0002 C1                      		push	ax
+ 1255                             	.LCFI195:
+ 1256 0003 C3                      		push	bc
+ 1257                             	.LCFI196:
+ 1258 0004 C5                      		push	de
+ 1259                             	.LCFI197:
+ 1260 0005 C7                      		push	hl
+ 1261                             	.LCFI198:
+ 1262 0006 8E FD                   		mov	a, es
+ 1263 0008 C1                      		push	ax
+ 1264                             	.LCFI199:
+ 1265                             		.loc 1 223 0
+ 1266 0009 C0                      		pop	ax
+ 1267 000a 9E FD                   		mov	es, a
+ 1268 000c C6                      		pop	hl
+ 1269 000d C4                      		pop	de
+ 1270 000e C2                      		pop	bc
+ 1271 000f C0                      		pop	ax
+ 1272 0010 61 FC                   		reti
+ 1273                             	.LFE39:
+ 1275                             		.section	.text.INT_BRK_I,"ax",@progbits
+ 1276                             		.global	_INT_BRK_I
+ 1278                             	_INT_BRK_I:
+ 1279                             	.LFB40:
+ 224:../core/inthandler.c **** 
+ 225:../core/inthandler.c **** /*
+ 226:../core/inthandler.c ****  * INT_BRK_I (0x7E)
+ 227:../core/inthandler.c ****  */
+ 228:../core/inthandler.c **** void INT_BRK_I (void) { }
+ 1280                             		.loc 1 228 0
+ 1281                             		; start of function
+ 1282                             		; push 8: ax bc de hl
+ 1283                             		; uses ES register
+ 1284 0000 61 CF                   		sel	rb0
+ 1285 0002 C1                      		push	ax
+ 1286                             	.LCFI200:
+ 1287 0003 C3                      		push	bc
+ 1288                             	.LCFI201:
+ 1289 0004 C5                      		push	de
+ 1290                             	.LCFI202:
+ 1291 0005 C7                      		push	hl
+ 1292                             	.LCFI203:
+ 1293 0006 8E FD                   		mov	a, es
+ 1294 0008 C1                      		push	ax
+ 1295                             	.LCFI204:
+ 1296                             		.loc 1 228 0
+ 1297 0009 C0                      		pop	ax
+ 1298 000a 9E FD                   		mov	es, a
+ 1299 000c C6                      		pop	hl
+ 1300 000d C4                      		pop	de
+ 1301 000e C2                      		pop	bc
+ 1302 000f C0                      		pop	ax
+ 1303 0010 61 FC                   		reti
+ 1304                             	.LFE40:
+ 2882                             	.Letext0:
