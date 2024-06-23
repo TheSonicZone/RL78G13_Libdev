@@ -1,3 +1,5 @@
 /.metadata/
 *.lst
 *.map
+/RL78_LibDev/HardwareDebug/RL78_LibDev.lst
+/RL78_LibDev/HardwareDebug/RL78_LibDev.map

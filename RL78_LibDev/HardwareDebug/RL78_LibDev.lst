@@ -68,73 +68,72 @@
   29:../src/RL78_LibDev.c **** int main(void){
   41                             		.loc 1 29 0
   42                             		; start of function
-  43                             		; locals: 2 bytes
-  44                             		; outgoing: 4 bytes
-  45                             		; uses ES register
-  46 0000 20 06                   		subw	sp, #6
-  47                             	.LCFI0:
+  43                             		; outgoing: 4 bytes
+  44                             		; uses ES register
+  45 0000 20 04                   		subw	sp, #4
+  46                             	.LCFI0:
   30:../src/RL78_LibDev.c **** 	uint8_t ITIFValue;
   31:../src/RL78_LibDev.c **** 
   32:../src/RL78_LibDev.c **** 	// System Initialisation
   33:../src/RL78_LibDev.c **** 	asm("DI");											// Ensure interrupts are disabled
-  48                             		.loc 1 33 0
-  49                             	 ; 33 "../src/RL78_LibDev.c" 1
-  50 0002 71 7B FA                		DI
-  51                             	 ; 0 "" 2
+  47                             		.loc 1 33 0
+  48                             	 ; 33 "../src/RL78_LibDev.c" 1
+  49 0002 71 7B FA                		DI
+  50                             	 ; 0 "" 2
   34:../src/RL78_LibDev.c **** 	InitClockSystem(X1_HIGHSPEED, XT1_NORMAL);
-  52                             		.loc 1 34 0
-  53 0005 51 02                   		mov	a, #2
-  54 0007 98 00                   		mov	[sp], a
-  55 0009 51 02                   		mov	a, #2
-  56 000b 98 02                   		mov	[sp+2], a
-  57 000d FC 00 00 00             		call	!!%code(_InitClockSystem)
+  51                             		.loc 1 34 0
+  52 0005 51 02                   		mov	a, #2
+  53 0007 98 00                   		mov	[sp], a
+  54 0009 51 02                   		mov	a, #2
+  55 000b 98 02                   		mov	[sp+2], a
+  56 000d FC 00 00 00             		call	!!%code(_InitClockSystem)
   35:../src/RL78_LibDev.c **** 	SetCPUClockX1();
-  58                             		.loc 1 35 0
-  59 0011 FC 00 00 00             		call	!!%code(_SetCPUClockX1)
+  57                             		.loc 1 35 0
+  58 0011 FC 00 00 00             		call	!!%code(_SetCPUClockX1)
   36:../src/RL78_LibDev.c **** 
   37:../src/RL78_LibDev.c **** 	// Peripheral Initialisation
   38:../src/RL78_LibDev.c **** 	//--------------------------
   39:../src/RL78_LibDev.c **** 	InitIntervalTimer(3000);
-  60                             		.loc 1 39 0
-  61 0015 30 B8 0B                		movw	ax, #3000
-  62 0018 B8 00                   		movw	[sp], ax
-  63 001a FC 00 00 00             		call	!!%code(_InitIntervalTimer)
+  59                             		.loc 1 39 0
+  60 0015 30 B8 0B                		movw	ax, #3000
+  61 0018 B8 00                   		movw	[sp], ax
+  62 001a FC 00 00 00             		call	!!%code(_InitIntervalTimer)
   40:../src/RL78_LibDev.c **** 
   41:../src/RL78_LibDev.c **** 	// GPIO Initalisation
   42:../src/RL78_LibDev.c **** 	LED01_PIN = 0; // Make Pin as O/P
-  64                             		.loc 1 42 0
-  65 001e C9 F0 24 FF             		movw	r8, #-220
-  66 0022 AD F0                   		movw	ax, r8
-  67 0024 BD F4                   		movw	r12, ax
-  68 0026 FA F4                   		movw	hl, r12
-  69 0028 8B                      		mov	a, [hl]
-  70 0029 9D F2                   		mov	r10, a
-  71 002b 5A F2 F7                		and	r10, #-9
-  72 002e AD F0                   		movw	ax, r8
-  73 0030 EA F4                   		movw	de, r12
-  74 0032 8D F2                   		mov	a, r10
-  75 0034 99                      		mov	[de], a
+  63                             		.loc 1 42 0
+  64 001e C9 F0 24 FF             		movw	r8, #-220
+  65 0022 AD F0                   		movw	ax, r8
+  66 0024 BD F4                   		movw	r12, ax
+  67 0026 FA F4                   		movw	hl, r12
+  68 0028 8B                      		mov	a, [hl]
+  69 0029 9D F2                   		mov	r10, a
+  70 002b 5A F2 F7                		and	r10, #-9
+  71 002e AD F0                   		movw	ax, r8
+  72 0030 EA F4                   		movw	de, r12
+  73 0032 8D F2                   		mov	a, r10
+  74 0034 99                      		mov	[de], a
   43:../src/RL78_LibDev.c **** 	LED01 = 0; // Turn LED ON
-  76                             		.loc 1 43 0
-  77 0035 C9 F0 04 FF             		movw	r8, #-252
-  78 0039 AD F0                   		movw	ax, r8
-  79 003b BD F4                   		movw	r12, ax
-  80 003d FA F4                   		movw	hl, r12
-  81 003f 8B                      		mov	a, [hl]
-  82 0040 9D F2                   		mov	r10, a
-  83 0042 5A F2 F7                		and	r10, #-9
-  84 0045 AD F0                   		movw	ax, r8
-  85 0047 EA F4                   		movw	de, r12
-  86 0049 8D F2                   		mov	a, r10
-  87 004b 99                      		mov	[de], a
+  75                             		.loc 1 43 0
+  76 0035 C9 F0 04 FF             		movw	r8, #-252
+  77 0039 AD F0                   		movw	ax, r8
+  78 003b BD F4                   		movw	r12, ax
+  79 003d FA F4                   		movw	hl, r12
+  80 003f 8B                      		mov	a, [hl]
+  81 0040 9D F2                   		mov	r10, a
+  82 0042 5A F2 F7                		and	r10, #-9
+  83 0045 AD F0                   		movw	ax, r8
+  84 0047 EA F4                   		movw	de, r12
+  85 0049 8D F2                   		mov	a, r10
+  86 004b 99                      		mov	[de], a
   44:../src/RL78_LibDev.c **** 
   45:../src/RL78_LibDev.c **** 	// Globally enable interrupts
   46:../src/RL78_LibDev.c **** 	asm("EI");
-  88                             		.loc 1 46 0
-  89                             	 ; 46 "../src/RL78_LibDev.c" 1
-  90 004c 71 7A FA                		EI
-  91                             	 ; 0 "" 2
-  92                             	.L2:
+  87                             		.loc 1 46 0
+  88                             	 ; 46 "../src/RL78_LibDev.c" 1
+  89 004c 71 7A FA                		EI
+  90                             	 ; 0 "" 2
+  91                             	.L2:
   47:../src/RL78_LibDev.c **** 
   48:../src/RL78_LibDev.c **** 	// Simple loop to test clocks etc...
   49:../src/RL78_LibDev.c **** 
@@ -142,15 +141,7 @@
   51:../src/RL78_LibDev.c **** 
   52:../src/RL78_LibDev.c **** 		// Flash LED by polling the interrupt flags
   53:../src/RL78_LibDev.c **** 		// User manual doesn't say you can do this but you can
-  54:../src/RL78_LibDev.c **** 		ITIFValue = IF1H;
-  93                             		.loc 1 54 0 discriminator 1
-  94 004f C9 F0 E3 FF             		movw	r8, #-29
-  95 0053 AD F0                   		movw	ax, r8
-  96 0055 BD F2                   		movw	r10, ax
-  97 0057 FA F2                   		movw	hl, r10
-  98 0059 8B                      		mov	a, [hl]
-  99 005a 9D F0                   		mov	r8, a
- 100 005c 98 05                   		mov	[sp+5], a
+  54:../src/RL78_LibDev.c **** 		//ITIFValue = IF1H;
   55:../src/RL78_LibDev.c **** 		//if((ITIFValue & 0x04) == 0x04){
   56:../src/RL78_LibDev.c **** 		//	LED01 = ~LED01;
   57:../src/RL78_LibDev.c **** 			//ITIF = 0;
@@ -161,13 +152,13 @@
   62:../src/RL78_LibDev.c **** //		}
   63:../src/RL78_LibDev.c **** 
   64:../src/RL78_LibDev.c **** 	}
- 101                             		.loc 1 64 0 discriminator 1
- 102 005e EC 4F 00 00             		br	!!.L2
- 103                             	.LFE0:
- 105                             		.section	.text.INT_IT,"ax",@progbits
- 106                             		.global	_INT_IT
- 108                             	_INT_IT:
- 109                             	.LFB1:
+  92                             		.loc 1 64 0 discriminator 1
+  93 004f EC 4F 00 00             		br	!!.L2
+  94                             	.LFE0:
+  96                             		.section	.text.INT_IT,"ax",@progbits
+  97                             		.global	_INT_IT
+  99                             	_INT_IT:
+ 100                             	.LFB1:
   65:../src/RL78_LibDev.c **** 	return 0;
   66:../src/RL78_LibDev.c **** }
   67:../src/RL78_LibDev.c **** 
@@ -181,84 +172,84 @@
   75:../src/RL78_LibDev.c **** 
   76:../src/RL78_LibDev.c **** // INT_IT interupt - Interval timer
   77:../src/RL78_LibDev.c **** void INT_IT (void){
- 110                             		.loc 1 77 0
- 111                             		; start of function
- 112                             		; push 14: ax bc de hl r8 r10 r12
- 113                             		; uses ES register
- 114 0000 61 CF                   		sel	rb0
- 115 0002 C1                      		push	ax
- 116                             	.LCFI1:
- 117 0003 C3                      		push	bc
- 118                             	.LCFI2:
- 119 0004 C5                      		push	de
- 120                             	.LCFI3:
- 121 0005 C7                      		push	hl
- 122                             	.LCFI4:
- 123 0006 61 DF                   		sel	rb1
- 124 0008 C1                      		push	ax ; r8
- 125                             	.LCFI5:
- 126 0009 C3                      		push	bc ; r10
- 127                             	.LCFI6:
- 128 000a C5                      		push	de ; r12
- 129                             	.LCFI7:
- 130 000b 61 CF                   		sel	rb0
- 131 000d 8E FD                   		mov	a, es
- 132 000f C1                      		push	ax
- 133                             	.LCFI8:
+ 101                             		.loc 1 77 0
+ 102                             		; start of function
+ 103                             		; push 14: ax bc de hl r8 r10 r12
+ 104                             		; uses ES register
+ 105 0000 61 CF                   		sel	rb0
+ 106 0002 C1                      		push	ax
+ 107                             	.LCFI1:
+ 108 0003 C3                      		push	bc
+ 109                             	.LCFI2:
+ 110 0004 C5                      		push	de
+ 111                             	.LCFI3:
+ 112 0005 C7                      		push	hl
+ 113                             	.LCFI4:
+ 114 0006 61 DF                   		sel	rb1
+ 115 0008 C1                      		push	ax ; r8
+ 116                             	.LCFI5:
+ 117 0009 C3                      		push	bc ; r10
+ 118                             	.LCFI6:
+ 119 000a C5                      		push	de ; r12
+ 120                             	.LCFI7:
+ 121 000b 61 CF                   		sel	rb0
+ 122 000d 8E FD                   		mov	a, es
+ 123 000f C1                      		push	ax
+ 124                             	.LCFI8:
   78:../src/RL78_LibDev.c **** 	LED01 = ~LED01;
- 134                             		.loc 1 78 0
- 135 0010 C9 F2 04 FF             		movw	r10, #-252
- 136 0014 C9 F0 04 FF             		movw	r8, #-252
- 137 0018 AD F0                   		movw	ax, r8
- 138 001a BD F4                   		movw	r12, ax
- 139 001c FA F4                   		movw	hl, r12
- 140 001e 8B                      		mov	a, [hl]
- 141 001f 9D F0                   		mov	r8, a
- 142 0021 31 3A                   		shr	a, 3
- 143 0023 9D F0                   		mov	r8, a
- 144 0025 5A F0 01                		and	r8, #1
- 145 0028 7A F0 FF                		xor	r8, #-1
- 146 002b 5A F0 01                		and	r8, #1
- 147 002e 5A F0 01                		and	r8, #1
- 148 0031 8D F0                   		mov	a, r8
- 149 0033 31 39                   		shl	a, 3
- 150 0035 9D F0                   		mov	r8, a
- 151 0037 AD F2                   		movw	ax, r10
- 152 0039 BD F4                   		movw	r12, ax
- 153 003b FA F4                   		movw	hl, r12
- 154 003d 8B                      		mov	a, [hl]
- 155 003e 9D F1                   		mov	r9, a
- 156 0040 5A F1 F7                		and	r9, #-9
- 157 0043 8D F1                   		mov	a, r9
- 158 0045 6B F0                   		or	a, r8
- 159 0047 9D F0                   		mov	r8, a
- 160 0049 AD F2                   		movw	ax, r10
- 161 004b EA F4                   		movw	de, r12
- 162 004d 8D F0                   		mov	a, r8
- 163 004f 99                      		mov	[de], a
+ 125                             		.loc 1 78 0
+ 126 0010 C9 F2 04 FF             		movw	r10, #-252
+ 127 0014 C9 F0 04 FF             		movw	r8, #-252
+ 128 0018 AD F0                   		movw	ax, r8
+ 129 001a BD F4                   		movw	r12, ax
+ 130 001c FA F4                   		movw	hl, r12
+ 131 001e 8B                      		mov	a, [hl]
+ 132 001f 9D F0                   		mov	r8, a
+ 133 0021 31 3A                   		shr	a, 3
+ 134 0023 9D F0                   		mov	r8, a
+ 135 0025 5A F0 01                		and	r8, #1
+ 136 0028 7A F0 FF                		xor	r8, #-1
+ 137 002b 5A F0 01                		and	r8, #1
+ 138 002e 5A F0 01                		and	r8, #1
+ 139 0031 8D F0                   		mov	a, r8
+ 140 0033 31 39                   		shl	a, 3
+ 141 0035 9D F0                   		mov	r8, a
+ 142 0037 AD F2                   		movw	ax, r10
+ 143 0039 BD F4                   		movw	r12, ax
+ 144 003b FA F4                   		movw	hl, r12
+ 145 003d 8B                      		mov	a, [hl]
+ 146 003e 9D F1                   		mov	r9, a
+ 147 0040 5A F1 F7                		and	r9, #-9
+ 148 0043 8D F1                   		mov	a, r9
+ 149 0045 6B F0                   		or	a, r8
+ 150 0047 9D F0                   		mov	r8, a
+ 151 0049 AD F2                   		movw	ax, r10
+ 152 004b EA F4                   		movw	de, r12
+ 153 004d 8D F0                   		mov	a, r8
+ 154 004f 99                      		mov	[de], a
   79:../src/RL78_LibDev.c **** 	asm("nop");
- 164                             		.loc 1 79 0
- 165                             	 ; 79 "../src/RL78_LibDev.c" 1
- 166 0050 00                      		nop
- 167                             	 ; 0 "" 2
+ 155                             		.loc 1 79 0
+ 156                             	 ; 79 "../src/RL78_LibDev.c" 1
+ 157 0050 00                      		nop
+ 158                             	 ; 0 "" 2
   80:../src/RL78_LibDev.c **** 
   81:../src/RL78_LibDev.c **** }
- 168                             		.loc 1 81 0
- 169 0051 C0                      		pop	ax
- 170 0052 9E FD                   		mov	es, a
- 171 0054 61 DF                   		sel	rb1
- 172 0056 C4                      		pop	de ; r12
- 173 0057 C2                      		pop	bc ; r10
- 174 0058 C0                      		pop	ax ; r8
- 175 0059 61 CF                   		sel	rb0
- 176 005b C6                      		pop	hl
- 177 005c C4                      		pop	de
- 178 005d C2                      		pop	bc
- 179 005e C0                      		pop	ax
- 180 005f 61 FC                   		reti
- 181                             	.LFE1:
- 269                             	.Letext0:
- 270                             		.file 2 "../src/../core/iodefine.h"
- 271                             		.file 3 "../src/../core/rl78_clock_sys.h"
- 272                             		.file 4 "c:\\programdata\\gcc for renesas rl78 4.9.2.202201-gnurl78-elf\\rl78-elf\\rl78-elf\\rl78-
- 273                             		.file 5 "c:\\programdata\\gcc for renesas rl78 4.9.2.202201-gnurl78-elf\\rl78-elf\\rl78-elf\\rl78-
+ 159                             		.loc 1 81 0
+ 160 0051 C0                      		pop	ax
+ 161 0052 9E FD                   		mov	es, a
+ 162 0054 61 DF                   		sel	rb1
+ 163 0056 C4                      		pop	de ; r12
+ 164 0057 C2                      		pop	bc ; r10
+ 165 0058 C0                      		pop	ax ; r8
+ 166 0059 61 CF                   		sel	rb0
+ 167 005b C6                      		pop	hl
+ 168 005c C4                      		pop	de
+ 169 005d C2                      		pop	bc
+ 170 005e C0                      		pop	ax
+ 171 005f 61 FC                   		reti
+ 172                             	.LFE1:
+ 260                             	.Letext0:
+ 261                             		.file 2 "../src/../core/iodefine.h"
+ 262                             		.file 3 "../src/../core/rl78_clock_sys.h"
+ 263                             		.file 4 "c:\\programdata\\gcc for renesas rl78 4.9.2.202201-gnurl78-elf\\rl78-elf\\rl78-elf\\rl78-
+ 264                             		.file 5 "c:\\programdata\\gcc for renesas rl78 4.9.2.202201-gnurl78-elf\\rl78-elf\\rl78-elf\\rl78-

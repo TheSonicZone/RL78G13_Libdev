@@ -51,7 +51,7 @@ int main(void){
 
 		// Flash LED by polling the interrupt flags
 		// User manual doesn't say you can do this but you can
-		ITIFValue = IF1H;
+		//ITIFValue = IF1H;
 		//if((ITIFValue & 0x04) == 0x04){
 		//	LED01 = ~LED01;
 			//ITIF = 0;
