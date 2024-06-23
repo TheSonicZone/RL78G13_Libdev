@@ -50,6 +50,7 @@ void InitIntervalTimer(uint16_t period){
 	ITIF = 0;								// Clear interrupt flag
 
 	// If interrupts are desired, unmask the interrupt for this peripheral
+	ITMK = 0;								// Enable interrupts
 
 }
 

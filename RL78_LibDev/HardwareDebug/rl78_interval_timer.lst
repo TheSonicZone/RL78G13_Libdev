@@ -161,14 +161,27 @@
  112 0079 99                      		mov	[de], a
   51:../RL78StdPeriphLib/rl78_interval_timer.c **** 
   52:../RL78StdPeriphLib/rl78_interval_timer.c **** 	// If interrupts are desired, unmask the interrupt for this peripheral
-  53:../RL78StdPeriphLib/rl78_interval_timer.c **** 
-  54:../RL78StdPeriphLib/rl78_interval_timer.c **** }
- 113                             		.loc 1 54 0
- 114 007a 10 04                   		addw	sp, #4
- 115 007c D7                      		ret
- 116                             	.LFE0:
- 148                             	.Letext0:
- 149                             		.file 2 "c:\\programdata\\gcc for renesas rl78 4.9.2.202201-gnurl78-elf\\rl78-elf\\rl78-elf\\rl78-
- 150                             		.file 3 "c:\\programdata\\gcc for renesas rl78 4.9.2.202201-gnurl78-elf\\rl78-elf\\rl78-elf\\rl78-
- 151                             		.file 4 "../RL78StdPeriphLib/../core/iodefine.h"
- 152                             		.file 5 "../RL78StdPeriphLib/../core/iodefine_ext.h"
+  53:../RL78StdPeriphLib/rl78_interval_timer.c **** 	ITMK = 0;								// Enable interrupts
+ 113                             		.loc 1 53 0
+ 114 007a C9 F0 E7 FF             		movw	r8, #-25
+ 115 007e AD F0                   		movw	ax, r8
+ 116 0080 BD F4                   		movw	r12, ax
+ 117 0082 FA F4                   		movw	hl, r12
+ 118 0084 8B                      		mov	a, [hl]
+ 119 0085 9D F2                   		mov	r10, a
+ 120 0087 5A F2 FB                		and	r10, #-5
+ 121 008a AD F0                   		movw	ax, r8
+ 122 008c EA F4                   		movw	de, r12
+ 123 008e 8D F2                   		mov	a, r10
+ 124 0090 99                      		mov	[de], a
+  54:../RL78StdPeriphLib/rl78_interval_timer.c **** 
+  55:../RL78StdPeriphLib/rl78_interval_timer.c **** }
+ 125                             		.loc 1 55 0
+ 126 0091 10 04                   		addw	sp, #4
+ 127 0093 D7                      		ret
+ 128                             	.LFE0:
+ 160                             	.Letext0:
+ 161                             		.file 2 "c:\\programdata\\gcc for renesas rl78 4.9.2.202201-gnurl78-elf\\rl78-elf\\rl78-elf\\rl78-
+ 162                             		.file 3 "c:\\programdata\\gcc for renesas rl78 4.9.2.202201-gnurl78-elf\\rl78-elf\\rl78-elf\\rl78-
+ 163                             		.file 4 "../RL78StdPeriphLib/../core/iodefine.h"
+ 164                             		.file 5 "../RL78StdPeriphLib/../core/iodefine_ext.h"

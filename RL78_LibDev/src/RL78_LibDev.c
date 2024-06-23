@@ -42,6 +42,9 @@ int main(void){
 	LED01_PIN = 0; // Make Pin as O/P
 	LED01 = 0; // Turn LED ON
 
+	// Globally enable interrupts
+	asm("EI");
+
 	// Simple loop to test clocks etc...
 
 	while(1){
@@ -49,10 +52,10 @@ int main(void){
 		// Flash LED by polling the interrupt flags
 		// User manual doesn't say you can do this but you can
 		ITIFValue = IF1H;
-		if((ITIFValue & 0x04) == 0x04){
-			LED01 = ~LED01;
-			ITIF = 0;
-		}
+		//if((ITIFValue & 0x04) == 0x04){
+		//	LED01 = ~LED01;
+			//ITIF = 0;
+		//}
 //		LED01 = ~LED01; // toggle LED
 //		for(Count = 0; Count < 10000; Count++);{
 //			asm("nop"); // do nothing
@@ -67,9 +70,13 @@ int main(void){
 // Interrupt Handlers
 //----------------------------------------------------------------------------------------------------
 
-// definition of this function in inthander.c I changed to weak attribute so that it can be overriden
-void INT_IT (void){
+// definition of this function in inthander.c I changed to weak attribute so that it can be overridden
 
+
+// INT_IT interupt - Interval timer
+void INT_IT (void){
+	LED01 = ~LED01;
+	asm("nop");
 
 }
 

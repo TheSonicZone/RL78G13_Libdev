@@ -109,128 +109,128 @@ LOAD c:/programdata/gcc for renesas rl78 4.9.2.202201-gnurl78-elf/rl78-elf/rl78-
                 0x00000000000000d8                . = ALIGN (0x2)
                 0x00000000000000d8                _mdata = .
 
-.text           0x00000000000000d8      0x6d4
+.text           0x00000000000000d8      0x6d2
  *(.text)
  .text          0x00000000000000d8       0x60 ./core/start.o
                 0x00000000000000d8                _rl78_fini
                 0x00000000000000da                PowerON_Reset
                 0x0000000000000136                exit
  *(.text.*)
- .text.main     0x0000000000000138       0xca ./src/RL78_LibDev.o
+ .text.main     0x0000000000000138       0x62 ./src/RL78_LibDev.o
                 0x0000000000000138                main
- .text.INT_IT   0x0000000000000202       0x12 ./src/RL78_LibDev.o
-                0x0000000000000202                INT_IT
+ .text.INT_IT   0x000000000000019a       0x61 ./src/RL78_LibDev.o
+                0x000000000000019a                INT_IT
  .text.HardwareSetup
-                0x0000000000000214        0x1 ./core/hwinit.o
-                0x0000000000000214                HardwareSetup
+                0x00000000000001fb        0x1 ./core/hwinit.o
+                0x00000000000001fb                HardwareSetup
  .text.INT_WDTI
-                0x0000000000000215       0x12 ./core/inthandler.o
-                0x0000000000000215                INT_WDTI
- .text.INT_LVI  0x0000000000000227       0x12 ./core/inthandler.o
-                0x0000000000000227                INT_LVI
- .text.INT_P0   0x0000000000000239       0x12 ./core/inthandler.o
-                0x0000000000000239                INT_P0
- .text.INT_P1   0x000000000000024b       0x12 ./core/inthandler.o
-                0x000000000000024b                INT_P1
- .text.INT_P2   0x000000000000025d       0x12 ./core/inthandler.o
-                0x000000000000025d                INT_P2
- .text.INT_P3   0x000000000000026f       0x12 ./core/inthandler.o
-                0x000000000000026f                INT_P3
- .text.INT_P4   0x0000000000000281       0x12 ./core/inthandler.o
-                0x0000000000000281                INT_P4
- .text.INT_P5   0x0000000000000293       0x12 ./core/inthandler.o
-                0x0000000000000293                INT_P5
- .text.INT_ST2  0x00000000000002a5       0x12 ./core/inthandler.o
-                0x00000000000002a5                INT_ST2
- .text.INT_SR2  0x00000000000002b7       0x12 ./core/inthandler.o
-                0x00000000000002b7                INT_SR2
+                0x00000000000001fc       0x12 ./core/inthandler.o
+                0x00000000000001fc                INT_WDTI
+ .text.INT_LVI  0x000000000000020e       0x12 ./core/inthandler.o
+                0x000000000000020e                INT_LVI
+ .text.INT_P0   0x0000000000000220       0x12 ./core/inthandler.o
+                0x0000000000000220                INT_P0
+ .text.INT_P1   0x0000000000000232       0x12 ./core/inthandler.o
+                0x0000000000000232                INT_P1
+ .text.INT_P2   0x0000000000000244       0x12 ./core/inthandler.o
+                0x0000000000000244                INT_P2
+ .text.INT_P3   0x0000000000000256       0x12 ./core/inthandler.o
+                0x0000000000000256                INT_P3
+ .text.INT_P4   0x0000000000000268       0x12 ./core/inthandler.o
+                0x0000000000000268                INT_P4
+ .text.INT_P5   0x000000000000027a       0x12 ./core/inthandler.o
+                0x000000000000027a                INT_P5
+ .text.INT_ST2  0x000000000000028c       0x12 ./core/inthandler.o
+                0x000000000000028c                INT_ST2
+ .text.INT_SR2  0x000000000000029e       0x12 ./core/inthandler.o
+                0x000000000000029e                INT_SR2
  .text.INT_SRE2
-                0x00000000000002c9       0x12 ./core/inthandler.o
-                0x00000000000002c9                INT_SRE2
+                0x00000000000002b0       0x12 ./core/inthandler.o
+                0x00000000000002b0                INT_SRE2
  .text.INT_DMA0
-                0x00000000000002db       0x12 ./core/inthandler.o
-                0x00000000000002db                INT_DMA0
+                0x00000000000002c2       0x12 ./core/inthandler.o
+                0x00000000000002c2                INT_DMA0
  .text.INT_DMA1
-                0x00000000000002ed       0x12 ./core/inthandler.o
-                0x00000000000002ed                INT_DMA1
- .text.INT_ST0  0x00000000000002ff       0x12 ./core/inthandler.o
-                0x00000000000002ff                INT_ST0
- .text.INT_SR0  0x0000000000000311       0x12 ./core/inthandler.o
-                0x0000000000000311                INT_SR0
+                0x00000000000002d4       0x12 ./core/inthandler.o
+                0x00000000000002d4                INT_DMA1
+ .text.INT_ST0  0x00000000000002e6       0x12 ./core/inthandler.o
+                0x00000000000002e6                INT_ST0
+ .text.INT_SR0  0x00000000000002f8       0x12 ./core/inthandler.o
+                0x00000000000002f8                INT_SR0
  .text.INT_TM01H
-                0x0000000000000323       0x12 ./core/inthandler.o
-                0x0000000000000323                INT_TM01H
- .text.INT_ST1  0x0000000000000335       0x12 ./core/inthandler.o
-                0x0000000000000335                INT_ST1
- .text.INT_SR1  0x0000000000000347       0x12 ./core/inthandler.o
-                0x0000000000000347                INT_SR1
+                0x000000000000030a       0x12 ./core/inthandler.o
+                0x000000000000030a                INT_TM01H
+ .text.INT_ST1  0x000000000000031c       0x12 ./core/inthandler.o
+                0x000000000000031c                INT_ST1
+ .text.INT_SR1  0x000000000000032e       0x12 ./core/inthandler.o
+                0x000000000000032e                INT_SR1
  .text.INT_TM03H
-                0x0000000000000359       0x12 ./core/inthandler.o
-                0x0000000000000359                INT_TM03H
+                0x0000000000000340       0x12 ./core/inthandler.o
+                0x0000000000000340                INT_TM03H
  .text.INT_IICA0
-                0x000000000000036b       0x12 ./core/inthandler.o
-                0x000000000000036b                INT_IICA0
+                0x0000000000000352       0x12 ./core/inthandler.o
+                0x0000000000000352                INT_IICA0
  .text.INT_TM00
-                0x000000000000037d       0x12 ./core/inthandler.o
-                0x000000000000037d                INT_TM00
+                0x0000000000000364       0x12 ./core/inthandler.o
+                0x0000000000000364                INT_TM00
  .text.INT_TM01
-                0x000000000000038f       0x12 ./core/inthandler.o
-                0x000000000000038f                INT_TM01
+                0x0000000000000376       0x12 ./core/inthandler.o
+                0x0000000000000376                INT_TM01
  .text.INT_TM02
-                0x00000000000003a1       0x12 ./core/inthandler.o
-                0x00000000000003a1                INT_TM02
+                0x0000000000000388       0x12 ./core/inthandler.o
+                0x0000000000000388                INT_TM02
  .text.INT_TM03
-                0x00000000000003b3       0x12 ./core/inthandler.o
-                0x00000000000003b3                INT_TM03
- .text.INT_AD   0x00000000000003c5       0x12 ./core/inthandler.o
-                0x00000000000003c5                INT_AD
- .text.INT_RTC  0x00000000000003d7       0x12 ./core/inthandler.o
-                0x00000000000003d7                INT_RTC
- .text.INT_KR   0x00000000000003e9       0x12 ./core/inthandler.o
-                0x00000000000003e9                INT_KR
+                0x000000000000039a       0x12 ./core/inthandler.o
+                0x000000000000039a                INT_TM03
+ .text.INT_AD   0x00000000000003ac       0x12 ./core/inthandler.o
+                0x00000000000003ac                INT_AD
+ .text.INT_RTC  0x00000000000003be       0x12 ./core/inthandler.o
+                0x00000000000003be                INT_RTC
+ .text.INT_KR   0x00000000000003d0       0x12 ./core/inthandler.o
+                0x00000000000003d0                INT_KR
  .text.INT_TM04
-                0x00000000000003fb       0x12 ./core/inthandler.o
-                0x00000000000003fb                INT_TM04
+                0x00000000000003e2       0x12 ./core/inthandler.o
+                0x00000000000003e2                INT_TM04
  .text.INT_TM05
-                0x000000000000040d       0x12 ./core/inthandler.o
-                0x000000000000040d                INT_TM05
+                0x00000000000003f4       0x12 ./core/inthandler.o
+                0x00000000000003f4                INT_TM05
  .text.INT_TM06
-                0x000000000000041f       0x12 ./core/inthandler.o
-                0x000000000000041f                INT_TM06
+                0x0000000000000406       0x12 ./core/inthandler.o
+                0x0000000000000406                INT_TM06
  .text.INT_TM07
-                0x0000000000000431       0x12 ./core/inthandler.o
-                0x0000000000000431                INT_TM07
- .text.INT_P6   0x0000000000000443       0x12 ./core/inthandler.o
-                0x0000000000000443                INT_P6
- .text.INT_P7   0x0000000000000455       0x12 ./core/inthandler.o
-                0x0000000000000455                INT_P7
- .text.INT_P8   0x0000000000000467       0x12 ./core/inthandler.o
-                0x0000000000000467                INT_P8
- .text.INT_P9   0x0000000000000479       0x12 ./core/inthandler.o
-                0x0000000000000479                INT_P9
- .text.INT_P10  0x000000000000048b       0x12 ./core/inthandler.o
-                0x000000000000048b                INT_P10
- .text.INT_P11  0x000000000000049d       0x12 ./core/inthandler.o
-                0x000000000000049d                INT_P11
- .text.INT_MD   0x00000000000004af       0x12 ./core/inthandler.o
-                0x00000000000004af                INT_MD
- .text.INT_FL   0x00000000000004c1       0x12 ./core/inthandler.o
-                0x00000000000004c1                INT_FL
+                0x0000000000000418       0x12 ./core/inthandler.o
+                0x0000000000000418                INT_TM07
+ .text.INT_P6   0x000000000000042a       0x12 ./core/inthandler.o
+                0x000000000000042a                INT_P6
+ .text.INT_P7   0x000000000000043c       0x12 ./core/inthandler.o
+                0x000000000000043c                INT_P7
+ .text.INT_P8   0x000000000000044e       0x12 ./core/inthandler.o
+                0x000000000000044e                INT_P8
+ .text.INT_P9   0x0000000000000460       0x12 ./core/inthandler.o
+                0x0000000000000460                INT_P9
+ .text.INT_P10  0x0000000000000472       0x12 ./core/inthandler.o
+                0x0000000000000472                INT_P10
+ .text.INT_P11  0x0000000000000484       0x12 ./core/inthandler.o
+                0x0000000000000484                INT_P11
+ .text.INT_MD   0x0000000000000496       0x12 ./core/inthandler.o
+                0x0000000000000496                INT_MD
+ .text.INT_FL   0x00000000000004a8       0x12 ./core/inthandler.o
+                0x00000000000004a8                INT_FL
  .text.INT_BRK_I
-                0x00000000000004d3       0x12 ./core/inthandler.o
-                0x00000000000004d3                INT_BRK_I
+                0x00000000000004ba       0x12 ./core/inthandler.o
+                0x00000000000004ba                INT_BRK_I
  .text.SetCPUClockX1
-                0x00000000000004e5       0x46 ./core/rl78_clock_sys.o
-                0x00000000000004e5                SetCPUClockX1
+                0x00000000000004cc       0x46 ./core/rl78_clock_sys.o
+                0x00000000000004cc                SetCPUClockX1
  .text.InitClockSystem
-                0x000000000000052b      0x203 ./core/rl78_clock_sys.o
-                0x000000000000052b                InitClockSystem
+                0x0000000000000512      0x203 ./core/rl78_clock_sys.o
+                0x0000000000000512                InitClockSystem
  .text.InitIntervalTimer
-                0x000000000000072e       0x7d ./RL78StdPeriphLib/rl78_interval_timer.o
-                0x000000000000072e                InitIntervalTimer
-                0x00000000000007ab                etext = .
-                0x00000000000007ac                . = ALIGN (0x2)
- *fill*         0x00000000000007ab        0x1 
+                0x0000000000000715       0x94 ./RL78StdPeriphLib/rl78_interval_timer.o
+                0x0000000000000715                InitIntervalTimer
+                0x00000000000007a9                etext = .
+                0x00000000000007aa                . = ALIGN (0x2)
+ *fill*         0x00000000000007a9        0x1 
                 0x0000000000000000                PROVIDE (__rl78_abs__, 0x0)
 
 .init
@@ -257,11 +257,11 @@ LOAD c:/programdata/gcc for renesas rl78 4.9.2.202201-gnurl78-elf/rl78-elf/rl78-
                 0x0000000000000001                ASSERT (! ((((((SIZEOF (.rodata) <= (__mirror_end - __mirror)) && (SIZEOF (.rodata) > 0x0)) && (ABSOLUTE (__rodata) < __mirror_end)) && (ABSOLUTE (.) > __mirror_end)) && (ADDR (.text) < __rodata))), Error : No room left for const data-the end address exceeds the mirror area. Please move the .text section from lower address to higher address.)
                 0x0000000000000001                ASSERT (! ((((((SIZEOF (.rodata) <= (__mirror_end - __mirror)) && (SIZEOF (.rodata) > 0x0)) && (ABSOLUTE (__rodata) < __mirror_end)) && (ABSOLUTE (.) > __mirror_end)) && (__rodata < ADDR (.text)))), Error : No room left for const data-the end address exceeds the mirror area. Please check the map file.)
 
-.frodata        0x00000000000007ac        0x0
-                0x00000000000007ac                . = ALIGN (0x2)
+.frodata        0x00000000000007aa        0x0
+                0x00000000000007aa                . = ALIGN (0x2)
  *(.frodata)
  *(.frodata.*)
-                0x00000000000007ac                _efrodata = .
+                0x00000000000007aa                _efrodata = .
 
 .eh_frame_hdr
  *(.eh_frame_hdr)
@@ -269,9 +269,9 @@ LOAD c:/programdata/gcc for renesas rl78 4.9.2.202201-gnurl78-elf/rl78-elf/rl78-
 .eh_frame
  *(.eh_frame)
 
-.jcr            0x00000000000007ac        0x0
+.jcr            0x00000000000007aa        0x0
  *(.jcr)
-                0x00000000000007ac                . = ALIGN (0x2)
+                0x00000000000007aa                . = ALIGN (0x2)
 
 .data           0x00000000000fef00        0x0 load address 0x00000000000000d8
                 0x00000000000fef00                . = ALIGN (0x2)
@@ -300,14 +300,14 @@ LOAD c:/programdata/gcc for renesas rl78 4.9.2.202201-gnurl78-elf/rl78-elf/rl78-
                 0x0000000000000001                ASSERT ((_stack > (_end + stack_size)), Error: Too much data - no room left for the stack)
 OUTPUT(RL78_LibDev.elf elf32-rl78)
 
-.debug_frame    0x0000000000000000      0xb4c
- .debug_frame   0x0000000000000000       0x6c ./src/RL78_LibDev.o
- .debug_frame   0x000000000000006c       0x24 ./core/hwinit.o
- .debug_frame   0x0000000000000090      0xa54 ./core/inthandler.o
- .debug_frame   0x0000000000000ae4       0x3c ./core/rl78_clock_sys.o
- .debug_frame   0x0000000000000b20       0x2c ./RL78StdPeriphLib/rl78_interval_timer.o
+.debug_frame    0x0000000000000000      0xb64
+ .debug_frame   0x0000000000000000       0x84 ./src/RL78_LibDev.o
+ .debug_frame   0x0000000000000084       0x24 ./core/hwinit.o
+ .debug_frame   0x00000000000000a8      0xa54 ./core/inthandler.o
+ .debug_frame   0x0000000000000afc       0x3c ./core/rl78_clock_sys.o
+ .debug_frame   0x0000000000000b38       0x2c ./RL78StdPeriphLib/rl78_interval_timer.o
 
-.debug_info     0x0000000000000000      0xa89
+.debug_info     0x0000000000000000      0xaaf
  .debug_info    0x0000000000000000      0x20b ./src/RL78_LibDev.o
  .debug_info    0x000000000000020b       0x37 ./core/hwinit.o
  .debug_info    0x0000000000000242      0x2df ./core/inthandler.o
@@ -315,7 +315,7 @@ OUTPUT(RL78_LibDev.elf elf32-rl78)
  .debug_info    0x0000000000000599      0x250 ./core/rl78_clock_sys.o
  .debug_info    0x00000000000007e9       0x89 ./core/start.o
  .debug_info    0x0000000000000872       0x6e ./core/vects.o
- .debug_info    0x00000000000008e0      0x1a9 ./RL78StdPeriphLib/rl78_interval_timer.o
+ .debug_info    0x00000000000008e0      0x1cf ./RL78StdPeriphLib/rl78_interval_timer.o
 
 .debug_abbrev   0x0000000000000000      0x3ce
  .debug_abbrev  0x0000000000000000      0x108 ./src/RL78_LibDev.o
@@ -352,17 +352,17 @@ OUTPUT(RL78_LibDev.elf elf32-rl78)
  .debug_ranges  0x0000000000000178       0x18 ./core/rl78_clock_sys.o
  .debug_ranges  0x0000000000000190       0x10 ./RL78StdPeriphLib/rl78_interval_timer.o
 
-.debug_line     0x0000000000000000      0xc1b
- .debug_line    0x0000000000000000      0x1bc ./src/RL78_LibDev.o
- .debug_line    0x00000000000001bc       0x47 ./core/hwinit.o
- .debug_line    0x0000000000000203      0x3da ./core/inthandler.o
- .debug_line    0x00000000000005dd       0x31 ./core/option.o
- .debug_line    0x000000000000060e      0x2c4 ./core/rl78_clock_sys.o
- .debug_line    0x00000000000008d2      0x15a ./core/start.o
- .debug_line    0x0000000000000a2c       0x30 ./core/vects.o
- .debug_line    0x0000000000000a5c      0x1bf ./RL78StdPeriphLib/rl78_interval_timer.o
+.debug_line     0x0000000000000000      0xc29
+ .debug_line    0x0000000000000000      0x1c4 ./src/RL78_LibDev.o
+ .debug_line    0x00000000000001c4       0x47 ./core/hwinit.o
+ .debug_line    0x000000000000020b      0x3da ./core/inthandler.o
+ .debug_line    0x00000000000005e5       0x31 ./core/option.o
+ .debug_line    0x0000000000000616      0x2c4 ./core/rl78_clock_sys.o
+ .debug_line    0x00000000000008da      0x15a ./core/start.o
+ .debug_line    0x0000000000000a34       0x30 ./core/vects.o
+ .debug_line    0x0000000000000a64      0x1c5 ./RL78StdPeriphLib/rl78_interval_timer.o
 
-.debug_str      0x0000000000000000      0x512
+.debug_str      0x0000000000000000      0x51a
  .debug_str     0x0000000000000000      0x22c ./src/RL78_LibDev.o
                                         0x26d (size before relaxing)
  .debug_str     0x000000000000022c       0x1f ./core/hwinit.o
@@ -375,8 +375,8 @@ OUTPUT(RL78_LibDev.elf elf32-rl78)
                                         0x2dc (size before relaxing)
  .debug_str     0x0000000000000485       0x20 ./core/vects.o
                                         0x14c (size before relaxing)
- .debug_str     0x00000000000004a5       0x6d ./RL78StdPeriphLib/rl78_interval_timer.o
-                                        0x241 (size before relaxing)
+ .debug_str     0x00000000000004a5       0x75 ./RL78StdPeriphLib/rl78_interval_timer.o
+                                        0x24e (size before relaxing)
 
 .comment        0x0000000000000000       0xa0
  .comment       0x0000000000000000       0xa0 ./src/RL78_LibDev.o
