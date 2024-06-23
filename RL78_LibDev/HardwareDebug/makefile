@@ -12,6 +12,7 @@ RM := rm -rf
 -include sources.mk
 -include src/subdir.mk
 -include core/subdir.mk
+-include RL78StdPeriphLib/subdir.mk
 -include subdir.mk
 -include objects.mk
 

@@ -46,8 +46,12 @@ void InitIntervalTimer(uint16_t period){
 
 	config_value = period & 0x0FFF;			// Mask off the uppermost 4 bits as they are control bits
 	config_value |= RINTE;					// Set RINTE bit to let the timer run
-	ITMC = config_value;
+	ITMC = config_value;					// Timer is started
 	ITIF = 0;								// Clear interrupt flag
 
+	// If interrupts are desired, unmask the interrupt for this peripheral
+
 }
+
+
 

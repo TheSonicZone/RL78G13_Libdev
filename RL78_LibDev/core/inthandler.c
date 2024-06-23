@@ -155,7 +155,7 @@ void INT_RTC (void) { }
 /*
  * INT_IT (0x38)
  */
-void INT_IT (void) { }
+__attribute__((weak)) void INT_IT (void) { }
 
 /*
  * INT_KR (0x3A)

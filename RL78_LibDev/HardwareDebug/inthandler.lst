@@ -940,14 +940,14 @@
  838 0010 61 FC                   		reti
  839                             	.LFE25:
  841                             		.section	.text.INT_IT,"ax",@progbits
- 842                             		.global	_INT_IT
+ 842                             		.weak	_INT_IT
  844                             	_INT_IT:
  845                             	.LFB26:
  154:../core/inthandler.c **** 
  155:../core/inthandler.c **** /*
  156:../core/inthandler.c ****  * INT_IT (0x38)
  157:../core/inthandler.c ****  */
- 158:../core/inthandler.c **** void INT_IT (void) { }
+ 158:../core/inthandler.c **** __attribute__((weak)) void INT_IT (void) { }
  846                             		.loc 1 158 0
  847                             		; start of function
  848                             		; push 8: ax bc de hl
