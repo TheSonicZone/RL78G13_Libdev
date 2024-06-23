@@ -1,0 +1,172 @@
+   1                             	r8	=	0xffef0
+   2                             	r16	=	0xffee8
+   3                             	r24	=	0xffee0
+   4                             	r9	=	0xffef1
+   5                             	r17	=	0xffee9
+   6                             	r25	=	0xffee1
+   7                             	r10	=	0xffef2
+   8                             	r18	=	0xffeea
+   9                             	r26	=	0xffee2
+  10                             	r11	=	0xffef3
+  11                             	r19	=	0xffeeb
+  12                             	r27	=	0xffee3
+  13                             	r12	=	0xffef4
+  14                             	r20	=	0xffeec
+  15                             	r28	=	0xffee4
+  16                             	r13	=	0xffef5
+  17                             	r21	=	0xffeed
+  18                             	r29	=	0xffee5
+  19                             	r14	=	0xffef6
+  20                             	r22	=	0xffeee
+  21                             	r30	=	0xffee6
+  22                             	r15	=	0xffef7
+  23                             	r23	=	0xffeef
+  24                             	r31	=	0xffee7
+  25                             	MDUC	=	0xf00e8
+  26                             	MDAL	=	0xffff0
+  27                             	MDAH	=	0xffff2
+  28                             	MDBL	=	0xffff6
+  29                             	MDBH	=	0xffff4
+  30                             	MDCL	=	0xf00e0
+  31                             	MDCH	=	0xf00e2
+  32                             	.text
+  33                             	.Ltext0:
+  34                             		.section	.text.InitIntervalTimer,"ax",@progbits
+  35                             		.global	_InitIntervalTimer
+  37                             	_InitIntervalTimer:
+  38                             	.LFB0:
+  39                             		.file 1 "../src/rl78_interval_timer.c"
+   1:../src/rl78_interval_timer.c **** //
+   2:../src/rl78_interval_timer.c **** //			Filename: rl78_interval_timer.c
+   3:../src/rl78_interval_timer.c **** //          Library for configuration and usage of interval timer
+   4:../src/rl78_interval_timer.c **** //
+   5:../src/rl78_interval_timer.c **** //			Small portions based on code provided by Renesas Electronics via Appilet
+   6:../src/rl78_interval_timer.c **** //          (changed for ease of use and logical functionality)
+   7:../src/rl78_interval_timer.c **** //
+   8:../src/rl78_interval_timer.c **** //			Copyright (C) 2024  The Sonic Zone (PTY) LTD
+   9:../src/rl78_interval_timer.c **** //
+  10:../src/rl78_interval_timer.c **** //			This program is free software: you can redistribute it and/or modify
+  11:../src/rl78_interval_timer.c **** //			it under the terms of the GNU General Public License as published by
+  12:../src/rl78_interval_timer.c **** //			the Free Software Foundation, either version 3 of the License, or
+  13:../src/rl78_interval_timer.c **** //			(at your option) any later version.
+  14:../src/rl78_interval_timer.c **** //
+  15:../src/rl78_interval_timer.c **** //			This program is distributed in the hope that it will be useful,
+  16:../src/rl78_interval_timer.c **** //			but WITHOUT ANY WARRANTY; without even the implied warranty of
+  17:../src/rl78_interval_timer.c **** //			MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  18:../src/rl78_interval_timer.c **** //			GNU General Public License for more details.
+  19:../src/rl78_interval_timer.c **** //
+  20:../src/rl78_interval_timer.c **** //			You should have received a copy of the GNU General Public License
+  21:../src/rl78_interval_timer.c **** //			along with this program.  If not, see <http://www.gnu.org/licenses/>.
+  22:../src/rl78_interval_timer.c **** //---------------------------------------------------------------------------------------
+  23:../src/rl78_interval_timer.c **** #include <inttypes.h>
+  24:../src/rl78_interval_timer.c **** #include "../core/rl78_g13.h"
+  25:../src/rl78_interval_timer.c **** #include "../core/iodefine.h"
+  26:../src/rl78_interval_timer.c **** #include "../core/iodefine_ext.h"
+  27:../src/rl78_interval_timer.c **** #include "../RL78StdPeriphLib/rl78_interval_timer.h"
+  28:../src/rl78_interval_timer.c **** 
+  29:../src/rl78_interval_timer.c **** 
+  30:../src/rl78_interval_timer.c **** //---------------------------------------------------------------------------------------
+  31:../src/rl78_interval_timer.c **** // Name: InitIntervalTimer
+  32:../src/rl78_interval_timer.c **** // Function: Configure and enable Interval Timer
+  33:../src/rl78_interval_timer.c **** //
+  34:../src/rl78_interval_timer.c **** // Prerequisites: Bit WUTMMCK0 must be set in OSMC to use this module
+  35:../src/rl78_interval_timer.c **** //---------------------------------------------------------------------------------------
+  36:../src/rl78_interval_timer.c **** void InitIntervalTimer(uint16_t period){
+  40                             		.loc 1 36 0
+  41                             		; start of function
+  42                             		; locals: 4 bytes
+  43                             		; uses ES register
+  44 0000 20 04                   		subw	sp, #4
+  45                             	.LCFI0:
+  37:../src/rl78_interval_timer.c **** 	uint16_t config_value = 0;
+  46                             		.loc 1 37 0
+  47 0002 F6                      		clrw	ax
+  48 0003 B8 02                   		movw	[sp+2], ax
+  38:../src/rl78_interval_timer.c **** 	uint8_t osmc_read;
+  39:../src/rl78_interval_timer.c **** 
+  40:../src/rl78_interval_timer.c **** 	// Change clock configuration- clock this module from the 32.768kHz crystal
+  41:../src/rl78_interval_timer.c **** 	osmc_read = OSMC;						// Read OMSC register
+  49                             		.loc 1 41 0
+  50 0005 C9 F0 F3 00             		movw	r8, #243
+  51 0009 AD F0                   		movw	ax, r8
+  52 000b BD F2                   		movw	r10, ax
+  53 000d FA F2                   		movw	hl, r10
+  54 000f 8B                      		mov	a, [hl]
+  55 0010 9D F0                   		mov	r8, a
+  56 0012 98 01                   		mov	[sp+1], a
+  42:../src/rl78_interval_timer.c **** 	osmc_read &= ~WUTMMCK0;					// Clear WUTMMCK0 bit
+  57                             		.loc 1 42 0
+  58 0014 5C EF                   		and	a, #-17
+  59 0016 98 01                   		mov	[sp+1], a
+  43:../src/rl78_interval_timer.c **** 	OSMC = osmc_read;						// Write modified value back
+  60                             		.loc 1 43 0
+  61 0018 C9 F0 F3 00             		movw	r8, #243
+  62 001c 88 01                   		mov	a, [sp+1]
+  63 001e 9D F2                   		mov	r10, a
+  64 0020 AD F0                   		movw	ax, r8
+  65 0022 BD F4                   		movw	r12, ax
+  66 0024 EA F4                   		movw	de, r12
+  67 0026 8D F2                   		mov	a, r10
+  68 0028 99                      		mov	[de], a
+  44:../src/rl78_interval_timer.c **** 
+  45:../src/rl78_interval_timer.c **** 	RTCEN = 1 ;								// Enable clock to RTC Subsystem (RTC, Interval timer)
+  69                             		.loc 1 45 0
+  70 0029 C9 F0 F0 00             		movw	r8, #240
+  71 002d AD F0                   		movw	ax, r8
+  72 002f BD F4                   		movw	r12, ax
+  73 0031 FA F4                   		movw	hl, r12
+  74 0033 8B                      		mov	a, [hl]
+  75 0034 9D F2                   		mov	r10, a
+  76 0036 6A F2 80                		or	r10, #-128
+  77 0039 AD F0                   		movw	ax, r8
+  78 003b EA F4                   		movw	de, r12
+  79 003d 8D F2                   		mov	a, r10
+  80 003f 99                      		mov	[de], a
+  46:../src/rl78_interval_timer.c **** 
+  47:../src/rl78_interval_timer.c **** 	config_value = period & 0x0FFF;			// Mask off the uppermost 4 bits as they are control bits
+  81                             		.loc 1 47 0
+  82 0040 A8 08                   		movw	ax, [sp+8]
+  83 0042 BD F0                   		movw	r8, ax
+  84 0044 5C 0F                   		and	a, #15 ;andhi3 ax,ax,#4095
+  85 0046 BD F2                   		movw	r10, ax
+  86 0048 B8 02                   		movw	[sp+2], ax
+  48:../src/rl78_interval_timer.c **** 	config_value |= RINTE;					// Set RINTE bit to let the timer run
+  87                             		.loc 1 48 0
+  88 004a BD F0                   		movw	r8, ax
+  89 004c 6C 80                   		or	a, #-128 ;iorhi3 ax,ax,#-32768
+  90 004e BD F4                   		movw	r12, ax
+  91 0050 B8 02                   		movw	[sp+2], ax
+  49:../src/rl78_interval_timer.c **** 	ITMC = config_value;
+  92                             		.loc 1 49 0
+  93 0052 C9 F2 90 FF             		movw	r10, #-112
+  94 0056 A8 02                   		movw	ax, [sp+2]
+  95 0058 BD F0                   		movw	r8, ax
+  96 005a AD F2                   		movw	ax, r10
+  97 005c BD F4                   		movw	r12, ax
+  98 005e EA F4                   		movw	de, r12
+  99 0060 AD F0                   		movw	ax, r8
+ 100 0062 B9                      		movw	[de], ax
+  50:../src/rl78_interval_timer.c **** 	ITIF = 0;								// Clear interrupt flag
+ 101                             		.loc 1 50 0
+ 102 0063 C9 F0 E3 FF             		movw	r8, #-29
+ 103 0067 AD F0                   		movw	ax, r8
+ 104 0069 BD F4                   		movw	r12, ax
+ 105 006b FA F4                   		movw	hl, r12
+ 106 006d 8B                      		mov	a, [hl]
+ 107 006e 9D F2                   		mov	r10, a
+ 108 0070 5A F2 FB                		and	r10, #-5
+ 109 0073 AD F0                   		movw	ax, r8
+ 110 0075 EA F4                   		movw	de, r12
+ 111 0077 8D F2                   		mov	a, r10
+ 112 0079 99                      		mov	[de], a
+  51:../src/rl78_interval_timer.c **** 
+  52:../src/rl78_interval_timer.c **** }
+ 113                             		.loc 1 52 0
+ 114 007a 10 04                   		addw	sp, #4
+ 115 007c D7                      		ret
+ 116                             	.LFE0:
+ 148                             	.Letext0:
+ 149                             		.file 2 "c:\\programdata\\gcc for renesas rl78 4.9.2.202201-gnurl78-elf\\rl78-elf\\rl78-elf\\rl78-
+ 150                             		.file 3 "c:\\programdata\\gcc for renesas rl78 4.9.2.202201-gnurl78-elf\\rl78-elf\\rl78-elf\\rl78-
+ 151                             		.file 4 "../src/../core/iodefine.h"
+ 152                             		.file 5 "../src/../core/iodefine_ext.h"

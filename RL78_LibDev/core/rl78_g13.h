@@ -168,8 +168,12 @@
 
 // OSMC Register macros
 //----------------------
-#define RTCLPC				(0x80)
-#define WUTMMCK0			(0x10)
+#define RTCLPC				(0x80U)
+#define WUTMMCK0			(0x10U)
+
+// ITMC Register macros
+//---------------------
+#define RINTE				(0x8000)
 
 
 

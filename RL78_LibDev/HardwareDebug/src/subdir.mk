@@ -4,16 +4,20 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
-../src/RL78_LibDev.c 
+../src/RL78_LibDev.c \
+../src/rl78_interval_timer.c 
 
 LST += \
-RL78_LibDev.lst 
+RL78_LibDev.lst \
+rl78_interval_timer.lst 
 
 C_DEPS += \
-./src/RL78_LibDev.d 
+./src/RL78_LibDev.d \
+./src/rl78_interval_timer.d 
 
 OBJS += \
-./src/RL78_LibDev.o 
+./src/RL78_LibDev.o \
+./src/rl78_interval_timer.o 
 
 MAP += \
 RL78_LibDev.map 

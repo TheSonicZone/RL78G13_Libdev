@@ -11,6 +11,7 @@
 #include "../core/iodefine_ext.h"
 #include "../core/rl78_g13.h"
 #include "../core/rl78_clock_sys.h"
+#include "../RL78StdPeriphLib/rl78_interval_timer.h"
 
 // Variables
 unsigned long Count;
@@ -24,11 +25,15 @@ unsigned long Count;
 // Main Function
 //------------------------------------------------------------------------------------------------
 int main(void){
-
+	uint8_t ITIFValue;
 	// System Initialisation
+	asm("DI");											// Ensure interrupts are disabled
 	InitClockSystem(X1_HIGHSPEED, XT1_NORMAL);
 	SetCPUClockX1();
 
+	// Peripheral Initialisation
+	//--------------------------
+	InitIntervalTimer(3000);
 
 	// GPIO Initalisation
 	LED01_PIN = 0; // Make Pin as O/P
@@ -37,10 +42,15 @@ int main(void){
 	// Simple loop to test clocks etc...
 
 	while(1){
-		LED01 = ~LED01; // toggle LED
-		for(Count = 0; Count < 10000; Count++);{
-			asm("nop"); // do nothing
+		ITIFValue = IF1H;
+		if((ITIFValue & 0x04) == 0x04){
+			LED01 = ~LED01;
+			ITIF = 0;
 		}
+//		LED01 = ~LED01; // toggle LED
+//		for(Count = 0; Count < 10000; Count++);{
+//			asm("nop"); // do nothing
+//		}
 
 	}
 	return 0;
