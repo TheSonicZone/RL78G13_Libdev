@@ -352,15 +352,15 @@ OUTPUT(RL78_LibDev.elf elf32-rl78)
  .debug_ranges  0x0000000000000178       0x18 ./core/rl78_clock_sys.o
  .debug_ranges  0x0000000000000190       0x10 ./RL78StdPeriphLib/rl78_interval_timer.o
 
-.debug_line     0x0000000000000000      0xc29
+.debug_line     0x0000000000000000      0xc2c
  .debug_line    0x0000000000000000      0x1c4 ./src/RL78_LibDev.o
  .debug_line    0x00000000000001c4       0x47 ./core/hwinit.o
- .debug_line    0x000000000000020b      0x3da ./core/inthandler.o
- .debug_line    0x00000000000005e5       0x31 ./core/option.o
- .debug_line    0x0000000000000616      0x2c4 ./core/rl78_clock_sys.o
- .debug_line    0x00000000000008da      0x15a ./core/start.o
- .debug_line    0x0000000000000a34       0x30 ./core/vects.o
- .debug_line    0x0000000000000a64      0x1c5 ./RL78StdPeriphLib/rl78_interval_timer.o
+ .debug_line    0x000000000000020b      0x3dd ./core/inthandler.o
+ .debug_line    0x00000000000005e8       0x31 ./core/option.o
+ .debug_line    0x0000000000000619      0x2c4 ./core/rl78_clock_sys.o
+ .debug_line    0x00000000000008dd      0x15a ./core/start.o
+ .debug_line    0x0000000000000a37       0x30 ./core/vects.o
+ .debug_line    0x0000000000000a67      0x1c5 ./RL78StdPeriphLib/rl78_interval_timer.o
 
 .debug_str      0x0000000000000000      0x51a
  .debug_str     0x0000000000000000      0x22c ./src/RL78_LibDev.o

@@ -36,21 +36,37 @@
   37                             	_INT_WDTI:
   38                             	.LFB0:
   39                             		.file 1 "../core/inthandler.c"
-   1:../core/inthandler.c **** /************************************************************************/
-   2:../core/inthandler.c **** /* Header file generated from device file:                              */
-   3:../core/inthandler.c **** /*    DR5F100LE.DVF                                                     */
-   4:../core/inthandler.c **** /*    V1.14 (2012/01/10)                                                */
-   5:../core/inthandler.c **** /*    Copyright(C) 2012 Renesas                                         */
-   6:../core/inthandler.c **** /* Tool Version: 4.0.0                                                  */
-   7:../core/inthandler.c **** /* Date Generated: 2020/01/17                                           */
-   8:../core/inthandler.c **** /************************************************************************/
-   9:../core/inthandler.c **** #include "../core/interrupt_handlers.h"
-  10:../core/inthandler.c **** 
-  11:../core/inthandler.c **** /*
-  12:../core/inthandler.c ****  * INT_WDTI (0x4)
-  13:../core/inthandler.c ****  */
-  14:../core/inthandler.c **** void INT_WDTI (void) { }
-  40                             		.loc 1 14 0
+   1:../core/inthandler.c **** //
+   2:../core/inthandler.c **** //			Filename: inthandler.c
+   3:../core/inthandler.c **** //          Interrupt handler definitions for RL78/G13
+   4:../core/inthandler.c **** //
+   5:../core/inthandler.c **** //			Based on code provided by Renesas Electronics via Appilet
+   6:../core/inthandler.c **** //          (changed for ease of use and logical functionality)
+   7:../core/inthandler.c **** //			Interrupt handlers defined with weak attribute to allow the user to
+   8:../core/inthandler.c **** //          override them and define his/her own interrupt handlers anywhere
+   9:../core/inthandler.c **** //
+  10:../core/inthandler.c **** //			Copyright (C) 2024  The Sonic Zone (PTY) LTD
+  11:../core/inthandler.c **** //
+  12:../core/inthandler.c **** //			This program is free software: you can redistribute it and/or modify
+  13:../core/inthandler.c **** //			it under the terms of the GNU General Public License as published by
+  14:../core/inthandler.c **** //			the Free Software Foundation, either version 3 of the License, or
+  15:../core/inthandler.c **** //			(at your option) any later version.
+  16:../core/inthandler.c **** //
+  17:../core/inthandler.c **** //			This program is distributed in the hope that it will be useful,
+  18:../core/inthandler.c **** //			but WITHOUT ANY WARRANTY; without even the implied warranty of
+  19:../core/inthandler.c **** //			MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  20:../core/inthandler.c **** //			GNU General Public License for more details.
+  21:../core/inthandler.c **** //
+  22:../core/inthandler.c **** //			You should have received a copy of the GNU General Public License
+  23:../core/inthandler.c **** //			along with this program.  If not, see <http://www.gnu.org/licenses/>.
+  24:../core/inthandler.c **** //---------------------------------------------------------------------------------------
+  25:../core/inthandler.c **** #include "../core/interrupt_handlers.h"
+  26:../core/inthandler.c **** 
+  27:../core/inthandler.c **** /*
+  28:../core/inthandler.c ****  * INT_WDTI (0x4)
+  29:../core/inthandler.c ****  */
+  30:../core/inthandler.c **** void INT_WDTI (void) { }
+  40                             		.loc 1 30 0
   41                             		; start of function
   42                             		; push 8: ax bc de hl
   43                             		; uses ES register
@@ -66,7 +82,7 @@
   53 0006 8E FD                   		mov	a, es
   54 0008 C1                      		push	ax
   55                             	.LCFI4:
-  56                             		.loc 1 14 0
+  56                             		.loc 1 30 0
   57 0009 C0                      		pop	ax
   58 000a 9E FD                   		mov	es, a
   59 000c C6                      		pop	hl
@@ -79,12 +95,12 @@
   67                             		.global	_INT_LVI
   69                             	_INT_LVI:
   70                             	.LFB1:
-  15:../core/inthandler.c **** 
-  16:../core/inthandler.c **** /*
-  17:../core/inthandler.c ****  * INT_LVI (0x6)
-  18:../core/inthandler.c ****  */
-  19:../core/inthandler.c **** void INT_LVI (void) { }
-  71                             		.loc 1 19 0
+  31:../core/inthandler.c **** 
+  32:../core/inthandler.c **** /*
+  33:../core/inthandler.c ****  * INT_LVI (0x6)
+  34:../core/inthandler.c ****  */
+  35:../core/inthandler.c **** void INT_LVI (void) { }
+  71                             		.loc 1 35 0
   72                             		; start of function
   73                             		; push 8: ax bc de hl
   74                             		; uses ES register
@@ -100,7 +116,7 @@
   84 0006 8E FD                   		mov	a, es
   85 0008 C1                      		push	ax
   86                             	.LCFI9:
-  87                             		.loc 1 19 0
+  87                             		.loc 1 35 0
   88 0009 C0                      		pop	ax
   89 000a 9E FD                   		mov	es, a
   90 000c C6                      		pop	hl
@@ -113,12 +129,12 @@
   98                             		.global	_INT_P0
  100                             	_INT_P0:
  101                             	.LFB2:
-  20:../core/inthandler.c **** 
-  21:../core/inthandler.c **** /*
-  22:../core/inthandler.c ****  * INT_P0 (0x8)
-  23:../core/inthandler.c ****  */
-  24:../core/inthandler.c **** void INT_P0 (void) { }
- 102                             		.loc 1 24 0
+  36:../core/inthandler.c **** 
+  37:../core/inthandler.c **** /*
+  38:../core/inthandler.c ****  * INT_P0 (0x8)
+  39:../core/inthandler.c ****  */
+  40:../core/inthandler.c **** void INT_P0 (void) { }
+ 102                             		.loc 1 40 0
  103                             		; start of function
  104                             		; push 8: ax bc de hl
  105                             		; uses ES register
@@ -134,7 +150,7 @@
  115 0006 8E FD                   		mov	a, es
  116 0008 C1                      		push	ax
  117                             	.LCFI14:
- 118                             		.loc 1 24 0
+ 118                             		.loc 1 40 0
  119 0009 C0                      		pop	ax
  120 000a 9E FD                   		mov	es, a
  121 000c C6                      		pop	hl
@@ -147,12 +163,12 @@
  129                             		.global	_INT_P1
  131                             	_INT_P1:
  132                             	.LFB3:
-  25:../core/inthandler.c **** 
-  26:../core/inthandler.c **** /*
-  27:../core/inthandler.c ****  * INT_P1 (0xA)
-  28:../core/inthandler.c ****  */
-  29:../core/inthandler.c **** void INT_P1 (void) { }
- 133                             		.loc 1 29 0
+  41:../core/inthandler.c **** 
+  42:../core/inthandler.c **** /*
+  43:../core/inthandler.c ****  * INT_P1 (0xA)
+  44:../core/inthandler.c ****  */
+  45:../core/inthandler.c **** void INT_P1 (void) { }
+ 133                             		.loc 1 45 0
  134                             		; start of function
  135                             		; push 8: ax bc de hl
  136                             		; uses ES register
@@ -168,7 +184,7 @@
  146 0006 8E FD                   		mov	a, es
  147 0008 C1                      		push	ax
  148                             	.LCFI19:
- 149                             		.loc 1 29 0
+ 149                             		.loc 1 45 0
  150 0009 C0                      		pop	ax
  151 000a 9E FD                   		mov	es, a
  152 000c C6                      		pop	hl
@@ -181,12 +197,12 @@
  160                             		.global	_INT_P2
  162                             	_INT_P2:
  163                             	.LFB4:
-  30:../core/inthandler.c **** 
-  31:../core/inthandler.c **** /*
-  32:../core/inthandler.c ****  * INT_P2 (0xC)
-  33:../core/inthandler.c ****  */
-  34:../core/inthandler.c **** void INT_P2 (void) { }
- 164                             		.loc 1 34 0
+  46:../core/inthandler.c **** 
+  47:../core/inthandler.c **** /*
+  48:../core/inthandler.c ****  * INT_P2 (0xC)
+  49:../core/inthandler.c ****  */
+  50:../core/inthandler.c **** void INT_P2 (void) { }
+ 164                             		.loc 1 50 0
  165                             		; start of function
  166                             		; push 8: ax bc de hl
  167                             		; uses ES register
@@ -202,7 +218,7 @@
  177 0006 8E FD                   		mov	a, es
  178 0008 C1                      		push	ax
  179                             	.LCFI24:
- 180                             		.loc 1 34 0
+ 180                             		.loc 1 50 0
  181 0009 C0                      		pop	ax
  182 000a 9E FD                   		mov	es, a
  183 000c C6                      		pop	hl
@@ -215,12 +231,12 @@
  191                             		.global	_INT_P3
  193                             	_INT_P3:
  194                             	.LFB5:
-  35:../core/inthandler.c **** 
-  36:../core/inthandler.c **** /*
-  37:../core/inthandler.c ****  * INT_P3 (0xE)
-  38:../core/inthandler.c ****  */
-  39:../core/inthandler.c **** void INT_P3 (void) { }
- 195                             		.loc 1 39 0
+  51:../core/inthandler.c **** 
+  52:../core/inthandler.c **** /*
+  53:../core/inthandler.c ****  * INT_P3 (0xE)
+  54:../core/inthandler.c ****  */
+  55:../core/inthandler.c **** void INT_P3 (void) { }
+ 195                             		.loc 1 55 0
  196                             		; start of function
  197                             		; push 8: ax bc de hl
  198                             		; uses ES register
@@ -236,7 +252,7 @@
  208 0006 8E FD                   		mov	a, es
  209 0008 C1                      		push	ax
  210                             	.LCFI29:
- 211                             		.loc 1 39 0
+ 211                             		.loc 1 55 0
  212 0009 C0                      		pop	ax
  213 000a 9E FD                   		mov	es, a
  214 000c C6                      		pop	hl
@@ -249,12 +265,12 @@
  222                             		.global	_INT_P4
  224                             	_INT_P4:
  225                             	.LFB6:
-  40:../core/inthandler.c **** 
-  41:../core/inthandler.c **** /*
-  42:../core/inthandler.c ****  * INT_P4 (0x10)
-  43:../core/inthandler.c ****  */
-  44:../core/inthandler.c **** void INT_P4 (void) { }
- 226                             		.loc 1 44 0
+  56:../core/inthandler.c **** 
+  57:../core/inthandler.c **** /*
+  58:../core/inthandler.c ****  * INT_P4 (0x10)
+  59:../core/inthandler.c ****  */
+  60:../core/inthandler.c **** void INT_P4 (void) { }
+ 226                             		.loc 1 60 0
  227                             		; start of function
  228                             		; push 8: ax bc de hl
  229                             		; uses ES register
@@ -270,7 +286,7 @@
  239 0006 8E FD                   		mov	a, es
  240 0008 C1                      		push	ax
  241                             	.LCFI34:
- 242                             		.loc 1 44 0
+ 242                             		.loc 1 60 0
  243 0009 C0                      		pop	ax
  244 000a 9E FD                   		mov	es, a
  245 000c C6                      		pop	hl
@@ -283,12 +299,12 @@
  253                             		.global	_INT_P5
  255                             	_INT_P5:
  256                             	.LFB7:
-  45:../core/inthandler.c **** 
-  46:../core/inthandler.c **** /*
-  47:../core/inthandler.c ****  * INT_P5 (0x12)
-  48:../core/inthandler.c ****  */
-  49:../core/inthandler.c **** void INT_P5 (void) { }
- 257                             		.loc 1 49 0
+  61:../core/inthandler.c **** 
+  62:../core/inthandler.c **** /*
+  63:../core/inthandler.c ****  * INT_P5 (0x12)
+  64:../core/inthandler.c ****  */
+  65:../core/inthandler.c **** void INT_P5 (void) { }
+ 257                             		.loc 1 65 0
  258                             		; start of function
  259                             		; push 8: ax bc de hl
  260                             		; uses ES register
@@ -304,7 +320,7 @@
  270 0006 8E FD                   		mov	a, es
  271 0008 C1                      		push	ax
  272                             	.LCFI39:
- 273                             		.loc 1 49 0
+ 273                             		.loc 1 65 0
  274 0009 C0                      		pop	ax
  275 000a 9E FD                   		mov	es, a
  276 000c C6                      		pop	hl
@@ -317,12 +333,12 @@
  284                             		.global	_INT_ST2
  286                             	_INT_ST2:
  287                             	.LFB8:
-  50:../core/inthandler.c **** 
-  51:../core/inthandler.c **** /*
-  52:../core/inthandler.c ****  * INT_CSI20/INT_IIC20/INT_ST2 (0x14)
-  53:../core/inthandler.c ****  */
-  54:../core/inthandler.c **** void INT_ST2 (void) { }
- 288                             		.loc 1 54 0
+  66:../core/inthandler.c **** 
+  67:../core/inthandler.c **** /*
+  68:../core/inthandler.c ****  * INT_CSI20/INT_IIC20/INT_ST2 (0x14)
+  69:../core/inthandler.c ****  */
+  70:../core/inthandler.c **** void INT_ST2 (void) { }
+ 288                             		.loc 1 70 0
  289                             		; start of function
  290                             		; push 8: ax bc de hl
  291                             		; uses ES register
@@ -338,7 +354,7 @@
  301 0006 8E FD                   		mov	a, es
  302 0008 C1                      		push	ax
  303                             	.LCFI44:
- 304                             		.loc 1 54 0
+ 304                             		.loc 1 70 0
  305 0009 C0                      		pop	ax
  306 000a 9E FD                   		mov	es, a
  307 000c C6                      		pop	hl
@@ -351,14 +367,14 @@
  315                             		.global	_INT_SR2
  317                             	_INT_SR2:
  318                             	.LFB9:
-  55:../core/inthandler.c **** //void INT_CSI20 (void) { }
-  56:../core/inthandler.c **** //void INT_IIC20 (void) { }
-  57:../core/inthandler.c **** 
-  58:../core/inthandler.c **** /*
-  59:../core/inthandler.c ****  * INT_CSI21/INT_IIC21/INT_SR2 (0x16)
-  60:../core/inthandler.c ****  */
-  61:../core/inthandler.c **** void INT_SR2 (void) { }
- 319                             		.loc 1 61 0
+  71:../core/inthandler.c **** //void INT_CSI20 (void) { }
+  72:../core/inthandler.c **** //void INT_IIC20 (void) { }
+  73:../core/inthandler.c **** 
+  74:../core/inthandler.c **** /*
+  75:../core/inthandler.c ****  * INT_CSI21/INT_IIC21/INT_SR2 (0x16)
+  76:../core/inthandler.c ****  */
+  77:../core/inthandler.c **** void INT_SR2 (void) { }
+ 319                             		.loc 1 77 0
  320                             		; start of function
  321                             		; push 8: ax bc de hl
  322                             		; uses ES register
@@ -374,7 +390,7 @@
  332 0006 8E FD                   		mov	a, es
  333 0008 C1                      		push	ax
  334                             	.LCFI49:
- 335                             		.loc 1 61 0
+ 335                             		.loc 1 77 0
  336 0009 C0                      		pop	ax
  337 000a 9E FD                   		mov	es, a
  338 000c C6                      		pop	hl
@@ -387,14 +403,14 @@
  346                             		.global	_INT_SRE2
  348                             	_INT_SRE2:
  349                             	.LFB10:
-  62:../core/inthandler.c **** //void INT_CSI21 (void) { }
-  63:../core/inthandler.c **** //void INT_IIC21 (void) { }
-  64:../core/inthandler.c **** 
-  65:../core/inthandler.c **** /*
-  66:../core/inthandler.c ****  * INT_SRE2 (0x18)
-  67:../core/inthandler.c ****  */
-  68:../core/inthandler.c **** void INT_SRE2 (void) { }
- 350                             		.loc 1 68 0
+  78:../core/inthandler.c **** //void INT_CSI21 (void) { }
+  79:../core/inthandler.c **** //void INT_IIC21 (void) { }
+  80:../core/inthandler.c **** 
+  81:../core/inthandler.c **** /*
+  82:../core/inthandler.c ****  * INT_SRE2 (0x18)
+  83:../core/inthandler.c ****  */
+  84:../core/inthandler.c **** void INT_SRE2 (void) { }
+ 350                             		.loc 1 84 0
  351                             		; start of function
  352                             		; push 8: ax bc de hl
  353                             		; uses ES register
@@ -410,7 +426,7 @@
  363 0006 8E FD                   		mov	a, es
  364 0008 C1                      		push	ax
  365                             	.LCFI54:
- 366                             		.loc 1 68 0
+ 366                             		.loc 1 84 0
  367 0009 C0                      		pop	ax
  368 000a 9E FD                   		mov	es, a
  369 000c C6                      		pop	hl
@@ -423,12 +439,12 @@
  377                             		.global	_INT_DMA0
  379                             	_INT_DMA0:
  380                             	.LFB11:
-  69:../core/inthandler.c **** 
-  70:../core/inthandler.c **** /*
-  71:../core/inthandler.c ****  * INT_DMA0 (0x1A)
-  72:../core/inthandler.c ****  */
-  73:../core/inthandler.c **** void INT_DMA0 (void) { }
- 381                             		.loc 1 73 0
+  85:../core/inthandler.c **** 
+  86:../core/inthandler.c **** /*
+  87:../core/inthandler.c ****  * INT_DMA0 (0x1A)
+  88:../core/inthandler.c ****  */
+  89:../core/inthandler.c **** void INT_DMA0 (void) { }
+ 381                             		.loc 1 89 0
  382                             		; start of function
  383                             		; push 8: ax bc de hl
  384                             		; uses ES register
@@ -444,7 +460,7 @@
  394 0006 8E FD                   		mov	a, es
  395 0008 C1                      		push	ax
  396                             	.LCFI59:
- 397                             		.loc 1 73 0
+ 397                             		.loc 1 89 0
  398 0009 C0                      		pop	ax
  399 000a 9E FD                   		mov	es, a
  400 000c C6                      		pop	hl
@@ -457,12 +473,12 @@
  408                             		.global	_INT_DMA1
  410                             	_INT_DMA1:
  411                             	.LFB12:
-  74:../core/inthandler.c **** 
-  75:../core/inthandler.c **** /*
-  76:../core/inthandler.c ****  * INT_DMA1 (0x1C)
-  77:../core/inthandler.c ****  */
-  78:../core/inthandler.c **** void INT_DMA1 (void) { }
- 412                             		.loc 1 78 0
+  90:../core/inthandler.c **** 
+  91:../core/inthandler.c **** /*
+  92:../core/inthandler.c ****  * INT_DMA1 (0x1C)
+  93:../core/inthandler.c ****  */
+  94:../core/inthandler.c **** void INT_DMA1 (void) { }
+ 412                             		.loc 1 94 0
  413                             		; start of function
  414                             		; push 8: ax bc de hl
  415                             		; uses ES register
@@ -478,7 +494,7 @@
  425 0006 8E FD                   		mov	a, es
  426 0008 C1                      		push	ax
  427                             	.LCFI64:
- 428                             		.loc 1 78 0
+ 428                             		.loc 1 94 0
  429 0009 C0                      		pop	ax
  430 000a 9E FD                   		mov	es, a
  431 000c C6                      		pop	hl
@@ -491,12 +507,12 @@
  439                             		.global	_INT_ST0
  441                             	_INT_ST0:
  442                             	.LFB13:
-  79:../core/inthandler.c **** 
-  80:../core/inthandler.c **** /*
-  81:../core/inthandler.c ****  * INT_CSI00/INT_IIC00/INT_ST0 (0x1E)
-  82:../core/inthandler.c ****  */
-  83:../core/inthandler.c **** void INT_ST0 (void) { }
- 443                             		.loc 1 83 0
+  95:../core/inthandler.c **** 
+  96:../core/inthandler.c **** /*
+  97:../core/inthandler.c ****  * INT_CSI00/INT_IIC00/INT_ST0 (0x1E)
+  98:../core/inthandler.c ****  */
+  99:../core/inthandler.c **** void INT_ST0 (void) { }
+ 443                             		.loc 1 99 0
  444                             		; start of function
  445                             		; push 8: ax bc de hl
  446                             		; uses ES register
@@ -512,7 +528,7 @@
  456 0006 8E FD                   		mov	a, es
  457 0008 C1                      		push	ax
  458                             	.LCFI69:
- 459                             		.loc 1 83 0
+ 459                             		.loc 1 99 0
  460 0009 C0                      		pop	ax
  461 000a 9E FD                   		mov	es, a
  462 000c C6                      		pop	hl
@@ -525,14 +541,14 @@
  470                             		.global	_INT_SR0
  472                             	_INT_SR0:
  473                             	.LFB14:
-  84:../core/inthandler.c **** //void INT_CSI00 (void) { }
-  85:../core/inthandler.c **** //void INT_IIC00 (void) { }
-  86:../core/inthandler.c **** 
-  87:../core/inthandler.c **** /*
-  88:../core/inthandler.c ****  * INT_CSI01/INT_IIC01/INT_SR0 (0x20)
-  89:../core/inthandler.c ****  */
-  90:../core/inthandler.c **** void INT_SR0 (void) { }
- 474                             		.loc 1 90 0
+ 100:../core/inthandler.c **** //void INT_CSI00 (void) { }
+ 101:../core/inthandler.c **** //void INT_IIC00 (void) { }
+ 102:../core/inthandler.c **** 
+ 103:../core/inthandler.c **** /*
+ 104:../core/inthandler.c ****  * INT_CSI01/INT_IIC01/INT_SR0 (0x20)
+ 105:../core/inthandler.c ****  */
+ 106:../core/inthandler.c **** void INT_SR0 (void) { }
+ 474                             		.loc 1 106 0
  475                             		; start of function
  476                             		; push 8: ax bc de hl
  477                             		; uses ES register
@@ -548,7 +564,7 @@
  487 0006 8E FD                   		mov	a, es
  488 0008 C1                      		push	ax
  489                             	.LCFI74:
- 490                             		.loc 1 90 0
+ 490                             		.loc 1 106 0
  491 0009 C0                      		pop	ax
  492 000a 9E FD                   		mov	es, a
  493 000c C6                      		pop	hl
@@ -561,14 +577,14 @@
  501                             		.global	_INT_TM01H
  503                             	_INT_TM01H:
  504                             	.LFB15:
-  91:../core/inthandler.c **** //void INT_CSI01 (void) { }
-  92:../core/inthandler.c **** //void INT_IIC01 (void) { }
-  93:../core/inthandler.c **** 
-  94:../core/inthandler.c **** /*
-  95:../core/inthandler.c ****  * INT_SRE0/INT_TM01H (0x22)
-  96:../core/inthandler.c ****  */
-  97:../core/inthandler.c **** void INT_TM01H (void) { }
- 505                             		.loc 1 97 0
+ 107:../core/inthandler.c **** //void INT_CSI01 (void) { }
+ 108:../core/inthandler.c **** //void INT_IIC01 (void) { }
+ 109:../core/inthandler.c **** 
+ 110:../core/inthandler.c **** /*
+ 111:../core/inthandler.c ****  * INT_SRE0/INT_TM01H (0x22)
+ 112:../core/inthandler.c ****  */
+ 113:../core/inthandler.c **** void INT_TM01H (void) { }
+ 505                             		.loc 1 113 0
  506                             		; start of function
  507                             		; push 8: ax bc de hl
  508                             		; uses ES register
@@ -584,7 +600,7 @@
  518 0006 8E FD                   		mov	a, es
  519 0008 C1                      		push	ax
  520                             	.LCFI79:
- 521                             		.loc 1 97 0
+ 521                             		.loc 1 113 0
  522 0009 C0                      		pop	ax
  523 000a 9E FD                   		mov	es, a
  524 000c C6                      		pop	hl
@@ -597,13 +613,13 @@
  532                             		.global	_INT_ST1
  534                             	_INT_ST1:
  535                             	.LFB16:
-  98:../core/inthandler.c **** //void INT_SRE0 (void) { }
-  99:../core/inthandler.c **** 
- 100:../core/inthandler.c **** /*
- 101:../core/inthandler.c ****  * INT_CSI10/INT_IIC10/INT_ST1 (0x24)
- 102:../core/inthandler.c ****  */
- 103:../core/inthandler.c **** void INT_ST1 (void) { }
- 536                             		.loc 1 103 0
+ 114:../core/inthandler.c **** //void INT_SRE0 (void) { }
+ 115:../core/inthandler.c **** 
+ 116:../core/inthandler.c **** /*
+ 117:../core/inthandler.c ****  * INT_CSI10/INT_IIC10/INT_ST1 (0x24)
+ 118:../core/inthandler.c ****  */
+ 119:../core/inthandler.c **** void INT_ST1 (void) { }
+ 536                             		.loc 1 119 0
  537                             		; start of function
  538                             		; push 8: ax bc de hl
  539                             		; uses ES register
@@ -619,7 +635,7 @@
  549 0006 8E FD                   		mov	a, es
  550 0008 C1                      		push	ax
  551                             	.LCFI84:
- 552                             		.loc 1 103 0
+ 552                             		.loc 1 119 0
  553 0009 C0                      		pop	ax
  554 000a 9E FD                   		mov	es, a
  555 000c C6                      		pop	hl
@@ -632,14 +648,14 @@
  563                             		.global	_INT_SR1
  565                             	_INT_SR1:
  566                             	.LFB17:
- 104:../core/inthandler.c **** //void INT_CSI10 (void) { }
- 105:../core/inthandler.c **** //void INT_IIC10 (void) { }
- 106:../core/inthandler.c **** 
- 107:../core/inthandler.c **** /*
- 108:../core/inthandler.c ****  * INT_CSI11/INT_IIC11/INT_SR1 (0x26)
- 109:../core/inthandler.c ****  */
- 110:../core/inthandler.c **** void INT_SR1 (void) { }
- 567                             		.loc 1 110 0
+ 120:../core/inthandler.c **** //void INT_CSI10 (void) { }
+ 121:../core/inthandler.c **** //void INT_IIC10 (void) { }
+ 122:../core/inthandler.c **** 
+ 123:../core/inthandler.c **** /*
+ 124:../core/inthandler.c ****  * INT_CSI11/INT_IIC11/INT_SR1 (0x26)
+ 125:../core/inthandler.c ****  */
+ 126:../core/inthandler.c **** void INT_SR1 (void) { }
+ 567                             		.loc 1 126 0
  568                             		; start of function
  569                             		; push 8: ax bc de hl
  570                             		; uses ES register
@@ -655,7 +671,7 @@
  580 0006 8E FD                   		mov	a, es
  581 0008 C1                      		push	ax
  582                             	.LCFI89:
- 583                             		.loc 1 110 0
+ 583                             		.loc 1 126 0
  584 0009 C0                      		pop	ax
  585 000a 9E FD                   		mov	es, a
  586 000c C6                      		pop	hl
@@ -668,14 +684,14 @@
  594                             		.global	_INT_TM03H
  596                             	_INT_TM03H:
  597                             	.LFB18:
- 111:../core/inthandler.c **** //void INT_CSI11 (void) { }
- 112:../core/inthandler.c **** //void INT_IIC11 (void) { }
- 113:../core/inthandler.c **** 
- 114:../core/inthandler.c **** /*
- 115:../core/inthandler.c ****  * INT_SRE1/INT_TM03H (0x28)
- 116:../core/inthandler.c ****  */
- 117:../core/inthandler.c **** void INT_TM03H (void) { }
- 598                             		.loc 1 117 0
+ 127:../core/inthandler.c **** //void INT_CSI11 (void) { }
+ 128:../core/inthandler.c **** //void INT_IIC11 (void) { }
+ 129:../core/inthandler.c **** 
+ 130:../core/inthandler.c **** /*
+ 131:../core/inthandler.c ****  * INT_SRE1/INT_TM03H (0x28)
+ 132:../core/inthandler.c ****  */
+ 133:../core/inthandler.c **** void INT_TM03H (void) { }
+ 598                             		.loc 1 133 0
  599                             		; start of function
  600                             		; push 8: ax bc de hl
  601                             		; uses ES register
@@ -691,7 +707,7 @@
  611 0006 8E FD                   		mov	a, es
  612 0008 C1                      		push	ax
  613                             	.LCFI94:
- 614                             		.loc 1 117 0
+ 614                             		.loc 1 133 0
  615 0009 C0                      		pop	ax
  616 000a 9E FD                   		mov	es, a
  617 000c C6                      		pop	hl
@@ -704,13 +720,13 @@
  625                             		.global	_INT_IICA0
  627                             	_INT_IICA0:
  628                             	.LFB19:
- 118:../core/inthandler.c **** //void INT_SRE1 (void) { }
- 119:../core/inthandler.c **** 
- 120:../core/inthandler.c **** /*
- 121:../core/inthandler.c ****  * INT_IICA0 (0x2A)
- 122:../core/inthandler.c ****  */
- 123:../core/inthandler.c **** void INT_IICA0 (void) { }
- 629                             		.loc 1 123 0
+ 134:../core/inthandler.c **** //void INT_SRE1 (void) { }
+ 135:../core/inthandler.c **** 
+ 136:../core/inthandler.c **** /*
+ 137:../core/inthandler.c ****  * INT_IICA0 (0x2A)
+ 138:../core/inthandler.c ****  */
+ 139:../core/inthandler.c **** void INT_IICA0 (void) { }
+ 629                             		.loc 1 139 0
  630                             		; start of function
  631                             		; push 8: ax bc de hl
  632                             		; uses ES register
@@ -726,7 +742,7 @@
  642 0006 8E FD                   		mov	a, es
  643 0008 C1                      		push	ax
  644                             	.LCFI99:
- 645                             		.loc 1 123 0
+ 645                             		.loc 1 139 0
  646 0009 C0                      		pop	ax
  647 000a 9E FD                   		mov	es, a
  648 000c C6                      		pop	hl
@@ -739,12 +755,12 @@
  656                             		.global	_INT_TM00
  658                             	_INT_TM00:
  659                             	.LFB20:
- 124:../core/inthandler.c **** 
- 125:../core/inthandler.c **** /*
- 126:../core/inthandler.c ****  * INT_TM00 (0x2C)
- 127:../core/inthandler.c ****  */
- 128:../core/inthandler.c **** void INT_TM00 (void) { }
- 660                             		.loc 1 128 0
+ 140:../core/inthandler.c **** 
+ 141:../core/inthandler.c **** /*
+ 142:../core/inthandler.c ****  * INT_TM00 (0x2C)
+ 143:../core/inthandler.c ****  */
+ 144:../core/inthandler.c **** void INT_TM00 (void) { }
+ 660                             		.loc 1 144 0
  661                             		; start of function
  662                             		; push 8: ax bc de hl
  663                             		; uses ES register
@@ -760,7 +776,7 @@
  673 0006 8E FD                   		mov	a, es
  674 0008 C1                      		push	ax
  675                             	.LCFI104:
- 676                             		.loc 1 128 0
+ 676                             		.loc 1 144 0
  677 0009 C0                      		pop	ax
  678 000a 9E FD                   		mov	es, a
  679 000c C6                      		pop	hl
@@ -773,12 +789,12 @@
  687                             		.global	_INT_TM01
  689                             	_INT_TM01:
  690                             	.LFB21:
- 129:../core/inthandler.c **** 
- 130:../core/inthandler.c **** /*
- 131:../core/inthandler.c ****  * INT_TM01 (0x2E)
- 132:../core/inthandler.c ****  */
- 133:../core/inthandler.c **** void INT_TM01 (void) { }
- 691                             		.loc 1 133 0
+ 145:../core/inthandler.c **** 
+ 146:../core/inthandler.c **** /*
+ 147:../core/inthandler.c ****  * INT_TM01 (0x2E)
+ 148:../core/inthandler.c ****  */
+ 149:../core/inthandler.c **** void INT_TM01 (void) { }
+ 691                             		.loc 1 149 0
  692                             		; start of function
  693                             		; push 8: ax bc de hl
  694                             		; uses ES register
@@ -794,7 +810,7 @@
  704 0006 8E FD                   		mov	a, es
  705 0008 C1                      		push	ax
  706                             	.LCFI109:
- 707                             		.loc 1 133 0
+ 707                             		.loc 1 149 0
  708 0009 C0                      		pop	ax
  709 000a 9E FD                   		mov	es, a
  710 000c C6                      		pop	hl
@@ -807,12 +823,12 @@
  718                             		.global	_INT_TM02
  720                             	_INT_TM02:
  721                             	.LFB22:
- 134:../core/inthandler.c **** 
- 135:../core/inthandler.c **** /*
- 136:../core/inthandler.c ****  * INT_TM02 (0x30)
- 137:../core/inthandler.c ****  */
- 138:../core/inthandler.c **** void INT_TM02 (void) { }
- 722                             		.loc 1 138 0
+ 150:../core/inthandler.c **** 
+ 151:../core/inthandler.c **** /*
+ 152:../core/inthandler.c ****  * INT_TM02 (0x30)
+ 153:../core/inthandler.c ****  */
+ 154:../core/inthandler.c **** void INT_TM02 (void) { }
+ 722                             		.loc 1 154 0
  723                             		; start of function
  724                             		; push 8: ax bc de hl
  725                             		; uses ES register
@@ -828,7 +844,7 @@
  735 0006 8E FD                   		mov	a, es
  736 0008 C1                      		push	ax
  737                             	.LCFI114:
- 738                             		.loc 1 138 0
+ 738                             		.loc 1 154 0
  739 0009 C0                      		pop	ax
  740 000a 9E FD                   		mov	es, a
  741 000c C6                      		pop	hl
@@ -841,12 +857,12 @@
  749                             		.global	_INT_TM03
  751                             	_INT_TM03:
  752                             	.LFB23:
- 139:../core/inthandler.c **** 
- 140:../core/inthandler.c **** /*
- 141:../core/inthandler.c ****  * INT_TM03 (0x32)
- 142:../core/inthandler.c ****  */
- 143:../core/inthandler.c **** void INT_TM03 (void) { }
- 753                             		.loc 1 143 0
+ 155:../core/inthandler.c **** 
+ 156:../core/inthandler.c **** /*
+ 157:../core/inthandler.c ****  * INT_TM03 (0x32)
+ 158:../core/inthandler.c ****  */
+ 159:../core/inthandler.c **** void INT_TM03 (void) { }
+ 753                             		.loc 1 159 0
  754                             		; start of function
  755                             		; push 8: ax bc de hl
  756                             		; uses ES register
@@ -862,7 +878,7 @@
  766 0006 8E FD                   		mov	a, es
  767 0008 C1                      		push	ax
  768                             	.LCFI119:
- 769                             		.loc 1 143 0
+ 769                             		.loc 1 159 0
  770 0009 C0                      		pop	ax
  771 000a 9E FD                   		mov	es, a
  772 000c C6                      		pop	hl
@@ -875,12 +891,12 @@
  780                             		.global	_INT_AD
  782                             	_INT_AD:
  783                             	.LFB24:
- 144:../core/inthandler.c **** 
- 145:../core/inthandler.c **** /*
- 146:../core/inthandler.c ****  * INT_AD (0x34)
- 147:../core/inthandler.c ****  */
- 148:../core/inthandler.c **** void INT_AD (void) { }
- 784                             		.loc 1 148 0
+ 160:../core/inthandler.c **** 
+ 161:../core/inthandler.c **** /*
+ 162:../core/inthandler.c ****  * INT_AD (0x34)
+ 163:../core/inthandler.c ****  */
+ 164:../core/inthandler.c **** void INT_AD (void) { }
+ 784                             		.loc 1 164 0
  785                             		; start of function
  786                             		; push 8: ax bc de hl
  787                             		; uses ES register
@@ -896,7 +912,7 @@
  797 0006 8E FD                   		mov	a, es
  798 0008 C1                      		push	ax
  799                             	.LCFI124:
- 800                             		.loc 1 148 0
+ 800                             		.loc 1 164 0
  801 0009 C0                      		pop	ax
  802 000a 9E FD                   		mov	es, a
  803 000c C6                      		pop	hl
@@ -909,12 +925,12 @@
  811                             		.global	_INT_RTC
  813                             	_INT_RTC:
  814                             	.LFB25:
- 149:../core/inthandler.c **** 
- 150:../core/inthandler.c **** /*
- 151:../core/inthandler.c ****  * INT_RTC (0x36)
- 152:../core/inthandler.c ****  */
- 153:../core/inthandler.c **** void INT_RTC (void) { }
- 815                             		.loc 1 153 0
+ 165:../core/inthandler.c **** 
+ 166:../core/inthandler.c **** /*
+ 167:../core/inthandler.c ****  * INT_RTC (0x36)
+ 168:../core/inthandler.c ****  */
+ 169:../core/inthandler.c **** void INT_RTC (void) { }
+ 815                             		.loc 1 169 0
  816                             		; start of function
  817                             		; push 8: ax bc de hl
  818                             		; uses ES register
@@ -930,7 +946,7 @@
  828 0006 8E FD                   		mov	a, es
  829 0008 C1                      		push	ax
  830                             	.LCFI129:
- 831                             		.loc 1 153 0
+ 831                             		.loc 1 169 0
  832 0009 C0                      		pop	ax
  833 000a 9E FD                   		mov	es, a
  834 000c C6                      		pop	hl
@@ -943,12 +959,12 @@
  842                             		.weak	_INT_IT
  844                             	_INT_IT:
  845                             	.LFB26:
- 154:../core/inthandler.c **** 
- 155:../core/inthandler.c **** /*
- 156:../core/inthandler.c ****  * INT_IT (0x38)
- 157:../core/inthandler.c ****  */
- 158:../core/inthandler.c **** __attribute__((weak)) void INT_IT (void) { }
- 846                             		.loc 1 158 0
+ 170:../core/inthandler.c **** 
+ 171:../core/inthandler.c **** /*
+ 172:../core/inthandler.c ****  * INT_IT (0x38)
+ 173:../core/inthandler.c ****  */
+ 174:../core/inthandler.c **** __attribute__((weak)) void INT_IT (void) { }
+ 846                             		.loc 1 174 0
  847                             		; start of function
  848                             		; push 8: ax bc de hl
  849                             		; uses ES register
@@ -964,7 +980,7 @@
  859 0006 8E FD                   		mov	a, es
  860 0008 C1                      		push	ax
  861                             	.LCFI134:
- 862                             		.loc 1 158 0
+ 862                             		.loc 1 174 0
  863 0009 C0                      		pop	ax
  864 000a 9E FD                   		mov	es, a
  865 000c C6                      		pop	hl
@@ -977,12 +993,12 @@
  873                             		.global	_INT_KR
  875                             	_INT_KR:
  876                             	.LFB27:
- 159:../core/inthandler.c **** 
- 160:../core/inthandler.c **** /*
- 161:../core/inthandler.c ****  * INT_KR (0x3A)
- 162:../core/inthandler.c ****  */
- 163:../core/inthandler.c **** void INT_KR (void) { }
- 877                             		.loc 1 163 0
+ 175:../core/inthandler.c **** 
+ 176:../core/inthandler.c **** /*
+ 177:../core/inthandler.c ****  * INT_KR (0x3A)
+ 178:../core/inthandler.c ****  */
+ 179:../core/inthandler.c **** void INT_KR (void) { }
+ 877                             		.loc 1 179 0
  878                             		; start of function
  879                             		; push 8: ax bc de hl
  880                             		; uses ES register
@@ -998,7 +1014,7 @@
  890 0006 8E FD                   		mov	a, es
  891 0008 C1                      		push	ax
  892                             	.LCFI139:
- 893                             		.loc 1 163 0
+ 893                             		.loc 1 179 0
  894 0009 C0                      		pop	ax
  895 000a 9E FD                   		mov	es, a
  896 000c C6                      		pop	hl
@@ -1011,12 +1027,12 @@
  904                             		.global	_INT_TM04
  906                             	_INT_TM04:
  907                             	.LFB28:
- 164:../core/inthandler.c **** 
- 165:../core/inthandler.c **** /*
- 166:../core/inthandler.c ****  * INT_TM04 (0x42)
- 167:../core/inthandler.c ****  */
- 168:../core/inthandler.c **** void INT_TM04 (void) { }
- 908                             		.loc 1 168 0
+ 180:../core/inthandler.c **** 
+ 181:../core/inthandler.c **** /*
+ 182:../core/inthandler.c ****  * INT_TM04 (0x42)
+ 183:../core/inthandler.c ****  */
+ 184:../core/inthandler.c **** void INT_TM04 (void) { }
+ 908                             		.loc 1 184 0
  909                             		; start of function
  910                             		; push 8: ax bc de hl
  911                             		; uses ES register
@@ -1032,7 +1048,7 @@
  921 0006 8E FD                   		mov	a, es
  922 0008 C1                      		push	ax
  923                             	.LCFI144:
- 924                             		.loc 1 168 0
+ 924                             		.loc 1 184 0
  925 0009 C0                      		pop	ax
  926 000a 9E FD                   		mov	es, a
  927 000c C6                      		pop	hl
@@ -1045,12 +1061,12 @@
  935                             		.global	_INT_TM05
  937                             	_INT_TM05:
  938                             	.LFB29:
- 169:../core/inthandler.c **** 
- 170:../core/inthandler.c **** /*
- 171:../core/inthandler.c ****  * INT_TM05 (0x44)
- 172:../core/inthandler.c ****  */
- 173:../core/inthandler.c **** void INT_TM05 (void) { }
- 939                             		.loc 1 173 0
+ 185:../core/inthandler.c **** 
+ 186:../core/inthandler.c **** /*
+ 187:../core/inthandler.c ****  * INT_TM05 (0x44)
+ 188:../core/inthandler.c ****  */
+ 189:../core/inthandler.c **** void INT_TM05 (void) { }
+ 939                             		.loc 1 189 0
  940                             		; start of function
  941                             		; push 8: ax bc de hl
  942                             		; uses ES register
@@ -1066,7 +1082,7 @@
  952 0006 8E FD                   		mov	a, es
  953 0008 C1                      		push	ax
  954                             	.LCFI149:
- 955                             		.loc 1 173 0
+ 955                             		.loc 1 189 0
  956 0009 C0                      		pop	ax
  957 000a 9E FD                   		mov	es, a
  958 000c C6                      		pop	hl
@@ -1079,12 +1095,12 @@
  966                             		.global	_INT_TM06
  968                             	_INT_TM06:
  969                             	.LFB30:
- 174:../core/inthandler.c **** 
- 175:../core/inthandler.c **** /*
- 176:../core/inthandler.c ****  * INT_TM06 (0x46)
- 177:../core/inthandler.c ****  */
- 178:../core/inthandler.c **** void INT_TM06 (void) { }
- 970                             		.loc 1 178 0
+ 190:../core/inthandler.c **** 
+ 191:../core/inthandler.c **** /*
+ 192:../core/inthandler.c ****  * INT_TM06 (0x46)
+ 193:../core/inthandler.c ****  */
+ 194:../core/inthandler.c **** void INT_TM06 (void) { }
+ 970                             		.loc 1 194 0
  971                             		; start of function
  972                             		; push 8: ax bc de hl
  973                             		; uses ES register
@@ -1100,7 +1116,7 @@
  983 0006 8E FD                   		mov	a, es
  984 0008 C1                      		push	ax
  985                             	.LCFI154:
- 986                             		.loc 1 178 0
+ 986                             		.loc 1 194 0
  987 0009 C0                      		pop	ax
  988 000a 9E FD                   		mov	es, a
  989 000c C6                      		pop	hl
@@ -1113,12 +1129,12 @@
  997                             		.global	_INT_TM07
  999                             	_INT_TM07:
  1000                             	.LFB31:
- 179:../core/inthandler.c **** 
- 180:../core/inthandler.c **** /*
- 181:../core/inthandler.c ****  * INT_TM07 (0x48)
- 182:../core/inthandler.c ****  */
- 183:../core/inthandler.c **** void INT_TM07 (void) { }
- 1001                             		.loc 1 183 0
+ 195:../core/inthandler.c **** 
+ 196:../core/inthandler.c **** /*
+ 197:../core/inthandler.c ****  * INT_TM07 (0x48)
+ 198:../core/inthandler.c ****  */
+ 199:../core/inthandler.c **** void INT_TM07 (void) { }
+ 1001                             		.loc 1 199 0
  1002                             		; start of function
  1003                             		; push 8: ax bc de hl
  1004                             		; uses ES register
@@ -1134,7 +1150,7 @@
  1014 0006 8E FD                   		mov	a, es
  1015 0008 C1                      		push	ax
  1016                             	.LCFI159:
- 1017                             		.loc 1 183 0
+ 1017                             		.loc 1 199 0
  1018 0009 C0                      		pop	ax
  1019 000a 9E FD                   		mov	es, a
  1020 000c C6                      		pop	hl
@@ -1147,12 +1163,12 @@
  1028                             		.global	_INT_P6
  1030                             	_INT_P6:
  1031                             	.LFB32:
- 184:../core/inthandler.c **** 
- 185:../core/inthandler.c **** /*
- 186:../core/inthandler.c ****  * INT_P6 (0x4A)
- 187:../core/inthandler.c ****  */
- 188:../core/inthandler.c **** void INT_P6 (void) { }
- 1032                             		.loc 1 188 0
+ 200:../core/inthandler.c **** 
+ 201:../core/inthandler.c **** /*
+ 202:../core/inthandler.c ****  * INT_P6 (0x4A)
+ 203:../core/inthandler.c ****  */
+ 204:../core/inthandler.c **** void INT_P6 (void) { }
+ 1032                             		.loc 1 204 0
  1033                             		; start of function
  1034                             		; push 8: ax bc de hl
  1035                             		; uses ES register
@@ -1168,7 +1184,7 @@
  1045 0006 8E FD                   		mov	a, es
  1046 0008 C1                      		push	ax
  1047                             	.LCFI164:
- 1048                             		.loc 1 188 0
+ 1048                             		.loc 1 204 0
  1049 0009 C0                      		pop	ax
  1050 000a 9E FD                   		mov	es, a
  1051 000c C6                      		pop	hl
@@ -1181,12 +1197,12 @@
  1059                             		.global	_INT_P7
  1061                             	_INT_P7:
  1062                             	.LFB33:
- 189:../core/inthandler.c **** 
- 190:../core/inthandler.c **** /*
- 191:../core/inthandler.c ****  * INT_P7 (0x4C)
- 192:../core/inthandler.c ****  */
- 193:../core/inthandler.c **** void INT_P7 (void) { }
- 1063                             		.loc 1 193 0
+ 205:../core/inthandler.c **** 
+ 206:../core/inthandler.c **** /*
+ 207:../core/inthandler.c ****  * INT_P7 (0x4C)
+ 208:../core/inthandler.c ****  */
+ 209:../core/inthandler.c **** void INT_P7 (void) { }
+ 1063                             		.loc 1 209 0
  1064                             		; start of function
  1065                             		; push 8: ax bc de hl
  1066                             		; uses ES register
@@ -1202,7 +1218,7 @@
  1076 0006 8E FD                   		mov	a, es
  1077 0008 C1                      		push	ax
  1078                             	.LCFI169:
- 1079                             		.loc 1 193 0
+ 1079                             		.loc 1 209 0
  1080 0009 C0                      		pop	ax
  1081 000a 9E FD                   		mov	es, a
  1082 000c C6                      		pop	hl
@@ -1215,12 +1231,12 @@
  1090                             		.global	_INT_P8
  1092                             	_INT_P8:
  1093                             	.LFB34:
- 194:../core/inthandler.c **** 
- 195:../core/inthandler.c **** /*
- 196:../core/inthandler.c ****  * INT_P8 (0x4E)
- 197:../core/inthandler.c ****  */
- 198:../core/inthandler.c **** void INT_P8 (void) { }
- 1094                             		.loc 1 198 0
+ 210:../core/inthandler.c **** 
+ 211:../core/inthandler.c **** /*
+ 212:../core/inthandler.c ****  * INT_P8 (0x4E)
+ 213:../core/inthandler.c ****  */
+ 214:../core/inthandler.c **** void INT_P8 (void) { }
+ 1094                             		.loc 1 214 0
  1095                             		; start of function
  1096                             		; push 8: ax bc de hl
  1097                             		; uses ES register
@@ -1236,7 +1252,7 @@
  1107 0006 8E FD                   		mov	a, es
  1108 0008 C1                      		push	ax
  1109                             	.LCFI174:
- 1110                             		.loc 1 198 0
+ 1110                             		.loc 1 214 0
  1111 0009 C0                      		pop	ax
  1112 000a 9E FD                   		mov	es, a
  1113 000c C6                      		pop	hl
@@ -1249,12 +1265,12 @@
  1121                             		.global	_INT_P9
  1123                             	_INT_P9:
  1124                             	.LFB35:
- 199:../core/inthandler.c **** 
- 200:../core/inthandler.c **** /*
- 201:../core/inthandler.c ****  * INT_P9 (0x50)
- 202:../core/inthandler.c ****  */
- 203:../core/inthandler.c **** void INT_P9 (void) { }
- 1125                             		.loc 1 203 0
+ 215:../core/inthandler.c **** 
+ 216:../core/inthandler.c **** /*
+ 217:../core/inthandler.c ****  * INT_P9 (0x50)
+ 218:../core/inthandler.c ****  */
+ 219:../core/inthandler.c **** void INT_P9 (void) { }
+ 1125                             		.loc 1 219 0
  1126                             		; start of function
  1127                             		; push 8: ax bc de hl
  1128                             		; uses ES register
@@ -1270,7 +1286,7 @@
  1138 0006 8E FD                   		mov	a, es
  1139 0008 C1                      		push	ax
  1140                             	.LCFI179:
- 1141                             		.loc 1 203 0
+ 1141                             		.loc 1 219 0
  1142 0009 C0                      		pop	ax
  1143 000a 9E FD                   		mov	es, a
  1144 000c C6                      		pop	hl
@@ -1283,12 +1299,12 @@
  1152                             		.global	_INT_P10
  1154                             	_INT_P10:
  1155                             	.LFB36:
- 204:../core/inthandler.c **** 
- 205:../core/inthandler.c **** /*
- 206:../core/inthandler.c ****  * INT_P10 (0x52)
- 207:../core/inthandler.c ****  */
- 208:../core/inthandler.c **** void INT_P10 (void) { }
- 1156                             		.loc 1 208 0
+ 220:../core/inthandler.c **** 
+ 221:../core/inthandler.c **** /*
+ 222:../core/inthandler.c ****  * INT_P10 (0x52)
+ 223:../core/inthandler.c ****  */
+ 224:../core/inthandler.c **** void INT_P10 (void) { }
+ 1156                             		.loc 1 224 0
  1157                             		; start of function
  1158                             		; push 8: ax bc de hl
  1159                             		; uses ES register
@@ -1304,7 +1320,7 @@
  1169 0006 8E FD                   		mov	a, es
  1170 0008 C1                      		push	ax
  1171                             	.LCFI184:
- 1172                             		.loc 1 208 0
+ 1172                             		.loc 1 224 0
  1173 0009 C0                      		pop	ax
  1174 000a 9E FD                   		mov	es, a
  1175 000c C6                      		pop	hl
@@ -1317,12 +1333,12 @@
  1183                             		.global	_INT_P11
  1185                             	_INT_P11:
  1186                             	.LFB37:
- 209:../core/inthandler.c **** 
- 210:../core/inthandler.c **** /*
- 211:../core/inthandler.c ****  * INT_P11 (0x54)
- 212:../core/inthandler.c ****  */
- 213:../core/inthandler.c **** void INT_P11 (void) { }
- 1187                             		.loc 1 213 0
+ 225:../core/inthandler.c **** 
+ 226:../core/inthandler.c **** /*
+ 227:../core/inthandler.c ****  * INT_P11 (0x54)
+ 228:../core/inthandler.c ****  */
+ 229:../core/inthandler.c **** void INT_P11 (void) { }
+ 1187                             		.loc 1 229 0
  1188                             		; start of function
  1189                             		; push 8: ax bc de hl
  1190                             		; uses ES register
@@ -1338,7 +1354,7 @@
  1200 0006 8E FD                   		mov	a, es
  1201 0008 C1                      		push	ax
  1202                             	.LCFI189:
- 1203                             		.loc 1 213 0
+ 1203                             		.loc 1 229 0
  1204 0009 C0                      		pop	ax
  1205 000a 9E FD                   		mov	es, a
  1206 000c C6                      		pop	hl
@@ -1351,12 +1367,12 @@
  1214                             		.global	_INT_MD
  1216                             	_INT_MD:
  1217                             	.LFB38:
- 214:../core/inthandler.c **** 
- 215:../core/inthandler.c **** /*
- 216:../core/inthandler.c ****  * INT_MD (0x5E)
- 217:../core/inthandler.c ****  */
- 218:../core/inthandler.c **** void INT_MD (void) { }
- 1218                             		.loc 1 218 0
+ 230:../core/inthandler.c **** 
+ 231:../core/inthandler.c **** /*
+ 232:../core/inthandler.c ****  * INT_MD (0x5E)
+ 233:../core/inthandler.c ****  */
+ 234:../core/inthandler.c **** void INT_MD (void) { }
+ 1218                             		.loc 1 234 0
  1219                             		; start of function
  1220                             		; push 8: ax bc de hl
  1221                             		; uses ES register
@@ -1372,7 +1388,7 @@
  1231 0006 8E FD                   		mov	a, es
  1232 0008 C1                      		push	ax
  1233                             	.LCFI194:
- 1234                             		.loc 1 218 0
+ 1234                             		.loc 1 234 0
  1235 0009 C0                      		pop	ax
  1236 000a 9E FD                   		mov	es, a
  1237 000c C6                      		pop	hl
@@ -1385,12 +1401,12 @@
  1245                             		.global	_INT_FL
  1247                             	_INT_FL:
  1248                             	.LFB39:
- 219:../core/inthandler.c **** 
- 220:../core/inthandler.c **** /*
- 221:../core/inthandler.c ****  * INT_FL (0x62)
- 222:../core/inthandler.c ****  */
- 223:../core/inthandler.c **** void INT_FL (void) { }
- 1249                             		.loc 1 223 0
+ 235:../core/inthandler.c **** 
+ 236:../core/inthandler.c **** /*
+ 237:../core/inthandler.c ****  * INT_FL (0x62)
+ 238:../core/inthandler.c ****  */
+ 239:../core/inthandler.c **** void INT_FL (void) { }
+ 1249                             		.loc 1 239 0
  1250                             		; start of function
  1251                             		; push 8: ax bc de hl
  1252                             		; uses ES register
@@ -1406,7 +1422,7 @@
  1262 0006 8E FD                   		mov	a, es
  1263 0008 C1                      		push	ax
  1264                             	.LCFI199:
- 1265                             		.loc 1 223 0
+ 1265                             		.loc 1 239 0
  1266 0009 C0                      		pop	ax
  1267 000a 9E FD                   		mov	es, a
  1268 000c C6                      		pop	hl
@@ -1419,12 +1435,12 @@
  1276                             		.global	_INT_BRK_I
  1278                             	_INT_BRK_I:
  1279                             	.LFB40:
- 224:../core/inthandler.c **** 
- 225:../core/inthandler.c **** /*
- 226:../core/inthandler.c ****  * INT_BRK_I (0x7E)
- 227:../core/inthandler.c ****  */
- 228:../core/inthandler.c **** void INT_BRK_I (void) { }
- 1280                             		.loc 1 228 0
+ 240:../core/inthandler.c **** 
+ 241:../core/inthandler.c **** /*
+ 242:../core/inthandler.c ****  * INT_BRK_I (0x7E)
+ 243:../core/inthandler.c ****  */
+ 244:../core/inthandler.c **** void INT_BRK_I (void) { }
+ 1280                             		.loc 1 244 0
  1281                             		; start of function
  1282                             		; push 8: ax bc de hl
  1283                             		; uses ES register
@@ -1440,7 +1456,7 @@
  1293 0006 8E FD                   		mov	a, es
  1294 0008 C1                      		push	ax
  1295                             	.LCFI204:
- 1296                             		.loc 1 228 0
+ 1296                             		.loc 1 244 0
  1297 0009 C0                      		pop	ax
  1298 000a 9E FD                   		mov	es, a
  1299 000c C6                      		pop	hl

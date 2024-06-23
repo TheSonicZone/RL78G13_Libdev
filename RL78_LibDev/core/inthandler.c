@@ -1,11 +1,27 @@
-/************************************************************************/
-/* Header file generated from device file:                              */
-/*    DR5F100LE.DVF                                                     */
-/*    V1.14 (2012/01/10)                                                */
-/*    Copyright(C) 2012 Renesas                                         */
-/* Tool Version: 4.0.0                                                  */
-/* Date Generated: 2020/01/17                                           */
-/************************************************************************/
+//
+//			Filename: inthandler.c
+//          Interrupt handler definitions for RL78/G13
+//
+//			Based on code provided by Renesas Electronics via Appilet
+//          (changed for ease of use and logical functionality)
+//			Interrupt handlers defined with weak attribute to allow the user to
+//          override them and define his/her own interrupt handlers anywhere
+//
+//			Copyright (C) 2024  The Sonic Zone (PTY) LTD
+//
+//			This program is free software: you can redistribute it and/or modify
+//			it under the terms of the GNU General Public License as published by
+//			the Free Software Foundation, either version 3 of the License, or
+//			(at your option) any later version.
+//
+//			This program is distributed in the hope that it will be useful,
+//			but WITHOUT ANY WARRANTY; without even the implied warranty of
+//			MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+//			GNU General Public License for more details.
+//
+//			You should have received a copy of the GNU General Public License
+//			along with this program.  If not, see <http://www.gnu.org/licenses/>.
+//---------------------------------------------------------------------------------------
 #include "../core/interrupt_handlers.h"
 
 /*

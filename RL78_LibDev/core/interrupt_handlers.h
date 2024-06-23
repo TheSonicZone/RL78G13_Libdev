@@ -1,17 +1,37 @@
-/************************************************************************/
-/* Header file generated from device file:                              */
-/*    DR5F100LE.DVF                                                     */
-/*    V1.14 (2012/01/10)                                                */
-/*    Copyright(C) 2012 Renesas                                         */
-/* Tool Version: 4.0.0                                                  */
-/* Date Generated: 2020/01/17                                           */
-/************************************************************************/
+//
+//			Filename: interrupt_handlers.h
+//          Interrupt handler definitions for RL78/G13
+//
+//			Based on code provided by Renesas Electronics via Appilet
+//          (changed for ease of use and logical functionality)
+//
+//			GNURL78 is an old-school C compiler, and as such, will need this
+//          file and the matching inthandler.c because the __interrupt keyword and
+//          interrupt pragma do not exist in this variant of GCC.
+//			Hence the interrupt declaration pattern used in everything these days from
+//          GCC for ARM and MSP430, cannot be used :(
+//			It's a shame really
+//          but no effort has been put into doing a decent toolchain for this product!
+//
+//			Copyright (C) 2024  The Sonic Zone (PTY) LTD
+//
+//			This program is free software: you can redistribute it and/or modify
+//			it under the terms of the GNU General Public License as published by
+//			the Free Software Foundation, either version 3 of the License, or
+//			(at your option) any later version.
+//
+//			This program is distributed in the hope that it will be useful,
+//			but WITHOUT ANY WARRANTY; without even the implied warranty of
+//			MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+//			GNU General Public License for more details.
+//
+//			You should have received a copy of the GNU General Public License
+//			along with this program.  If not, see <http://www.gnu.org/licenses/>.
+//---------------------------------------------------------------------------------------
 #ifndef INTERRUPT_HANDLERS_H
 #define INTERRUPT_HANDLERS_H
 
-/*
- * INT_WDTI (0x4)
- */
+// Watchdog
 void INT_WDTI(void) __attribute__ ((interrupt));
 
 /*
@@ -68,14 +88,10 @@ void INT_SR2(void) __attribute__ ((interrupt));
  */
 void INT_SRE2(void) __attribute__ ((interrupt));
 
-/*
- * INT_DMA0 (0x1A)
- */
+// DMA Channel 0
 void INT_DMA0(void) __attribute__ ((interrupt));
 
-/*
- * INT_DMA1 (0x1C)
- */
+// DMA Channel 1
 void INT_DMA1(void) __attribute__ ((interrupt));
 
 /*
@@ -118,9 +134,7 @@ void INT_SR1(void) __attribute__ ((interrupt));
 void INT_TM03H(void) __attribute__ ((interrupt));
 //void INT_SRE1(void) __attribute__ ((interrupt));
 
-/*
- * INT_IICA0 (0x2A)
- */
+// I2C Peripheral
 void INT_IICA0(void) __attribute__ ((interrupt));
 
 /*
@@ -138,24 +152,16 @@ void INT_TM01(void) __attribute__ ((interrupt));
  */
 void INT_TM02(void) __attribute__ ((interrupt));
 
-/*
- * INT_TM03 (0x32)
- */
+// Timer 3
 void INT_TM03(void) __attribute__ ((interrupt));
 
-/*
- * INT_AD (0x34)
- */
+// A/D converter
 void INT_AD(void) __attribute__ ((interrupt));
 
-/*
- * INT_RTC (0x36)
- */
+// Real-time clock
 void INT_RTC(void) __attribute__ ((interrupt));
 
-/*
- * INT_IT (0x38)
- */
+// Interval Timer
 void INT_IT(void) __attribute__ ((interrupt));
 
 /*
@@ -163,39 +169,25 @@ void INT_IT(void) __attribute__ ((interrupt));
  */
 void INT_KR(void) __attribute__ ((interrupt));
 
-/*
- * INT_TM04 (0x42)
- */
+// Timer 4
 void INT_TM04(void) __attribute__ ((interrupt));
 
-/*
- * INT_TM05 (0x44)
- */
+// Timer 5
 void INT_TM05(void) __attribute__ ((interrupt));
 
-/*
- * INT_TM06 (0x46)
- */
+// Timer 6
 void INT_TM06(void) __attribute__ ((interrupt));
 
-/*
- * INT_TM07 (0x48)
- */
+// Timer 7
 void INT_TM07(void) __attribute__ ((interrupt));
 
-/*
- * INT_P6 (0x4A)
- */
+// Port 6
 void INT_P6(void) __attribute__ ((interrupt));
 
-/*
- * INT_P7 (0x4C)
- */
+// Port 7
 void INT_P7(void) __attribute__ ((interrupt));
 
-/*
- * INT_P8 (0x4E)
- */
+// Port 8
 void INT_P8(void) __attribute__ ((interrupt));
 
 /*
@@ -223,12 +215,9 @@ void INT_MD(void) __attribute__ ((interrupt));
  */
 void INT_FL(void) __attribute__ ((interrupt));
 
-/*
- * INT_BRK_I (0x7E)
- */
+// Breakpoint
 void INT_BRK_I(void) __attribute__ ((interrupt));
 
-//Hardware Vectors
-//PowerON_Reset (0x0)
+// Reset Vector
 void PowerON_Reset(void) __attribute__ ((interrupt));
 #endif
