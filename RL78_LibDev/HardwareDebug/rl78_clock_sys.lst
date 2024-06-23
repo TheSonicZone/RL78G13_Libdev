@@ -31,9 +31,9 @@
   31                             	MDCH	=	0xf00e2
   32                             	.text
   33                             	.Ltext0:
-  34                             		.section	.text.InitClockSystem,"ax",@progbits
-  35                             		.global	_InitClockSystem
-  37                             	_InitClockSystem:
+  34                             		.section	.text.SetCPUClockX1,"ax",@progbits
+  35                             		.global	_SetCPUClockX1
+  37                             	_SetCPUClockX1:
   38                             	.LFB0:
   39                             		.file 1 "../core/rl78_clock_sys.c"
    1:../core/rl78_clock_sys.c **** //
@@ -64,420 +64,474 @@
   26:../core/rl78_clock_sys.c **** #include "../core/iodefine.h"
   27:../core/rl78_clock_sys.c **** #include "../core/iodefine_ext.h"
   28:../core/rl78_clock_sys.c **** 
-  29:../core/rl78_clock_sys.c **** 
-  30:../core/rl78_clock_sys.c **** 
-  31:../core/rl78_clock_sys.c **** //--------------------------------------------------------------------------------------------
-  32:../core/rl78_clock_sys.c **** // Name: InitClockSys
-  33:../core/rl78_clock_sys.c **** // Function: Initialise the clock system per the provided parameters
-  34:../core/rl78_clock_sys.c **** //           if EXT clock oscillator is used, this function will set the alternate function
-  35:../core/rl78_clock_sys.c **** //           on the appropriate GPIO pins
-  36:../core/rl78_clock_sys.c **** // Parameters: Main Clock Mode, Subsystem Clock Mode
-  37:../core/rl78_clock_sys.c **** // Returns: Result of operation
-  38:../core/rl78_clock_sys.c **** //--------------------------------------------------------------------------------------------
-  39:../core/rl78_clock_sys.c **** int InitClockSystem(unsigned char main_mode, unsigned char subsystem_mode){
-  40                             		.loc 1 39 0
-  41                             		; start of function
-  42                             		; locals: 10 bytes
-  43                             		; uses ES register
-  44 0000 20 0A                   		subw	sp, #10
-  45                             	.LCFI0:
+  29:../core/rl78_clock_sys.c **** //-------------------------------------------------------------------------------------------
+  30:../core/rl78_clock_sys.c **** // Name: SetCPUClockX1
+  31:../core/rl78_clock_sys.c **** // Function: Set the CPU clock to the xtal oscillator X1 and turn off the on-chip oscillator
+  32:../core/rl78_clock_sys.c **** // Parameters: void
+  33:../core/rl78_clock_sys.c **** // Returns: void
+  34:../core/rl78_clock_sys.c **** //--------------------------------------------------------------------------------------------
+  35:../core/rl78_clock_sys.c **** void SetCPUClockX1(void){
+  40                             		.loc 1 35 0
+  36:../core/rl78_clock_sys.c **** 	CSS = 0;
+  41                             		.loc 1 36 0
+  42 0000 C9 F0 A4 FF             		movw	r8, #-92
+  43 0004 AD F0                   		movw	ax, r8
+  44 0006 BD F4                   		movw	r12, ax
+  45 0008 FA F4                   		movw	hl, r12
+  46 000a 8B                      		mov	a, [hl]
+  47 000b 9D F2                   		mov	r10, a
+  48 000d 5A F2 BF                		and	r10, #-65
+  49 0010 AD F0                   		movw	ax, r8
+  50 0012 EA F4                   		movw	de, r12
+  51 0014 8D F2                   		mov	a, r10
+  52 0016 99                      		mov	[de], a
+  37:../core/rl78_clock_sys.c **** 	MCM0 = 1;
+  53                             		.loc 1 37 0
+  54 0017 C9 F0 A4 FF             		movw	r8, #-92
+  55 001b AD F0                   		movw	ax, r8
+  56 001d BD F4                   		movw	r12, ax
+  57 001f FA F4                   		movw	hl, r12
+  58 0021 8B                      		mov	a, [hl]
+  59 0022 9D F2                   		mov	r10, a
+  60 0024 6A F2 10                		or	r10, #16
+  61 0027 AD F0                   		movw	ax, r8
+  62 0029 EA F4                   		movw	de, r12
+  63 002b 8D F2                   		mov	a, r10
+  64 002d 99                      		mov	[de], a
+  38:../core/rl78_clock_sys.c **** 	HIOSTOP = 1;
+  65                             		.loc 1 38 0
+  66 002e C9 F0 A1 FF             		movw	r8, #-95
+  67 0032 AD F0                   		movw	ax, r8
+  68 0034 BD F4                   		movw	r12, ax
+  69 0036 FA F4                   		movw	hl, r12
+  70 0038 8B                      		mov	a, [hl]
+  71 0039 9D F2                   		mov	r10, a
+  72 003b 6A F2 01                		or	r10, #1
+  73 003e AD F0                   		movw	ax, r8
+  74 0040 EA F4                   		movw	de, r12
+  75 0042 8D F2                   		mov	a, r10
+  76 0044 99                      		mov	[de], a
+  39:../core/rl78_clock_sys.c **** }
+  77                             		.loc 1 39 0
+  78 0045 D7                      		ret
+  79                             	.LFE0:
+  81                             		.section	.text.InitClockSystem,"ax",@progbits
+  82                             		.global	_InitClockSystem
+  84                             	_InitClockSystem:
+  85                             	.LFB1:
   40:../core/rl78_clock_sys.c **** 
-  41:../core/rl78_clock_sys.c **** 	uint8_t CMC_Value = 0;
-  46                             		.loc 1 41 0
-  47 0002 F1                      		clrb	a
-  48 0003 98 09                   		mov	[sp+9], a
-  42:../core/rl78_clock_sys.c **** 	uint8_t OSTC_Value = 0;
-  49                             		.loc 1 42 0
-  50 0005 F1                      		clrb	a
-  51 0006 98 03                   		mov	[sp+3], a
-  43:../core/rl78_clock_sys.c **** 	uint8_t OSTC_Comparison_Value = 0;
-  52                             		.loc 1 43 0
-  53 0008 F1                      		clrb	a
-  54 0009 98 02                   		mov	[sp+2], a
-  44:../core/rl78_clock_sys.c **** 	uint32_t XT1DelayCounter;
-  45:../core/rl78_clock_sys.c **** 
-  46:../core/rl78_clock_sys.c **** 	PIOR = 0x00;			// Peripheral I/O redirections cleared
-  55                             		.loc 1 46 0
-  56 000b C9 F0 77 00             		movw	r8, #119
-  57 000f AD F0                   		movw	ax, r8
-  58 0011 BD F2                   		movw	r10, ax
-  59 0013 EA F2                   		movw	de, r10
-  60 0015 F1                      		clrb	a
-  61 0016 99                      		mov	[de], a
-  47:../core/rl78_clock_sys.c **** 
-  48:../core/rl78_clock_sys.c **** 	// Main clock source setting
-  49:../core/rl78_clock_sys.c **** 	switch(main_mode){
-  62                             		.loc 1 49 0
-  63 0017 88 0E                   		mov	a, [sp+14]
-  64 0019 31 8E                   		shrw	ax, 8
-  65 001b BD F0                   		movw	r8, ax
-  66 001d 44 01 00                		cmpw	ax, #1
-  67 0020 61 F8                   		 sknz
-  68 0022 EC 63 00 00             		 br	!!.L3
-  69 0026 AD F0                   		movw	ax, r8
-  70 0028 44 01 00                		cmpw	ax, #1
-  71 002b 71 FF                   		 xor1	CY, a.7
-  72 002d 61 F3                   		 sknh
-  73 002f EC 42 00 00             		 br	!!.L4
-  74 0033 AD F0                   		movw	ax, r8
-  75 0035 44 00 00                		cmpw	ax, #0
-  76 0038 61 F8                   		 sknz
-  77 003a EC 5C 00 00             		 br	!!.L5
-  78 003e EC 7B 00 00             		br	!!.L2
-  79                             	.L4:
-  80 0042 AD F0                   		movw	ax, r8
-  81 0044 44 02 00                		cmpw	ax, #2
-  82 0047 61 F8                   		 sknz
-  83 0049 EC 6B 00 00             		 br	!!.L6
-  84 004d AD F0                   		movw	ax, r8
-  85 004f 44 03 00                		cmpw	ax, #3
-  86 0052 61 F8                   		 sknz
-  87 0054 EC 73 00 00             		 br	!!.L7
-  88 0058 EC 7B 00 00             		br	!!.L2
-  89                             	.L5:
+  41:../core/rl78_clock_sys.c **** //--------------------------------------------------------------------------------------------
+  42:../core/rl78_clock_sys.c **** // Name: InitClockSys
+  43:../core/rl78_clock_sys.c **** // Function: Initialise the clock system per the provided parameters
+  44:../core/rl78_clock_sys.c **** //           if EXT clock oscillator is used, this function will set the alternate function
+  45:../core/rl78_clock_sys.c **** //           on the appropriate GPIO pins
+  46:../core/rl78_clock_sys.c **** // Parameters: Main Clock Mode, Subsystem Clock Mode
+  47:../core/rl78_clock_sys.c **** // Returns: Result of operation
+  48:../core/rl78_clock_sys.c **** //--------------------------------------------------------------------------------------------
+  49:../core/rl78_clock_sys.c **** int InitClockSystem(unsigned char main_mode, unsigned char subsystem_mode){
+  86                             		.loc 1 49 0
+  87                             		; start of function
+  88                             		; locals: 10 bytes
+  89                             		; uses ES register
+  90 0000 20 0A                   		subw	sp, #10
+  91                             	.LCFI0:
   50:../core/rl78_clock_sys.c **** 
-  51:../core/rl78_clock_sys.c **** 	case ONCHIP_HS:			// HS on-chip oscillator mode, make sure the clock speed is set in OPTION
-  52:../core/rl78_clock_sys.c **** 		CMC_Value = X1_PINS_GPIO;
-  90                             		.loc 1 52 0
-  91 005c F1                      		clrb	a
-  92 005d 98 09                   		mov	[sp+9], a
-  53:../core/rl78_clock_sys.c **** 		break;
-  93                             		.loc 1 53 0
-  94 005f EC 84 00 00             		br	!!.L8
-  95                             	.L3:
-  54:../core/rl78_clock_sys.c **** 
-  55:../core/rl78_clock_sys.c **** 	case X1_NORMAL:
-  56:../core/rl78_clock_sys.c **** 		// External X1 oscillator is requested, prepare bit settings for write-once register CMC
-  57:../core/rl78_clock_sys.c **** 		CMC_Value = X1_OSCILLATOR | X1_LOWSPD;
-  96                             		.loc 1 57 0
-  97 0063 51 40                   		mov	a, #64
-  98 0065 98 09                   		mov	[sp+9], a
-  58:../core/rl78_clock_sys.c **** 		break;
-  99                             		.loc 1 58 0
- 100 0067 EC 84 00 00             		br	!!.L8
- 101                             	.L6:
-  59:../core/rl78_clock_sys.c **** 	case X1_HIGHSPEED:
-  60:../core/rl78_clock_sys.c **** 		CMC_Value = X1_OSCILLATOR | X1_HIGHSPD;
- 102                             		.loc 1 60 0
- 103 006b 51 41                   		mov	a, #65
- 104 006d 98 09                   		mov	[sp+9], a
-  61:../core/rl78_clock_sys.c **** 		break;
- 105                             		.loc 1 61 0
- 106 006f EC 84 00 00             		br	!!.L8
- 107                             	.L7:
-  62:../core/rl78_clock_sys.c **** 
-  63:../core/rl78_clock_sys.c **** 	case X1_EXTERNAL:
-  64:../core/rl78_clock_sys.c **** 		CMC_Value = X1_EXTERNAL_CLK;
- 108                             		.loc 1 64 0
- 109 0073 51 C0                   		mov	a, #-64
- 110 0075 98 09                   		mov	[sp+9], a
-  65:../core/rl78_clock_sys.c **** 		break;
- 111                             		.loc 1 65 0
- 112 0077 EC 84 00 00             		br	!!.L8
- 113                             	.L2:
-  66:../core/rl78_clock_sys.c **** 
-  67:../core/rl78_clock_sys.c **** 	default:
-  68:../core/rl78_clock_sys.c **** 		return -1;		// invalid value, return -1
- 114                             		.loc 1 68 0
- 115 007b 30 FF FF                		movw	ax, #-1
- 116 007e B8 00                   		movw	[sp], ax
- 117 0080 EC FC 01 00             		br	!!.L9
- 118                             	.L8:
-  69:../core/rl78_clock_sys.c **** 
-  70:../core/rl78_clock_sys.c **** 	}
-  71:../core/rl78_clock_sys.c **** 
-  72:../core/rl78_clock_sys.c **** 	// Sub clock source setting
-  73:../core/rl78_clock_sys.c **** 	switch(subsystem_mode){
- 119                             		.loc 1 73 0
- 120 0084 88 10                   		mov	a, [sp+16]
- 121 0086 31 8E                   		shrw	ax, 8
- 122 0088 BD F0                   		movw	r8, ax
- 123 008a 44 02 00                		cmpw	ax, #2
- 124 008d 61 F8                   		 sknz
- 125 008f EC DE 00 00             		 br	!!.L11
- 126 0093 AD F0                   		movw	ax, r8
- 127 0095 44 02 00                		cmpw	ax, #2
- 128 0098 71 FF                   		 xor1	CY, a.7
- 129 009a 61 F3                   		 sknh
- 130 009c EC BA 00 00             		 br	!!.L12
- 131 00a0 AD F0                   		movw	ax, r8
- 132 00a2 44 00 00                		cmpw	ax, #0
- 133 00a5 61 F8                   		 sknz
- 134 00a7 EC 05 01 00             		 br	!!.L24
- 135 00ab AD F0                   		movw	ax, r8
- 136 00ad 44 01 00                		cmpw	ax, #1
- 137 00b0 61 F8                   		 sknz
- 138 00b2 EC D4 00 00             		 br	!!.L14
- 139 00b6 EC FC 00 00             		br	!!.L10
- 140                             	.L12:
- 141 00ba AD F0                   		movw	ax, r8
- 142 00bc 44 03 00                		cmpw	ax, #3
- 143 00bf 61 F8                   		 sknz
- 144 00c1 EC E8 00 00             		 br	!!.L15
- 145 00c5 AD F0                   		movw	ax, r8
- 146 00c7 44 04 00                		cmpw	ax, #4
- 147 00ca 61 F8                   		 sknz
- 148 00cc EC F2 00 00             		 br	!!.L16
- 149 00d0 EC FC 00 00             		br	!!.L10
- 150                             	.L14:
-  74:../core/rl78_clock_sys.c **** 	case ONCHIP_LS:
-  75:../core/rl78_clock_sys.c **** 		CMC_Value = CMC_Value | XT1_PINS_GPIO;
-  76:../core/rl78_clock_sys.c **** 		break;
-  77:../core/rl78_clock_sys.c **** 
-  78:../core/rl78_clock_sys.c **** 	case XT1_LOWPOWER:
-  79:../core/rl78_clock_sys.c **** 		CMC_Value = CMC_Value | XT1_OSCILLATOR | XT1_LOWPWR;
- 151                             		.loc 1 79 0
- 152 00d4 88 09                   		mov	a, [sp+9]
- 153 00d6 6C 10                   		or	a, #16
- 154 00d8 98 09                   		mov	[sp+9], a
-  80:../core/rl78_clock_sys.c **** 		break;
- 155                             		.loc 1 80 0
- 156 00da EC 06 01 00             		br	!!.L17
- 157                             	.L11:
-  81:../core/rl78_clock_sys.c **** 
-  82:../core/rl78_clock_sys.c **** 	case XT1_NORMAL:
-  83:../core/rl78_clock_sys.c **** 		CMC_Value = CMC_Value | XT1_OSCILLATOR | XT1_NORM;
- 158                             		.loc 1 83 0
- 159 00de 88 09                   		mov	a, [sp+9]
- 160 00e0 6C 12                   		or	a, #18
- 161 00e2 98 09                   		mov	[sp+9], a
-  84:../core/rl78_clock_sys.c **** 		break;
- 162                             		.loc 1 84 0
- 163 00e4 EC 06 01 00             		br	!!.L17
- 164                             	.L15:
-  85:../core/rl78_clock_sys.c **** 
-  86:../core/rl78_clock_sys.c **** 	case XT1_ULTRALOW:
-  87:../core/rl78_clock_sys.c **** 		CMC_Value = CMC_Value | XT1_OSCILLATOR | XT1_ULP;
- 165                             		.loc 1 87 0
- 166 00e8 88 09                   		mov	a, [sp+9]
- 167 00ea 6C 14                   		or	a, #20
- 168 00ec 98 09                   		mov	[sp+9], a
-  88:../core/rl78_clock_sys.c **** 		break;
- 169                             		.loc 1 88 0
- 170 00ee EC 06 01 00             		br	!!.L17
- 171                             	.L16:
-  89:../core/rl78_clock_sys.c **** 
-  90:../core/rl78_clock_sys.c **** 	case XT1_EXTERNAL:
-  91:../core/rl78_clock_sys.c **** 		CMC_Value = CMC_Value | XT1_EXTERNAL_CLK;
- 172                             		.loc 1 91 0
- 173 00f2 88 09                   		mov	a, [sp+9]
- 174 00f4 6C 30                   		or	a, #48
- 175 00f6 98 09                   		mov	[sp+9], a
-  92:../core/rl78_clock_sys.c **** 		break;
- 176                             		.loc 1 92 0
- 177 00f8 EC 06 01 00             		br	!!.L17
- 178                             	.L10:
-  93:../core/rl78_clock_sys.c **** 
-  94:../core/rl78_clock_sys.c **** 	default:
-  95:../core/rl78_clock_sys.c **** 		return -1;		// invalid value, return -1
- 179                             		.loc 1 95 0
- 180 00fc 30 FF FF                		movw	ax, #-1
- 181 00ff B8 00                   		movw	[sp], ax
- 182 0101 EC FC 01 00             		br	!!.L9
- 183                             	.L24:
+  51:../core/rl78_clock_sys.c **** 	uint8_t CMC_Value = 0;
+  92                             		.loc 1 51 0
+  93 0002 F1                      		clrb	a
+  94 0003 98 09                   		mov	[sp+9], a
+  52:../core/rl78_clock_sys.c **** 	uint8_t OSTC_Value = 0;
+  95                             		.loc 1 52 0
+  96 0005 F1                      		clrb	a
+  97 0006 98 03                   		mov	[sp+3], a
+  53:../core/rl78_clock_sys.c **** 	uint8_t OSTC_Comparison_Value = 0;
+  98                             		.loc 1 53 0
+  99 0008 F1                      		clrb	a
+ 100 0009 98 02                   		mov	[sp+2], a
+  54:../core/rl78_clock_sys.c **** 	uint32_t XT1DelayCounter;
+  55:../core/rl78_clock_sys.c **** 
+  56:../core/rl78_clock_sys.c **** 	PIOR = 0x00;			// Peripheral I/O redirections cleared
+ 101                             		.loc 1 56 0
+ 102 000b C9 F0 77 00             		movw	r8, #119
+ 103 000f AD F0                   		movw	ax, r8
+ 104 0011 BD F2                   		movw	r10, ax
+ 105 0013 EA F2                   		movw	de, r10
+ 106 0015 F1                      		clrb	a
+ 107 0016 99                      		mov	[de], a
+  57:../core/rl78_clock_sys.c **** 
+  58:../core/rl78_clock_sys.c **** 	// Main clock source setting
+  59:../core/rl78_clock_sys.c **** 	switch(main_mode){
+ 108                             		.loc 1 59 0
+ 109 0017 88 0E                   		mov	a, [sp+14]
+ 110 0019 31 8E                   		shrw	ax, 8
+ 111 001b BD F0                   		movw	r8, ax
+ 112 001d 44 01 00                		cmpw	ax, #1
+ 113 0020 61 F8                   		 sknz
+ 114 0022 EC 63 00 00             		 br	!!.L4
+ 115 0026 AD F0                   		movw	ax, r8
+ 116 0028 44 01 00                		cmpw	ax, #1
+ 117 002b 71 FF                   		 xor1	CY, a.7
+ 118 002d 61 F3                   		 sknh
+ 119 002f EC 42 00 00             		 br	!!.L5
+ 120 0033 AD F0                   		movw	ax, r8
+ 121 0035 44 00 00                		cmpw	ax, #0
+ 122 0038 61 F8                   		 sknz
+ 123 003a EC 5C 00 00             		 br	!!.L6
+ 124 003e EC 7B 00 00             		br	!!.L3
+ 125                             	.L5:
+ 126 0042 AD F0                   		movw	ax, r8
+ 127 0044 44 02 00                		cmpw	ax, #2
+ 128 0047 61 F8                   		 sknz
+ 129 0049 EC 6B 00 00             		 br	!!.L7
+ 130 004d AD F0                   		movw	ax, r8
+ 131 004f 44 03 00                		cmpw	ax, #3
+ 132 0052 61 F8                   		 sknz
+ 133 0054 EC 73 00 00             		 br	!!.L8
+ 134 0058 EC 7B 00 00             		br	!!.L3
+ 135                             	.L6:
+  60:../core/rl78_clock_sys.c **** 
+  61:../core/rl78_clock_sys.c **** 	case ONCHIP_HS:			// HS on-chip oscillator mode, make sure the clock speed is set in OPTION
+  62:../core/rl78_clock_sys.c **** 		CMC_Value = X1_PINS_GPIO;
+ 136                             		.loc 1 62 0
+ 137 005c F1                      		clrb	a
+ 138 005d 98 09                   		mov	[sp+9], a
+  63:../core/rl78_clock_sys.c **** 		break;
+ 139                             		.loc 1 63 0
+ 140 005f EC 84 00 00             		br	!!.L9
+ 141                             	.L4:
+  64:../core/rl78_clock_sys.c **** 
+  65:../core/rl78_clock_sys.c **** 	case X1_NORMAL:
+  66:../core/rl78_clock_sys.c **** 		// External X1 oscillator is requested, prepare bit settings for write-once register CMC
+  67:../core/rl78_clock_sys.c **** 		CMC_Value = X1_OSCILLATOR | X1_LOWSPD;
+ 142                             		.loc 1 67 0
+ 143 0063 51 40                   		mov	a, #64
+ 144 0065 98 09                   		mov	[sp+9], a
+  68:../core/rl78_clock_sys.c **** 		break;
+ 145                             		.loc 1 68 0
+ 146 0067 EC 84 00 00             		br	!!.L9
+ 147                             	.L7:
+  69:../core/rl78_clock_sys.c **** 	case X1_HIGHSPEED:
+  70:../core/rl78_clock_sys.c **** 		CMC_Value = X1_OSCILLATOR | X1_HIGHSPD;
+ 148                             		.loc 1 70 0
+ 149 006b 51 41                   		mov	a, #65
+ 150 006d 98 09                   		mov	[sp+9], a
+  71:../core/rl78_clock_sys.c **** 		break;
+ 151                             		.loc 1 71 0
+ 152 006f EC 84 00 00             		br	!!.L9
+ 153                             	.L8:
+  72:../core/rl78_clock_sys.c **** 
+  73:../core/rl78_clock_sys.c **** 	case X1_EXTERNAL:
+  74:../core/rl78_clock_sys.c **** 		CMC_Value = X1_EXTERNAL_CLK;
+ 154                             		.loc 1 74 0
+ 155 0073 51 C0                   		mov	a, #-64
+ 156 0075 98 09                   		mov	[sp+9], a
+  75:../core/rl78_clock_sys.c **** 		break;
+ 157                             		.loc 1 75 0
+ 158 0077 EC 84 00 00             		br	!!.L9
+ 159                             	.L3:
   76:../core/rl78_clock_sys.c **** 
- 184                             		.loc 1 76 0
- 185 0105 00                      		nop
- 186                             	.L17:
-  96:../core/rl78_clock_sys.c **** 
-  97:../core/rl78_clock_sys.c **** 
-  98:../core/rl78_clock_sys.c **** 	}
+  77:../core/rl78_clock_sys.c **** 	default:
+  78:../core/rl78_clock_sys.c **** 		return -1;		// invalid value, return -1
+ 160                             		.loc 1 78 0
+ 161 007b 30 FF FF                		movw	ax, #-1
+ 162 007e B8 00                   		movw	[sp], ax
+ 163 0080 EC FC 01 00             		br	!!.L10
+ 164                             	.L9:
+  79:../core/rl78_clock_sys.c **** 
+  80:../core/rl78_clock_sys.c **** 	}
+  81:../core/rl78_clock_sys.c **** 
+  82:../core/rl78_clock_sys.c **** 	// Sub clock source setting
+  83:../core/rl78_clock_sys.c **** 	switch(subsystem_mode){
+ 165                             		.loc 1 83 0
+ 166 0084 88 10                   		mov	a, [sp+16]
+ 167 0086 31 8E                   		shrw	ax, 8
+ 168 0088 BD F0                   		movw	r8, ax
+ 169 008a 44 02 00                		cmpw	ax, #2
+ 170 008d 61 F8                   		 sknz
+ 171 008f EC DE 00 00             		 br	!!.L12
+ 172 0093 AD F0                   		movw	ax, r8
+ 173 0095 44 02 00                		cmpw	ax, #2
+ 174 0098 71 FF                   		 xor1	CY, a.7
+ 175 009a 61 F3                   		 sknh
+ 176 009c EC BA 00 00             		 br	!!.L13
+ 177 00a0 AD F0                   		movw	ax, r8
+ 178 00a2 44 00 00                		cmpw	ax, #0
+ 179 00a5 61 F8                   		 sknz
+ 180 00a7 EC 05 01 00             		 br	!!.L25
+ 181 00ab AD F0                   		movw	ax, r8
+ 182 00ad 44 01 00                		cmpw	ax, #1
+ 183 00b0 61 F8                   		 sknz
+ 184 00b2 EC D4 00 00             		 br	!!.L15
+ 185 00b6 EC FC 00 00             		br	!!.L11
+ 186                             	.L13:
+ 187 00ba AD F0                   		movw	ax, r8
+ 188 00bc 44 03 00                		cmpw	ax, #3
+ 189 00bf 61 F8                   		 sknz
+ 190 00c1 EC E8 00 00             		 br	!!.L16
+ 191 00c5 AD F0                   		movw	ax, r8
+ 192 00c7 44 04 00                		cmpw	ax, #4
+ 193 00ca 61 F8                   		 sknz
+ 194 00cc EC F2 00 00             		 br	!!.L17
+ 195 00d0 EC FC 00 00             		br	!!.L11
+ 196                             	.L15:
+  84:../core/rl78_clock_sys.c **** 	case ONCHIP_LS:
+  85:../core/rl78_clock_sys.c **** 		CMC_Value = CMC_Value | XT1_PINS_GPIO;
+  86:../core/rl78_clock_sys.c **** 		break;
+  87:../core/rl78_clock_sys.c **** 
+  88:../core/rl78_clock_sys.c **** 	case XT1_LOWPOWER:
+  89:../core/rl78_clock_sys.c **** 		CMC_Value = CMC_Value | XT1_OSCILLATOR | XT1_LOWPWR;
+ 197                             		.loc 1 89 0
+ 198 00d4 88 09                   		mov	a, [sp+9]
+ 199 00d6 6C 10                   		or	a, #16
+ 200 00d8 98 09                   		mov	[sp+9], a
+  90:../core/rl78_clock_sys.c **** 		break;
+ 201                             		.loc 1 90 0
+ 202 00da EC 06 01 00             		br	!!.L18
+ 203                             	.L12:
+  91:../core/rl78_clock_sys.c **** 
+  92:../core/rl78_clock_sys.c **** 	case XT1_NORMAL:
+  93:../core/rl78_clock_sys.c **** 		CMC_Value = CMC_Value | XT1_OSCILLATOR | XT1_NORM;
+ 204                             		.loc 1 93 0
+ 205 00de 88 09                   		mov	a, [sp+9]
+ 206 00e0 6C 12                   		or	a, #18
+ 207 00e2 98 09                   		mov	[sp+9], a
+  94:../core/rl78_clock_sys.c **** 		break;
+ 208                             		.loc 1 94 0
+ 209 00e4 EC 06 01 00             		br	!!.L18
+ 210                             	.L16:
+  95:../core/rl78_clock_sys.c **** 
+  96:../core/rl78_clock_sys.c **** 	case XT1_ULTRALOW:
+  97:../core/rl78_clock_sys.c **** 		CMC_Value = CMC_Value | XT1_OSCILLATOR | XT1_ULP;
+ 211                             		.loc 1 97 0
+ 212 00e8 88 09                   		mov	a, [sp+9]
+ 213 00ea 6C 14                   		or	a, #20
+ 214 00ec 98 09                   		mov	[sp+9], a
+  98:../core/rl78_clock_sys.c **** 		break;
+ 215                             		.loc 1 98 0
+ 216 00ee EC 06 01 00             		br	!!.L18
+ 217                             	.L17:
   99:../core/rl78_clock_sys.c **** 
- 100:../core/rl78_clock_sys.c **** 	// Various bit settings were prepared, now we can write to write-once register CMC
- 101:../core/rl78_clock_sys.c **** 	CMC = CMC_Value;
- 187                             		.loc 1 101 0
- 188 0106 C9 F0 A0 FF             		movw	r8, #-96
- 189 010a 88 09                   		mov	a, [sp+9]
- 190 010c 9D F2                   		mov	r10, a
- 191 010e AD F0                   		movw	ax, r8
- 192 0110 BD F4                   		movw	r12, ax
- 193 0112 EA F4                   		movw	de, r12
- 194 0114 8D F2                   		mov	a, r10
- 195 0116 99                      		mov	[de], a
- 102:../core/rl78_clock_sys.c **** 
+ 100:../core/rl78_clock_sys.c **** 	case XT1_EXTERNAL:
+ 101:../core/rl78_clock_sys.c **** 		CMC_Value = CMC_Value | XT1_EXTERNAL_CLK;
+ 218                             		.loc 1 101 0
+ 219 00f2 88 09                   		mov	a, [sp+9]
+ 220 00f4 6C 30                   		or	a, #48
+ 221 00f6 98 09                   		mov	[sp+9], a
+ 102:../core/rl78_clock_sys.c **** 		break;
+ 222                             		.loc 1 102 0
+ 223 00f8 EC 06 01 00             		br	!!.L18
+ 224                             	.L11:
  103:../core/rl78_clock_sys.c **** 
- 104:../core/rl78_clock_sys.c **** 	if(main_mode != ONCHIP_HS && main_mode != X1_EXTERNAL){
- 196                             		.loc 1 104 0
- 197 0117 88 0E                   		mov	a, [sp+14]
- 198 0119 D1                      		cmp0	a
- 199 011a 61 F8                   		 sknz
- 200 011c EC 80 01 00             		 br	!!.L18
- 201                             		.loc 1 104 0 is_stmt 0 discriminator 1
- 202 0120 88 0E                   		mov	a, [sp+14]
- 203 0122 4C 03                   		cmp	a, #3
- 204 0124 61 F8                   		 sknz
- 205 0126 EC 80 01 00             		 br	!!.L18
- 105:../core/rl78_clock_sys.c **** 		// Set up oscillator stabilization timer for main clock oscillator XT
- 106:../core/rl78_clock_sys.c **** 		//--------------------------------------------------------------------------------
- 107:../core/rl78_clock_sys.c **** 		OSTS = STAB_WAIT_7;  // Set longest wait period
- 206                             		.loc 1 107 0 is_stmt 1
- 207 012a C9 F0 A3 FF             		movw	r8, #-93
- 208 012e AD F0                   		movw	ax, r8
- 209 0130 BD F2                   		movw	r10, ax
- 210 0132 EA F2                   		movw	de, r10
- 211 0134 51 07                   		mov	a, #7
- 212 0136 99                      		mov	[de], a
- 108:../core/rl78_clock_sys.c **** 		MSTOP = 0x00;		 // Clear MSTOP bit in CSC register
- 213                             		.loc 1 108 0
- 214 0137 C9 F0 A1 FF             		movw	r8, #-95
- 215 013b AD F0                   		movw	ax, r8
- 216 013d BD F4                   		movw	r12, ax
- 217 013f FA F4                   		movw	hl, r12
- 218 0141 8B                      		mov	a, [hl]
- 219 0142 9D F2                   		mov	r10, a
- 220 0144 5A F2 7F                		and	r10, #127
- 221 0147 AD F0                   		movw	ax, r8
- 222 0149 EA F4                   		movw	de, r12
- 223 014b 8D F2                   		mov	a, r10
- 224 014d 99                      		mov	[de], a
+ 104:../core/rl78_clock_sys.c **** 	default:
+ 105:../core/rl78_clock_sys.c **** 		return -1;		// invalid value, return -1
+ 225                             		.loc 1 105 0
+ 226 00fc 30 FF FF                		movw	ax, #-1
+ 227 00ff B8 00                   		movw	[sp], ax
+ 228 0101 EC FC 01 00             		br	!!.L10
+ 229                             	.L25:
+  86:../core/rl78_clock_sys.c **** 
+ 230                             		.loc 1 86 0
+ 231 0105 00                      		nop
+ 232                             	.L18:
+ 106:../core/rl78_clock_sys.c **** 
+ 107:../core/rl78_clock_sys.c **** 
+ 108:../core/rl78_clock_sys.c **** 	}
  109:../core/rl78_clock_sys.c **** 
- 110:../core/rl78_clock_sys.c **** 		// Poll OSTC, it should equal a specific constant value as defined in the header, when
- 111:../core/rl78_clock_sys.c **** 		// the stabilisation time is over
- 112:../core/rl78_clock_sys.c **** 		//-------------------------------------------------------------------------------------
- 113:../core/rl78_clock_sys.c **** 		OSTC_Comparison_Value = OSCSTAB_WAIT_7;
- 225                             		.loc 1 113 0
- 226 014e 51 FF                   		mov	a, #-1
- 227 0150 98 02                   		mov	[sp+2], a
- 228                             	.L20:
- 114:../core/rl78_clock_sys.c **** 		for(;;){
- 115:../core/rl78_clock_sys.c **** 			OSTC_Value = OSTC;						// Read OSTC
- 229                             		.loc 1 115 0
- 230 0152 C9 F0 A2 FF             		movw	r8, #-94
- 231 0156 AD F0                   		movw	ax, r8
- 232 0158 BD F2                   		movw	r10, ax
- 233 015a FA F2                   		movw	hl, r10
- 234 015c 8B                      		mov	a, [hl]
- 235 015d 9D F0                   		mov	r8, a
- 236 015f 98 03                   		mov	[sp+3], a
- 116:../core/rl78_clock_sys.c **** 			OSTC_Value &= OSTC_Comparison_Value;	// AND it with mask comparison value
- 237                             		.loc 1 116 0
- 238 0161 88 02                   		mov	a, [sp+2]
- 239 0163 72                      		mov	c, a
- 240 0164 88 03                   		mov	a, [sp+3]
- 241 0166 61 5A                   		and	a, c
- 242 0168 98 03                   		mov	[sp+3], a
- 117:../core/rl78_clock_sys.c **** 			if(OSTC_Value == OSTC_Comparison_Value){
- 243                             		.loc 1 117 0
- 244 016a 88 02                   		mov	a, [sp+2]
- 245 016c 9D F0                   		mov	r8, a
- 246 016e 88 03                   		mov	a, [sp+3]
- 247 0170 4B F0                   		cmp	a, r8
- 248 0172 61 E8                   		 skz
- 249 0174 EC 7C 01 00             		 br	!!.L19
- 118:../core/rl78_clock_sys.c **** 				break;
- 250                             		.loc 1 118 0
- 251 0178 EC 80 01 00             		br	!!.L18
- 252                             	.L19:
- 119:../core/rl78_clock_sys.c **** 			}
- 120:../core/rl78_clock_sys.c **** 
- 121:../core/rl78_clock_sys.c **** 		};
- 253                             		.loc 1 121 0
- 254 017c EC 52 01 00             		br	!!.L20
- 255                             	.L18:
- 122:../core/rl78_clock_sys.c **** 	}
- 123:../core/rl78_clock_sys.c **** 
- 124:../core/rl78_clock_sys.c **** 	if(subsystem_mode != ONCHIP_LS && subsystem_mode != XT1_EXTERNAL){
- 256                             		.loc 1 124 0
- 257 0180 88 10                   		mov	a, [sp+16]
- 258 0182 D1                      		cmp0	a
- 259 0183 61 F8                   		 sknz
- 260 0185 EC D5 01 00             		 br	!!.L21
- 261                             		.loc 1 124 0 is_stmt 0 discriminator 1
- 262 0189 88 10                   		mov	a, [sp+16]
- 263 018b 4C 04                   		cmp	a, #4
- 264 018d 61 F8                   		 sknz
- 265 018f EC D5 01 00             		 br	!!.L21
- 125:../core/rl78_clock_sys.c **** 		// Enable sub clock oscillator XT1
- 126:../core/rl78_clock_sys.c **** 		//---------------------------------
- 127:../core/rl78_clock_sys.c **** 		XTSTOP = 0;
- 266                             		.loc 1 127 0 is_stmt 1
- 267 0193 C9 F0 A1 FF             		movw	r8, #-95
- 268 0197 AD F0                   		movw	ax, r8
- 269 0199 BD F4                   		movw	r12, ax
- 270 019b FA F4                   		movw	hl, r12
- 271 019d 8B                      		mov	a, [hl]
- 272 019e 9D F2                   		mov	r10, a
- 273 01a0 5A F2 BF                		and	r10, #-65
- 274 01a3 AD F0                   		movw	ax, r8
- 275 01a5 EA F4                   		movw	de, r12
- 276 01a7 8D F2                   		mov	a, r10
- 277 01a9 99                      		mov	[de], a
- 128:../core/rl78_clock_sys.c **** 
- 129:../core/rl78_clock_sys.c **** 		// Wait for the sub-clock oscillator to stabilise
- 130:../core/rl78_clock_sys.c **** 		//-----------------------------------------------
- 131:../core/rl78_clock_sys.c **** 		for(XT1DelayCounter = 0; XT1DelayCounter <= XT1_Stab_Time; XT1DelayCounter++){
- 278                             		.loc 1 131 0
- 279 01aa F6                      		clrw	ax
- 280 01ab B8 04                   		movw	[sp+4], ax
- 281 01ad F6                      		clrw	ax
- 282 01ae B8 06                   		movw	[sp+6], ax
- 283 01b0 EC C3 01 00             		br	!!.L22
- 284                             	.L23:
- 132:../core/rl78_clock_sys.c **** 			NOP();
- 285                             		.loc 1 132 0 discriminator 3
- 286                             	 ; 132 "../core/rl78_clock_sys.c" 1
- 287 01b4 00                      		nop
- 288                             	 ; 0 "" 2
- 131:../core/rl78_clock_sys.c **** 			NOP();
- 289                             		.loc 1 131 0 discriminator 3
- 290 01b5 A8 04                   		movw ax, [sp+4]
- 291 01b7 04 01 00                		addw ax, #1
- 292 01ba B8 04                   		movw [sp+4], ax
- 293 01bc A8 06                   		movw ax, [sp+6]
- 294 01be 61 D8                   		sknc
- 295 01c0 A1                      		incw ax
- 296 01c1 B8 06                   		movw [sp+6],ax
- 297                             	.L22:
- 131:../core/rl78_clock_sys.c **** 			NOP();
- 298                             		.loc 1 131 0 is_stmt 0 discriminator 1
- 299 01c3 A8 06                   		movw	ax, [sp+6]
- 300 01c5 44 00 00                		 cmpw	ax, #0
- 301 01c8 A8 04                   		 movw	ax, [sp+4]
- 302 01ca 61 F8                   		 sknz
- 303 01cc 44 A0 00                		 cmpw	ax, #160
- 304 01cf 61 E3                   		 skh
- 305 01d1 EC B4 01 00             		 br	!!.L23
- 306                             	.L21:
- 133:../core/rl78_clock_sys.c **** 		}
- 134:../core/rl78_clock_sys.c **** 
- 135:../core/rl78_clock_sys.c **** 	}
- 136:../core/rl78_clock_sys.c **** 	// Enable clock distribution
- 137:../core/rl78_clock_sys.c **** 	//--------------------------
- 138:../core/rl78_clock_sys.c **** 	OSMC = RTCLPC | WUTMMCK0;
- 307                             		.loc 1 138 0 is_stmt 1
- 308 01d5 C9 F0 F3 00             		movw	r8, #243
- 309 01d9 AD F0                   		movw	ax, r8
- 310 01db BD F2                   		movw	r10, ax
- 311 01dd EA F2                   		movw	de, r10
- 312 01df 51 90                   		mov	a, #-112
- 313 01e1 99                      		mov	[de], a
- 139:../core/rl78_clock_sys.c **** 	CSS = 0;					// CPU clock is set to Fmain
- 314                             		.loc 1 139 0
- 315 01e2 C9 F0 A4 FF             		movw	r8, #-92
- 316 01e6 AD F0                   		movw	ax, r8
- 317 01e8 BD F4                   		movw	r12, ax
- 318 01ea FA F4                   		movw	hl, r12
- 319 01ec 8B                      		mov	a, [hl]
- 320 01ed 9D F2                   		mov	r10, a
- 321 01ef 5A F2 BF                		and	r10, #-65
- 322 01f2 AD F0                   		movw	ax, r8
- 323 01f4 EA F4                   		movw	de, r12
- 324 01f6 8D F2                   		mov	a, r10
- 325 01f8 99                      		mov	[de], a
- 140:../core/rl78_clock_sys.c **** 	return 0;
- 326                             		.loc 1 140 0
- 327 01f9 F6                      		clrw	ax
- 328 01fa B8 00                   		movw	[sp], ax
- 329                             	.L9:
- 330 01fc A8 00                   		movw	ax, [sp]
- 331 01fe BD F0                   		movw	r8, ax
- 141:../core/rl78_clock_sys.c **** }
- 332                             		.loc 1 141 0
- 333 0200 10 0A                   		addw	sp, #10
- 334 0202 D7                      		ret
- 335                             	.LFE0:
- 367                             	.Letext0:
- 368                             		.file 2 "c:\\programdata\\gcc for renesas rl78 4.9.2.202201-gnurl78-elf\\rl78-elf\\rl78-elf\\rl78-
- 369                             		.file 3 "c:\\programdata\\gcc for renesas rl78 4.9.2.202201-gnurl78-elf\\rl78-elf\\rl78-elf\\rl78-
- 370                             		.file 4 "../core/../core/rl78_clock_sys.h"
- 371                             		.file 5 "../core/../core/iodefine.h"
+ 110:../core/rl78_clock_sys.c **** 	// Various bit settings were prepared, now we can write to write-once register CMC
+ 111:../core/rl78_clock_sys.c **** 	CMC = CMC_Value;
+ 233                             		.loc 1 111 0
+ 234 0106 C9 F0 A0 FF             		movw	r8, #-96
+ 235 010a 88 09                   		mov	a, [sp+9]
+ 236 010c 9D F2                   		mov	r10, a
+ 237 010e AD F0                   		movw	ax, r8
+ 238 0110 BD F4                   		movw	r12, ax
+ 239 0112 EA F4                   		movw	de, r12
+ 240 0114 8D F2                   		mov	a, r10
+ 241 0116 99                      		mov	[de], a
+ 112:../core/rl78_clock_sys.c **** 
+ 113:../core/rl78_clock_sys.c **** 
+ 114:../core/rl78_clock_sys.c **** 	if(main_mode != ONCHIP_HS && main_mode != X1_EXTERNAL){
+ 242                             		.loc 1 114 0
+ 243 0117 88 0E                   		mov	a, [sp+14]
+ 244 0119 D1                      		cmp0	a
+ 245 011a 61 F8                   		 sknz
+ 246 011c EC 80 01 00             		 br	!!.L19
+ 247                             		.loc 1 114 0 is_stmt 0 discriminator 1
+ 248 0120 88 0E                   		mov	a, [sp+14]
+ 249 0122 4C 03                   		cmp	a, #3
+ 250 0124 61 F8                   		 sknz
+ 251 0126 EC 80 01 00             		 br	!!.L19
+ 115:../core/rl78_clock_sys.c **** 		// Set up oscillator stabilization timer for main clock oscillator XT
+ 116:../core/rl78_clock_sys.c **** 		//--------------------------------------------------------------------------------
+ 117:../core/rl78_clock_sys.c **** 		OSTS = STAB_WAIT_7;  // Set longest wait period
+ 252                             		.loc 1 117 0 is_stmt 1
+ 253 012a C9 F0 A3 FF             		movw	r8, #-93
+ 254 012e AD F0                   		movw	ax, r8
+ 255 0130 BD F2                   		movw	r10, ax
+ 256 0132 EA F2                   		movw	de, r10
+ 257 0134 51 07                   		mov	a, #7
+ 258 0136 99                      		mov	[de], a
+ 118:../core/rl78_clock_sys.c **** 		MSTOP = 0x00;		 // Clear MSTOP bit in CSC register
+ 259                             		.loc 1 118 0
+ 260 0137 C9 F0 A1 FF             		movw	r8, #-95
+ 261 013b AD F0                   		movw	ax, r8
+ 262 013d BD F4                   		movw	r12, ax
+ 263 013f FA F4                   		movw	hl, r12
+ 264 0141 8B                      		mov	a, [hl]
+ 265 0142 9D F2                   		mov	r10, a
+ 266 0144 5A F2 7F                		and	r10, #127
+ 267 0147 AD F0                   		movw	ax, r8
+ 268 0149 EA F4                   		movw	de, r12
+ 269 014b 8D F2                   		mov	a, r10
+ 270 014d 99                      		mov	[de], a
+ 119:../core/rl78_clock_sys.c **** 
+ 120:../core/rl78_clock_sys.c **** 		// Poll OSTC, it should equal a specific constant value as defined in the header, when
+ 121:../core/rl78_clock_sys.c **** 		// the stabilisation time is over
+ 122:../core/rl78_clock_sys.c **** 		//-------------------------------------------------------------------------------------
+ 123:../core/rl78_clock_sys.c **** 		OSTC_Comparison_Value = OSCSTAB_WAIT_7;
+ 271                             		.loc 1 123 0
+ 272 014e 51 FF                   		mov	a, #-1
+ 273 0150 98 02                   		mov	[sp+2], a
+ 274                             	.L21:
+ 124:../core/rl78_clock_sys.c **** 		for(;;){
+ 125:../core/rl78_clock_sys.c **** 			OSTC_Value = OSTC;						// Read OSTC
+ 275                             		.loc 1 125 0
+ 276 0152 C9 F0 A2 FF             		movw	r8, #-94
+ 277 0156 AD F0                   		movw	ax, r8
+ 278 0158 BD F2                   		movw	r10, ax
+ 279 015a FA F2                   		movw	hl, r10
+ 280 015c 8B                      		mov	a, [hl]
+ 281 015d 9D F0                   		mov	r8, a
+ 282 015f 98 03                   		mov	[sp+3], a
+ 126:../core/rl78_clock_sys.c **** 			OSTC_Value &= OSTC_Comparison_Value;	// AND it with mask comparison value
+ 283                             		.loc 1 126 0
+ 284 0161 88 02                   		mov	a, [sp+2]
+ 285 0163 72                      		mov	c, a
+ 286 0164 88 03                   		mov	a, [sp+3]
+ 287 0166 61 5A                   		and	a, c
+ 288 0168 98 03                   		mov	[sp+3], a
+ 127:../core/rl78_clock_sys.c **** 			if(OSTC_Value == OSTC_Comparison_Value){
+ 289                             		.loc 1 127 0
+ 290 016a 88 02                   		mov	a, [sp+2]
+ 291 016c 9D F0                   		mov	r8, a
+ 292 016e 88 03                   		mov	a, [sp+3]
+ 293 0170 4B F0                   		cmp	a, r8
+ 294 0172 61 E8                   		 skz
+ 295 0174 EC 7C 01 00             		 br	!!.L20
+ 128:../core/rl78_clock_sys.c **** 				break;
+ 296                             		.loc 1 128 0
+ 297 0178 EC 80 01 00             		br	!!.L19
+ 298                             	.L20:
+ 129:../core/rl78_clock_sys.c **** 			}
+ 130:../core/rl78_clock_sys.c **** 
+ 131:../core/rl78_clock_sys.c **** 		};
+ 299                             		.loc 1 131 0
+ 300 017c EC 52 01 00             		br	!!.L21
+ 301                             	.L19:
+ 132:../core/rl78_clock_sys.c **** 	}
+ 133:../core/rl78_clock_sys.c **** 
+ 134:../core/rl78_clock_sys.c **** 	if(subsystem_mode != ONCHIP_LS && subsystem_mode != XT1_EXTERNAL){
+ 302                             		.loc 1 134 0
+ 303 0180 88 10                   		mov	a, [sp+16]
+ 304 0182 D1                      		cmp0	a
+ 305 0183 61 F8                   		 sknz
+ 306 0185 EC D5 01 00             		 br	!!.L22
+ 307                             		.loc 1 134 0 is_stmt 0 discriminator 1
+ 308 0189 88 10                   		mov	a, [sp+16]
+ 309 018b 4C 04                   		cmp	a, #4
+ 310 018d 61 F8                   		 sknz
+ 311 018f EC D5 01 00             		 br	!!.L22
+ 135:../core/rl78_clock_sys.c **** 		// Enable sub clock oscillator XT1
+ 136:../core/rl78_clock_sys.c **** 		//---------------------------------
+ 137:../core/rl78_clock_sys.c **** 		XTSTOP = 0;
+ 312                             		.loc 1 137 0 is_stmt 1
+ 313 0193 C9 F0 A1 FF             		movw	r8, #-95
+ 314 0197 AD F0                   		movw	ax, r8
+ 315 0199 BD F4                   		movw	r12, ax
+ 316 019b FA F4                   		movw	hl, r12
+ 317 019d 8B                      		mov	a, [hl]
+ 318 019e 9D F2                   		mov	r10, a
+ 319 01a0 5A F2 BF                		and	r10, #-65
+ 320 01a3 AD F0                   		movw	ax, r8
+ 321 01a5 EA F4                   		movw	de, r12
+ 322 01a7 8D F2                   		mov	a, r10
+ 323 01a9 99                      		mov	[de], a
+ 138:../core/rl78_clock_sys.c **** 
+ 139:../core/rl78_clock_sys.c **** 		// Wait for the sub-clock oscillator to stabilise
+ 140:../core/rl78_clock_sys.c **** 		//-----------------------------------------------
+ 141:../core/rl78_clock_sys.c **** 		for(XT1DelayCounter = 0; XT1DelayCounter <= XT1_Stab_Time; XT1DelayCounter++){
+ 324                             		.loc 1 141 0
+ 325 01aa F6                      		clrw	ax
+ 326 01ab B8 04                   		movw	[sp+4], ax
+ 327 01ad F6                      		clrw	ax
+ 328 01ae B8 06                   		movw	[sp+6], ax
+ 329 01b0 EC C3 01 00             		br	!!.L23
+ 330                             	.L24:
+ 142:../core/rl78_clock_sys.c **** 			NOP();
+ 331                             		.loc 1 142 0 discriminator 3
+ 332                             	 ; 142 "../core/rl78_clock_sys.c" 1
+ 333 01b4 00                      		nop
+ 334                             	 ; 0 "" 2
+ 141:../core/rl78_clock_sys.c **** 			NOP();
+ 335                             		.loc 1 141 0 discriminator 3
+ 336 01b5 A8 04                   		movw ax, [sp+4]
+ 337 01b7 04 01 00                		addw ax, #1
+ 338 01ba B8 04                   		movw [sp+4], ax
+ 339 01bc A8 06                   		movw ax, [sp+6]
+ 340 01be 61 D8                   		sknc
+ 341 01c0 A1                      		incw ax
+ 342 01c1 B8 06                   		movw [sp+6],ax
+ 343                             	.L23:
+ 141:../core/rl78_clock_sys.c **** 			NOP();
+ 344                             		.loc 1 141 0 is_stmt 0 discriminator 1
+ 345 01c3 A8 06                   		movw	ax, [sp+6]
+ 346 01c5 44 00 00                		 cmpw	ax, #0
+ 347 01c8 A8 04                   		 movw	ax, [sp+4]
+ 348 01ca 61 F8                   		 sknz
+ 349 01cc 44 A0 00                		 cmpw	ax, #160
+ 350 01cf 61 E3                   		 skh
+ 351 01d1 EC B4 01 00             		 br	!!.L24
+ 352                             	.L22:
+ 143:../core/rl78_clock_sys.c **** 		}
+ 144:../core/rl78_clock_sys.c **** 
+ 145:../core/rl78_clock_sys.c **** 	}
+ 146:../core/rl78_clock_sys.c **** 	// Enable clock distribution
+ 147:../core/rl78_clock_sys.c **** 	//--------------------------
+ 148:../core/rl78_clock_sys.c **** 	OSMC = RTCLPC | WUTMMCK0;
+ 353                             		.loc 1 148 0 is_stmt 1
+ 354 01d5 C9 F0 F3 00             		movw	r8, #243
+ 355 01d9 AD F0                   		movw	ax, r8
+ 356 01db BD F2                   		movw	r10, ax
+ 357 01dd EA F2                   		movw	de, r10
+ 358 01df 51 90                   		mov	a, #-112
+ 359 01e1 99                      		mov	[de], a
+ 149:../core/rl78_clock_sys.c **** 	CSS = 0;					// CPU clock is set to Fmain
+ 360                             		.loc 1 149 0
+ 361 01e2 C9 F0 A4 FF             		movw	r8, #-92
+ 362 01e6 AD F0                   		movw	ax, r8
+ 363 01e8 BD F4                   		movw	r12, ax
+ 364 01ea FA F4                   		movw	hl, r12
+ 365 01ec 8B                      		mov	a, [hl]
+ 366 01ed 9D F2                   		mov	r10, a
+ 367 01ef 5A F2 BF                		and	r10, #-65
+ 368 01f2 AD F0                   		movw	ax, r8
+ 369 01f4 EA F4                   		movw	de, r12
+ 370 01f6 8D F2                   		mov	a, r10
+ 371 01f8 99                      		mov	[de], a
+ 150:../core/rl78_clock_sys.c **** 	return 0;
+ 372                             		.loc 1 150 0
+ 373 01f9 F6                      		clrw	ax
+ 374 01fa B8 00                   		movw	[sp], ax
+ 375                             	.L10:
+ 376 01fc A8 00                   		movw	ax, [sp]
+ 377 01fe BD F0                   		movw	r8, ax
+ 151:../core/rl78_clock_sys.c **** }
+ 378                             		.loc 1 151 0
+ 379 0200 10 0A                   		addw	sp, #10
+ 380 0202 D7                      		ret
+ 381                             	.LFE1:
+ 421                             	.Letext0:
+ 422                             		.file 2 "c:\\programdata\\gcc for renesas rl78 4.9.2.202201-gnurl78-elf\\rl78-elf\\rl78-elf\\rl78-
+ 423                             		.file 3 "c:\\programdata\\gcc for renesas rl78 4.9.2.202201-gnurl78-elf\\rl78-elf\\rl78-elf\\rl78-
+ 424                             		.file 4 "../core/../core/rl78_clock_sys.h"
+ 425                             		.file 5 "../core/../core/iodefine.h"

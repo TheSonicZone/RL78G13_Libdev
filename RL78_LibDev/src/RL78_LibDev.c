@@ -27,6 +27,7 @@ int main(void){
 
 	// System Initialisation
 	InitClockSystem(X1_HIGHSPEED, XT1_NORMAL);
+	SetCPUClockX1();
 
 
 	// GPIO Initalisation

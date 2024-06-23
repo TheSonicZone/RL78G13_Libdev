@@ -26,7 +26,17 @@
 #include "../core/iodefine.h"
 #include "../core/iodefine_ext.h"
 
-
+//-------------------------------------------------------------------------------------------
+// Name: SetCPUClockX1
+// Function: Set the CPU clock to the xtal oscillator X1 and turn off the on-chip oscillator
+// Parameters: void
+// Returns: void
+//--------------------------------------------------------------------------------------------
+void SetCPUClockX1(void){
+	CSS = 0;
+	MCM0 = 1;
+	HIOSTOP = 1;
+}
 
 //--------------------------------------------------------------------------------------------
 // Name: InitClockSys
@@ -141,68 +151,6 @@ int InitClockSystem(unsigned char main_mode, unsigned char subsystem_mode){
 }
 
 
-/*
-void R_CGC_Create(void)
-{
-    volatile uint32_t w_count;
-    uint8_t           temp_stab_set;
-    uint8_t           temp_stab_wait;
-
-    // Set fMX
-    CMC = _40_CGC_HISYS_OSC | _10_CGC_SUB_OSC | _01_CGC_SYSOSC_OVER10M | _02_CGC_SUBMODE_NORMAL;
-    OSTS = _07_CGC_OSCSTAB_SEL18;
-    MSTOP = 0U;
-    temp_stab_set = _FF_CGC_OSCSTAB_STA18;
-
-    do
-    {
-        temp_stab_wait = OSTC;
-        temp_stab_wait &= temp_stab_set;
-    }
-    while (temp_stab_wait != temp_stab_set);
-
-    // Set fMAIN
-    MCM0 = 0U;
-    // Set fSUB
-    XTSTOP = 0U;
-
-    // Change the waiting time according to the system
-    for (w_count = 0U; w_count <= CGC_SUBWAITTIME; w_count++)
-    {
-        NOP();
-    }
-
-    OSMC = _00_CGC_SUBINHALT_ON | _00_CGC_RTC_CLK_FSUB;
-    // Set fCLK
-    CSS = 0U;
-    // Set fIH
-    HIOSTOP = 0U;
-}
-*/
-
-/*
-    //Oscillation stabilization time counter status register (OSTC)
-// Oscillation stabilization time status (MOST18 - MOST8)
-#define _00_CGC_OSCSTAB_STA0        (0x00U) // < 2^8/fX
-#define _80_CGC_OSCSTAB_STA8        (0x80U) // 2^8/fX
-#define _C0_CGC_OSCSTAB_STA9        (0xC0U) // 2^9/fX
-#define _E0_CGC_OSCSTAB_STA10       (0xE0U) // 2^10/fX
-#define _F0_CGC_OSCSTAB_STA11       (0xF0U) // 2^11/fX
-#define _F8_CGC_OSCSTAB_STA13       (0xF8U) // 2^13/fX
-#define _FC_CGC_OSCSTAB_STA15       (0xFCU) // 2^15/fX
-#define _FE_CGC_OSCSTAB_STA17       (0xFEU) // 2^17/fX
-#define _FF_CGC_OSCSTAB_STA18       (0xFFU) // 2^18/fX
 
 
-//    Oscillation stabilization time select register (OSTS)
 
-// Oscillation stabilization time selection (OSTS2 - OSTS0)
-#define _00_CGC_OSCSTAB_SEL8        (0x00U) // 2^8/fX
-#define _01_CGC_OSCSTAB_SEL9        (0x01U) // 2^9/fX
-#define _02_CGC_OSCSTAB_SEL10       (0x02U) // 2^10/fX
-#define _03_CGC_OSCSTAB_SEL11       (0x03U) // 2^11/fX
-#define _04_CGC_OSCSTAB_SEL13       (0x04U) // 2^13/fX
-#define _05_CGC_OSCSTAB_SEL15       (0x05U) // 2^15/fX
-#define _06_CGC_OSCSTAB_SEL17       (0x06U) // 2^17/fX
-#define _07_CGC_OSCSTAB_SEL18       (0x07U) // 2^18/fX
- */

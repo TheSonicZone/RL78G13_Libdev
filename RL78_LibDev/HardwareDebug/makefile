@@ -89,7 +89,7 @@ all: RL78_LibDev.elf secondary-outputs
 
 # Tool invocations
 RL78_LibDev.elf: $(OBJS) $(USER_OBJS) $(LIBRARY_GENERATOR_OUTPUTTYPE_OUTPUTS) $(LINKER_SCRIPT)
-	$(file > RL78_LibDev.elf.in,-O0 -ffunction-sections -fdata-sections -Wunused -Wuninitialized -Wall -Wextra -Wmissing-declarations -Wconversion -Wpointer-arith -Wshadow -Waggregate-return -Wstack-usage=40 -g2 -mcpu=s2 -mmul=g13 -o "RL78_LibDev.elf" $(OBJS) $(USER_OBJS) $(LIBS) -T "C:/Work/Projects 2024/Renesas/Software/RL78_Lib/RL78_LibDev/core/linker_script.ld" -Wl,--start-group -lm -lc -lgcc -Wl,--end-group -nostartfiles -Wl,-e_PowerON_Reset -Wl,--gc-sections -Wl,-M=RL78_LibDev.map)
+	$(file > RL78_LibDev.elf.in,-O0 -ffunction-sections -fdata-sections -Wunused -Wuninitialized -Wall -Wextra -Wmissing-declarations -Wconversion -Wpointer-arith -Wshadow -Waggregate-return -Wstack-usage=40 -g2 -mcpu=s2 -mmul=g13 -o "RL78_LibDev.elf" $(OBJS) $(USER_OBJS) $(LIBS) -T "C:/Work/Projects 2024/Renesas/Software/RL78G13_Libdev/RL78_LibDev/core/linker_script.ld" -Wl,--start-group -lm -lc -lgcc -Wl,--end-group -nostartfiles -Wl,-e_PowerON_Reset -Wl,--gc-sections -Wl,-M=RL78_LibDev.map)
 	@echo Building target: $@ && rl78-elf-gcc @"RL78_LibDev.elf.in"
 : 
 	rl78-elf-libgen  --select-lib=newlib --compiler-options=-O0,-ffunction-sections,-fdata-sections,-mcpu=s2,-mmul=g13  -o

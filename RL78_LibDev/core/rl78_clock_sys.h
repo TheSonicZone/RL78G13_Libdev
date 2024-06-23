@@ -28,7 +28,7 @@ typedef enum{
 
 // Function Prototypes
 //-------------------------
-
+void SetCPUClockX1(void);
 int InitClockSystem(unsigned char main_mode, unsigned char subsystem_mode);
 
 #endif /* RL78_CLOCK_SYS_H_ */
