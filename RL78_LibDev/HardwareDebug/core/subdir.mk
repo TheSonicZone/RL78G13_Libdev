@@ -49,10 +49,10 @@ S_UPPER_DEPS += \
 # Each subdirectory must supply rules for building sources it contributes
 core/%.o: ../core/%.c
 	@echo 'Building file: $<'
-	$(file > $@.in,-O0 -ffunction-sections -fdata-sections -Wunused -Wuninitialized -Wall -Wextra -Wmissing-declarations -Wconversion -Wpointer-arith -Wshadow -Waggregate-return -Wstack-usage=40 -g2 -mcpu=s2 -mmul=g13 -I"C:/Work/Projects 2024/Renesas/Software/RL78G13_Libdev/RL78_LibDev/core" -Wa,-adlnh="$(basename $(notdir $<)).lst" -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" "$<" -c -o "$@")
+	$(file > $@.in,-O0 -ffunction-sections -fdata-sections -Wunused -Wuninitialized -Wall -Wextra -Wmissing-declarations -Wpointer-arith -Wshadow -Waggregate-return -Wstack-usage=40 -g2 -mcpu=s2 -mmul=g13 -std=gnu11 -I"C:/Work/Projects 2024/Renesas/Software/RL78G13_Libdev/RL78_LibDev/core" -Wa,-adlnh="$(basename $(notdir $<)).lst" -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" "$<" -c -o "$@")
 	@echo $< && rl78-elf-gcc @"$@.in"
 core/%.o: ../core/%.S
 	@echo 'Building file: $<'
-	$(file > $@.in,-O0 -ffunction-sections -fdata-sections -Wunused -Wuninitialized -Wall -Wextra -Wmissing-declarations -Wconversion -Wpointer-arith -Wshadow -Waggregate-return -Wstack-usage=40 -g2 -mcpu=s2 -mmul=g13 -x assembler-with-cpp -Wa,--gdwarf2 -I"C:/Work/Projects 2024/Renesas/Software/RL78G13_Libdev/RL78_LibDev/src" -Wa,-adlhn="$(basename $(notdir $<)).lst" -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" -c "$<" -o "$@")
+	$(file > $@.in,-O0 -ffunction-sections -fdata-sections -Wunused -Wuninitialized -Wall -Wextra -Wmissing-declarations -Wpointer-arith -Wshadow -Waggregate-return -Wstack-usage=40 -g2 -mcpu=s2 -mmul=g13 -x assembler-with-cpp -Wa,--gdwarf2 -I"C:/Work/Projects 2024/Renesas/Software/RL78G13_Libdev/RL78_LibDev/src" -Wa,-adlhn="$(basename $(notdir $<)).lst" -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" -c "$<" -o "$@")
 	@echo $< && rl78-elf-gcc @"$@.in"
 

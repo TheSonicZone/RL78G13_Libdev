@@ -12,6 +12,7 @@
 #include "../core/rl78_g13.h"
 #include "../core/rl78_clock_sys.h"
 #include "../RL78StdPeriphLib/rl78_interval_timer.h"
+#include "../RL78StdPeriphLib/rl78_serial_array_unit.h"
 #include "../core/interrupt_handlers.h"
 
 // Variables
@@ -27,16 +28,18 @@ unsigned long Count;
 // Main Function
 //------------------------------------------------------------------------------------------------
 int main(void){
-	uint8_t ITIFValue;
+
 
 	// System Initialisation
+	//----------------------
 	asm("DI");											// Ensure interrupts are disabled
 	InitClockSystem(X1_HIGHSPEED, XT1_NORMAL);
 	SetCPUClockX1();
 
 	// Peripheral Initialisation
 	//--------------------------
-	InitIntervalTimer(3000);
+	InitIntervalTimer(3000);				// Interval timer is set
+	InitSAU0(0x04);                         // 0x04 = 1.25MHz clk into serial engine @ 20MHz xtal
 
 	// GPIO Initalisation
 	LED01_PIN = 0; // Make Pin as O/P
@@ -73,10 +76,10 @@ int main(void){
 // definition of this function in inthander.c I changed to weak attribute so that it can be overridden
 
 
-// INT_IT interupt - Interval timer
+// INT_IT interrupt - Interval timer
 void INT_IT (void){
 	LED01 = ~LED01;
-	asm("nop");
+
 
 }
 
