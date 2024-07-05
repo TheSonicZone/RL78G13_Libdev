@@ -39,7 +39,7 @@ int main(void){
 	// Peripheral Initialisation
 	//--------------------------
 	InitIntervalTimer(3000);				// Interval timer is set
-	InitSAU0(0x04);                         // 0x04 = 1.25MHz clk into serial engine @ 20MHz xtal
+	InitSAU0(0x04, 0x04);                         // 0x04 = 1.25MHz clk into serial engine @ 20MHz xtal
 
 	// GPIO Initalisation
 	LED01_PIN = 0; // Make Pin as O/P

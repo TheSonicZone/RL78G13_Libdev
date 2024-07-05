@@ -30,50 +30,86 @@
 
 // Name: InitSAU0
 // Function: Initialise Serial Array Unit 0
-// Parameters: Clock value
-// Returns: void
+// Parameters: Divisor for Prescaler 0, Divisor for prescaler 1
+// Returns: 0 if successful, -1 if error
 //--------------------------------------------------------------------------------------
-void InitSAU0(uint16_t clock){
+int InitSAU0(uint8_t divide_m0, uint8_t divide_m1){
 
+	uint16_t SPS_Value = 0;
 	SAU0EN = 1;				// Enable clock to SAU 0
-	SPS0 = clock;     // This register is two 4 bit fields << TODO: FIX
-
+	SPS_Value = (uint16_t)divide_m1;
+	SPS_Value <<= 4;
+	SPS_Value |= (uint16_t)divide_m0;
+	SPS0 = SPS_Value;
+	return 0;
 }
 
 // Name: InitSAU1
 // Function: Initialise Serial Array Unit 1
-// Parameters: Clock value
-// Returns: void
+// Parameters: Divisor for Prescaler 0, Divisor for prescaler 1
+// Returns: 0 if successful, -1 if error
 //--------------------------------------------------------------------------------------
-void InitSAU1(uint16_t clock){
+int InitSAU1(uint8_t divide_m0, uint8_t divide_m1){
 
+	uint16_t SPS_Value = 0;
+	unsigned char package = device;
+	if(package == package_20_pin || package == package_24_pin || package == package_25_pin){
+		// The package types checked for do not contain SAU1 hence we return with an error
+		return -1;
+	}
 	SAU1EN = 1;				// Enable clock to SAU 1
-	SPS1 = clock;
-
+	SPS_Value = (uint16_t)divide_m1;
+	SPS_Value <<= 4;
+	SPS_Value |= (uint16_t)divide_m0;
+	SPS1 = SPS_Value;
+	return 0;
 }
 
 
-// Name: InitSAU0_Channel0
-// Function: Initialise SAU 0 Channel 0
-// Parameters: Operation mode
-//-----------------------------------------------------------------------------------------
-void InitSAU0_Channel0(uint8_t mode){
+// Name: ConfigSAU0
+// Function: Configure Serial Array Unit 0
+// Parameters: Configuration for Channels 0 & 1, Configuration for Channels 2 & 3
+//         Channel pairs are bonded together to implement a function e.g. 0 & 1 or 2 & 3 for UARTs
+//           whereas single channels can work for other interfaces e.g. Ch 0 for CSI (SPI) and Ch 3 for Simple I2C
+// Returns: Result 0 if successful, -1 otherwise
+//-----------------------------------------------------------------------------------------------------------------
+int ConfigSAU0(uint8_t mode_p1, uint8_t mode_p2){
 
-	uint16_t SMR_Mode = 0;
-
-	switch (mode){
+	// Configuration affecting channels 0, 1
+	switch(mode_p1){
 	case CSI_Mode:
-		break;
-	case UART_Mode:
+
 		break;
 
+	case UART_Mode:
+
+		break;
+
+	case SimpleI2C_Mode:
+		break;
+
+	default:
+		return -1;
 	}
 
+	// Configuration affecting channels 2, 3
+	switch(mode_p2){
+	case CSI_Mode:
 
-	SMR00 = 0x0000;
+		break;
 
+	case UART_Mode:
 
+		break;
 
+	case SimpleI2C_Mode:
 
+		break;
+
+	default:
+		return -1;
+	}
+
+	return -1;
 }
 

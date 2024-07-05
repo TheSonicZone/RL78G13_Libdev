@@ -19,8 +19,7 @@
 
 // Function Prototypes
 //---------------------
-void InitSAU0(uint16_t clock);
-void InitSAU1(uint16_t clock);
-void InitSAU0_Channel0(uint8_t mode);
-
+int InitSAU0(uint8_t divide_m0, uint8_t divide_m1);
+int InitSAU1(uint8_t divide_m0, uint8_t divide_m1);
+int ConfigSAU0(uint8_t mode_p1, uint8_t mode_p2);
 #endif /* RL78_SERIAL_ARRAY_UNIT_H_ */
