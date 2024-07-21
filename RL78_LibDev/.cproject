@@ -70,7 +70,7 @@
 									<listOptionValue builtIn="false" value="&quot;.\core\vects.o&quot;"/>
 								</option>
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="com.renesas.cdt.managedbuild.gcc.core.option.linker.source.linkerScript.775719915" name="Linker script" superClass="com.renesas.cdt.managedbuild.gcc.core.option.linker.source.linkerScript" useByScannerDiscovery="false" valueType="stringList">
-									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/core/linker_script.ld&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/src/linker_script.ld&quot;"/>
 								</option>
 							</tool>
 							<tool id="com.renesas.cdt.managedbuild.gcc.rl78.tool.cpp.linker.1568982596" name="Linker CPP" superClass="com.renesas.cdt.managedbuild.gcc.rl78.tool.cpp.linker">

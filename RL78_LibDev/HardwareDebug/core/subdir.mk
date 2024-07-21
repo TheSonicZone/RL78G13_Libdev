@@ -3,9 +3,6 @@
 ################################################################################
 
 # Add inputs and outputs from these tool invocations to the build variables 
-LINKER_SCRIPT += \
-../core/linker_script.ld 
-
 S_UPPER_SRCS += \
 ../core/start.S 
 

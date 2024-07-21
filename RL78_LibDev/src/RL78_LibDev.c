@@ -7,6 +7,7 @@
 
 
 // Included headers
+#include <stdbool.h>
 #include "../core/iodefine.h"
 #include "../core/iodefine_ext.h"
 #include "../core/rl78_g13.h"
@@ -39,7 +40,20 @@ int main(void){
 	// Peripheral Initialisation
 	//--------------------------
 	InitIntervalTimer(3000);				// Interval timer is set
-	InitSAU0(0x04, 0x04);                         // 0x04 = 1.25MHz clk into serial engine @ 20MHz xtal
+
+	sau_config_struct UARTConfig;
+
+	UARTConfig.baudrate = baud_9600;
+	UARTConfig.mode = UART_Mode;
+	UARTConfig.parity = no_parity;
+	UARTConfig.prescale_ck00 = 0x03;
+	UARTConfig.prescale_ck01 = 0x03;
+	UARTConfig.rx_interrupt_enable = false;
+	UARTConfig.tx_interrupt_enable = false;
+	UARTConfig.stop_bits = stopbits_1;
+	UARTConfig.transfer_length = transfer_8bits;
+	UARTConfig.error_irq_setting = error_interrupt_disabled;
+	ConfigSerialArray(0, &UARTConfig);
 
 	// GPIO Initalisation
 	LED01_PIN = 0; // Make Pin as O/P
@@ -79,7 +93,7 @@ int main(void){
 // INT_IT interrupt - Interval timer
 void INT_IT (void){
 	LED01 = ~LED01;
-
+	putUARTChar('A');
 
 }
 

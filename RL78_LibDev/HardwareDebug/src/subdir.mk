@@ -3,6 +3,9 @@
 ################################################################################
 
 # Add inputs and outputs from these tool invocations to the build variables 
+LINKER_SCRIPT += \
+../src/linker_script.ld 
+
 C_SRCS += \
 ../src/RL78_LibDev.c 
 

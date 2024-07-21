@@ -176,10 +176,65 @@
 #define RINTE				(0x8000)
 
 
+// SAU Register macros
+//---------------------
+#define CKSmn						(0x8000)
+#define CCSmn						(0x4000)
+#define STSmn						(0x0100)
+#define SISmn0						(0x0040)
+#define SMR_keeper					(0x0020)
+#define MDmn2						(0x0004)
+#define MDmn1						(0x0002)
+#define MDmn0						(0x0001)
+#define CSI_Mode_Select				(0x0000)
+#define UART_Mode_Select			(0x0002)
+#define SimpleI2C_Mode_Select		(0x0004)
+#define BufEmptyIRQ					(0x0001)
 
+// SCR00 Register macros
+//------------------------
 
+#define TXEmn						(0x8000)
+#define RXEmn						(0x4000)
+#define DAPmn						(0x2000)
+#define CKPmn						(0x1000)
+#define EOCmn						(0x0400)
+#define PTCmn1						(0x0200)
+#define PTCmn0						(0x0100)
+#define DIRmn						(0x0080)
+#define SLCmn1						(0x0020)
+#define SLCmn0						(0x0010)
+#define SCR00_keeper				(0x0004)
+#define DLSmn1						(0x0002)
+#define DLSmn0						(0x0001)
 
+// TXE & RXE bits
+#define disable_comm				(0x0000)
+#define receive_only				(0x4000)
+#define transmit_only				(0x8000)
+#define duplex						(0xC000)
 
+// DAP and CKP bits
+#define phase_type_1				(0x0000)
+#define phase_type_2				(0x1000)
+#define phase_type_3				(0x2000)
+#define phase_type_4				(0x3000)
+
+#define enable_INTSREx				(0x0400)
+
+#define parity_none					(0x0000)
+#define parity_zero					(0x0100)
+#define parity_even					(0x0200)
+#define parity_odd					(0x0300)
+
+#define lsb_first					(0x0080)
+#define no_stop_bits					(0x0000)
+#define one_stop_bits				(0x0010)
+#define two_stop_bits				(0x0020)
+
+#define bit_xfr_9_bits				(0x0001)
+#define bit_xfr_7_bits				(0x0002)
+#define bit_xfr_8_bits				(0x0003)
 
 
 
